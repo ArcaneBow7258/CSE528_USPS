@@ -18,8 +18,8 @@ public class LobbyPanel : MonoBehaviour
 
         join.onClick.AddListener(delegate {joinLobby(id);});
     }
-    private void joinLobby(string lobbyId){
-        LobbyManager.Instance.joinById(lobbyId);
+    async private void joinLobby(string lobbyId){
+        await LobbyManager.Instance.joinById(lobbyId);
     }
 
 

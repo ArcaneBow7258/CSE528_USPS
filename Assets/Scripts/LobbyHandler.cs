@@ -93,7 +93,7 @@ public class LobbyManager : MonoBehaviour
                         ["LobbyName"] = new DataObject(DataObject.VisibilityOptions.Public, name.text+Guid.NewGuid(), DataObject.IndexOptions.S1),
                         ["RelayCode"] = new DataObject(DataObject.VisibilityOptions.Member, "0"),
                         ["Difficulty"] = new DataObject(DataObject.VisibilityOptions.Public, difficulty.value.ToString(), DataObject.IndexOptions.N1),
-                        ["Length"] = new DataObject(DataObject.VisibilityOptions.Member, length.value.ToString(),DataObject.IndexOptions.N2),
+                        ["Length"] = new DataObject(DataObject.VisibilityOptions.Public, length.value.ToString(),DataObject.IndexOptions.N2),
                     };
 
                     Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(
@@ -177,6 +177,7 @@ public class LobbyManager : MonoBehaviour
                 if(currentLobby == null){
                     Lobby lobby = await LobbyService.Instance.QuickJoinLobbyAsync(options);
                     currentLobby = lobby;
+                    Debug.Log("Joined Lobby " + lobby.Name);
                     }
                 else{
                     Debug.Log("already in lobby");
@@ -194,6 +195,7 @@ public class LobbyManager : MonoBehaviour
             if(currentLobby == null){
                 Lobby lobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobbyId);
                 currentLobby = lobby;
+                Debug.Log("Joined Lobby " + lobby.Name);
             }
             else{
                 Debug.Log("already in lobby");
@@ -213,6 +215,7 @@ public class LobbyManager : MonoBehaviour
             if(currentLobby == null){
                 Lobby lobby =await LobbyService.Instance.JoinLobbyByCodeAsync("lobbyCode");
                 currentLobby = lobby;
+                Debug.Log("Joined Lobby " + lobby.Name);
             }
             else{
                 Debug.Log("already in lobby");
@@ -322,7 +325,7 @@ public class LobbyManager : MonoBehaviour
             
             pollTimer -= Time.deltaTime;
             if(pollTimer< 0f){
-                pollTimer = 1.1f;
+                pollTimer = 5.0f;
                 Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
                 if(currentLobby.LobbyCode != lobby.LobbyCode){
                     Debug.Log("Lobby mismatch on poll");
@@ -367,7 +370,7 @@ public class LobbyManager : MonoBehaviour
             QueryResponse lobbies = await Lobbies.Instance.QueryLobbiesAsync(options);
 
             while(lobbyList.transform.childCount > 0){
-                Destroy(lobbyList.transform.GetChild(0));
+                DestroyImmediate(lobbyList.transform.GetChild(0).gameObject);
             }
             if(lobbies.Results != null){
                 foreach(Lobby l in lobbies.Results){
