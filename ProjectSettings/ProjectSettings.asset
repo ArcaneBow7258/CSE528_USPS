@@ -271,7 +271,14 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: a329fba418792394da827acf44598b02, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
     m_Icons:
@@ -891,7 +898,7 @@ PlayerSettings:
   cloudProjectId: 61b80f6f-0192-4bae-b453-2d233df931c1
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Test Project
+  projectName: USPS
   organizationId: arcanefusion
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
