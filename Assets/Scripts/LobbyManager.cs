@@ -13,28 +13,18 @@ using TMPro;
 using UnityEngine.UI;
 public class LobbyManager : MonoBehaviour
 {  
-    //Gui
-    public TMP_InputField name;
-    public TMP_Dropdown size;
-    public Toggle visibility;
-    public TMP_Dropdown difficulty;
-    public TMP_Dropdown length;
     //
-    public GameObject lobbyList;
-    public GameObject lobbyPanel;
-    public Button refresh;
-    //player lobby
-    private Lobby currentLobby;
+    
+    //lobby data
+    public Lobby currentLobby;
     private Player loggedInPlayer;
     private float pollTimer;
     public static LobbyManager Instance;
 
-    //Game Lobby Ui
-    public GameObject playerList;
-    public LobbyInfo gameInfo;
+    
     //Event triggers
-    UnityEvent e_lobbyUpdate;
-    UnityEvent e_swapLobbyUI;
+    public UnityEvent e_lobbyUpdate;
+    public UnityEvent e_swapLobby;
 
     void Awake(){
         if(Instance != null){
@@ -43,7 +33,8 @@ public class LobbyManager : MonoBehaviour
         else{
             Instance = this;
         }
-        //refresh.onClick.AddListener(refreshLobbies);
+        if(e_lobbyUpdate==null) e_lobbyUpdate = new UnityEvent();
+        if(e_swapLobby== null) e_swapLobby= new UnityEvent();
     }
     // Start is called before the first frame update
     async void Start()
@@ -60,7 +51,7 @@ public class LobbyManager : MonoBehaviour
         if(IsLobbyHost()){
             try{
                 Debug.Log("Start Game");
-                string relayCode = await RelayManager.Instance.CreateRelay(4-size.value);
+                string relayCode = await RelayManager.Instance.CreateRelay(currentLobby.MaxPlayers);
 
                 Lobby lobby = await Lobbies.Instance.UpdateLobbyAsync(currentLobby.Id, new UpdateLobbyOptions{
                     Data = new Dictionary<string, DataObject> {
@@ -82,7 +73,7 @@ public class LobbyManager : MonoBehaviour
     
     //ready up?
     //loggedInPlayer.Data.Add("Ready", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "No"));
-    public async void createLobby(){
+    public async Task createLobby(string n,int size, string diff, string len, bool priv){
         if(currentLobby == null){
             try{
                 
@@ -90,22 +81,23 @@ public class LobbyManager : MonoBehaviour
                 var lobbyData = new Dictionary<string, DataObject>()
                     {
                         //indexed string data
-                        ["LobbyName"] = new DataObject(DataObject.VisibilityOptions.Public, name.text+Guid.NewGuid(), DataObject.IndexOptions.S1),
+                        ["LobbyName"] = new DataObject(DataObject.VisibilityOptions.Public, n, DataObject.IndexOptions.S1), //depreciated?
                         ["RelayCode"] = new DataObject(DataObject.VisibilityOptions.Member, "0"),
-                        ["Difficulty"] = new DataObject(DataObject.VisibilityOptions.Public, difficulty.value.ToString(), DataObject.IndexOptions.N1),
-                        ["Length"] = new DataObject(DataObject.VisibilityOptions.Public, length.value.ToString(),DataObject.IndexOptions.N2),
+                        ["Difficulty"] = new DataObject(DataObject.VisibilityOptions.Public, diff, DataObject.IndexOptions.N1),
+                        ["Length"] = new DataObject(DataObject.VisibilityOptions.Public, len,DataObject.IndexOptions.N2),
                     };
 
                     Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(
-                        lobbyName: name.text,
-                        maxPlayers: 4-size.value,
+                        lobbyName: n,//+Guid.NewGuid(),
+                        maxPlayers: size,
                         options: new CreateLobbyOptions()
                         {
                             Data = lobbyData,
-                            IsPrivate = visibility.isOn,
+                            IsPrivate = priv,
                             Player = loggedInPlayer
                         });
                     currentLobby = lobby;
+                    e_swapLobby.Invoke();
                 Debug.Log($"Created new lobby {currentLobby.Name} ({currentLobby.Id})");
                 StartCoroutine(Heartbeat(currentLobby.Id,15));
             }catch(LobbyServiceException e){
@@ -178,6 +170,7 @@ public class LobbyManager : MonoBehaviour
                     Lobby lobby = await LobbyService.Instance.QuickJoinLobbyAsync(options);
                     currentLobby = lobby;
                     Debug.Log("Joined Lobby " + lobby.Name);
+                    e_swapLobby.Invoke();
                     }
                 else{
                     Debug.Log("already in lobby");
@@ -216,6 +209,7 @@ public class LobbyManager : MonoBehaviour
                 Lobby lobby =await LobbyService.Instance.JoinLobbyByCodeAsync("lobbyCode");
                 currentLobby = lobby;
                 Debug.Log("Joined Lobby " + lobby.Name);
+                e_swapLobby.Invoke();
             }
             else{
                 Debug.Log("already in lobby");
@@ -236,6 +230,7 @@ public class LobbyManager : MonoBehaviour
                 string playerId = AuthenticationService.Instance.PlayerId;
                 await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, playerId);
                 currentLobby = null;
+                e_swapLobby.Invoke();
         }
         catch (LobbyServiceException e)
         {
@@ -332,7 +327,7 @@ public class LobbyManager : MonoBehaviour
                     
                 }else{
                     currentLobby = lobby;
-                    //e_lobbyUpdate.Invoke(); //recheck lobby panel
+                    e_lobbyUpdate.Invoke(); //recheck lobby panel
                 }
                 if(!IsLobbyHost()){
                     if(currentLobby.Data["RelayCode"].Value != "0"){
@@ -343,54 +338,7 @@ public class LobbyManager : MonoBehaviour
         }
 
     }
-    private void updatePanels(){
-        gameInfo.updateLobbyInfo(currentLobby.Name, currentLobby.LobbyCode, currentLobby.Data["Difficulty"].Value, currentLobby.Data["Length"].Value);
-    }
-    public async void refreshLobbies(){
-        try
-        {
-            QueryLobbiesOptions options = new QueryLobbiesOptions();
-            options.Count=10;
-            options.Filters = new List<QueryFilter>()
-            {
-                new QueryFilter(
-                    field: QueryFilter.FieldOptions.AvailableSlots,
-                    op: QueryFilter.OpOptions.GT,
-                    value: "0")
-            };
-
-            // Order by newest lobbies first
-            options.Order = new List<QueryOrder>()
-            {
-                new QueryOrder(
-                    asc: false,
-                    field: QueryOrder.FieldOptions.Created)
-            };
-
-            QueryResponse lobbies = await Lobbies.Instance.QueryLobbiesAsync(options);
-
-            while(lobbyList.transform.childCount > 0){
-                DestroyImmediate(lobbyList.transform.GetChild(0).gameObject);
-            }
-            if(lobbies.Results != null){
-                foreach(Lobby l in lobbies.Results){
-                    GameObject panel = Instantiate(lobbyPanel, parent:lobbyList.transform);
-                    Dictionary<string, DataObject> data = l.Data;
-                    panel.GetComponent<LobbyPanel>().initializePanel(l.Name,l.MaxPlayers-l.AvailableSlots, l.MaxPlayers,l.Data["Difficulty"].Value,l.Data["Length"].Value, l.Id);
-                    
-                    
-                    
-                }
-            }
-            
-
-
-        }
-        catch (LobbyServiceException e)
-        {
-            Debug.Log(e);
-        }
-    }
+    
     void Update(){
         pollLobby();
     }
