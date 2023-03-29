@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     public GameObject u_inLobby;
     //Game Lobby Ui
     public GameObject playerList;
+    public GameObject playerPanel;
     public LobbyInfo gameInfo;
 
     //Events
@@ -40,9 +41,11 @@ public class UIManager : MonoBehaviour
         //you shuldn't be lobby in awake right..
         u_joinLobby.SetActive(true);
         u_inLobby.SetActive(false);
+
     }
     void Start(){
         LobbyManager.Instance.e_swapLobby.AddListener(swapUI);
+        LobbyManager.Instance.e_lobbyUpdate.AddListener(updateLobbyInfo);
     }
     private void swapUI(){
         if(u_joinLobby.activeSelf){
@@ -55,16 +58,35 @@ public class UIManager : MonoBehaviour
     }
 
     //==========Need to subsrcibe this to data change in LobbyManager to update UI
-    private void updatePanels(){
+    private void updateLobbyInfo(){
         gameInfo.updateLobbyInfo(LobbyManager.Instance.currentLobby.Name, 
             LobbyManager.Instance.currentLobby.LobbyCode, 
             LobbyManager.Instance.currentLobby.Data["Difficulty"].Value, 
             LobbyManager.Instance.currentLobby.Data["Length"].Value);
+        while(playerList.transform.childCount > 0){
+            DestroyImmediate(playerList.transform.GetChild(0).gameObject);
+        }
+        List<Player> players = LobbyManager.Instance.currentLobby.Players;
+        
+        foreach(Player p in players){
+            GameObject panel = Instantiate(playerPanel, parent:playerList.transform);
+            Dictionary<string, PlayerDataObject> data = p.Data;
+            panel.GetComponent<PlayerPanel>().initializePanel(data["Name"].Value, 1, data["Ready"].Value,false);
+            
+            
+            
+        }
+        
     }
     public async void createLobby(){
         await LobbyManager.Instance.createLobby(lname.text,4-size.value,difficulty.value.ToString(),length.value.ToString(),visibility.isOn);
     }
-    
+    public async void leaveLobby(){
+        await LobbyManager.Instance.leaveLobby();
+    }
+    public async void readyUp(){
+        await LobbyManager.Instance.updatePlayer("Ready",PlayerDataObject.VisibilityOptions.Public, "Ready");
+    }
 
     public async void refreshLobbies(){
         try

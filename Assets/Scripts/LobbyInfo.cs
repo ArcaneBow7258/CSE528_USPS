@@ -11,10 +11,10 @@ public class LobbyInfo : MonoBehaviour
     public TMP_Text lengthO;
     private string lobbyCode;
     public void updateLobbyInfo(string name, string code, string diff, string length){
-        nameO.text = name;
-        codeO.text = code;
-        diffO.text = diff.ToString();
-        lengthO.text = length.ToString();
+        nameO.text = "Name: "+ name;
+        codeO.text = "Code: "+code;
+        diffO.text = "Difficulty: "+diff.ToString();
+        lengthO.text = "Game Length: "+length.ToString();
     }
 
 
