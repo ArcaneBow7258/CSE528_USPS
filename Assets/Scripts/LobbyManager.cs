@@ -59,7 +59,9 @@ public class LobbyManager : MonoBehaviour
         e_swapLobby.AddListener(delegate{if(heartbeatRoutine != null)StopCoroutine(heartbeatRoutine);});
 
     }
-    
+    public void StartGameButton(){
+        e_startGame.Invoke();
+    }
     public async void StartGame(){
         if(IsLobbyHost()){
             try{
@@ -72,6 +74,7 @@ public class LobbyManager : MonoBehaviour
                     }
                 });
                 currentLobby = lobby;
+                //e_startGame.Invoke();
 
             }
             catch(Exception e){

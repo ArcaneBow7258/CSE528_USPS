@@ -13,7 +13,9 @@ using TMPro;
 using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
-    //large join lobby 
+    //entire lobby interface
+    public GameObject u_lobby;
+    //large lobby 
     public GameObject u_joinLobby;
     //create lobby
     public TMP_InputField lname;
@@ -21,6 +23,7 @@ public class UIManager : MonoBehaviour
     public Toggle visibility;
     public TMP_Dropdown difficulty;
     public TMP_Dropdown length;
+    public TMP_InputField joinCode;
     //join lobby
     public GameObject lobbyList;
     public GameObject lobbyPanel;
@@ -42,10 +45,12 @@ public class UIManager : MonoBehaviour
         u_joinLobby.SetActive(true);
         u_inLobby.SetActive(false);
 
+
     }
     void Start(){
         LobbyManager.Instance.e_swapLobby.AddListener(swapUI);
         LobbyManager.Instance.e_lobbyUpdate.AddListener(updateLobbyInfo);
+        LobbyManager.Instance.e_startGame.AddListener(toggleJoin);
     }
     private void swapUI(){
         if(u_joinLobby.activeSelf){
@@ -56,7 +61,17 @@ public class UIManager : MonoBehaviour
             u_inLobby.SetActive(false);
         }
     }
-
+    private void toggleJoin(){
+        //Debug.Log(u_lobby.activeSelf);
+        if(u_lobby.activeSelf){
+            u_lobby.SetActive(false);
+        }else{
+            u_lobby.SetActive(true);
+        }
+    }
+    public async void joinByCode(){
+        await LobbyManager.Instance.joinByCode(joinCode.text);
+    }
     //==========Need to subsrcibe this to data change in LobbyManager to update UI
     private void updateLobbyInfo(){
         gameInfo.updateLobbyInfo(LobbyManager.Instance.currentLobby.Name, 
