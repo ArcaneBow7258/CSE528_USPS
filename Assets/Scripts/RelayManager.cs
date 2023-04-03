@@ -18,7 +18,6 @@ public class RelayManager : MonoBehaviour
             Instance = this;
         }
     }
-
     public async Task<string> CreateRelay(int playerNumber = 4){
         try{
             Allocation alloc = await RelayService.Instance.CreateAllocationAsync(playerNumber); //num players on relay
