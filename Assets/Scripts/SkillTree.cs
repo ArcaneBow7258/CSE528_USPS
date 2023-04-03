@@ -17,31 +17,41 @@ public class SkillTree : MonoBehaviour
     }
     public class talent{
         public int id;
-        public int x;
-        public int y;
+        public Vector2 pos;
         public Sprite icon;
         public string name;
         string desc;
+        
         SKILLTYPE type;
         public List<talent> dependencies = new List<talent>();
+        private Transform node;
         private Button button;
         private Image buttonImage;
-        public talent(int i, int xPos, int yPos, string ic, string n,string d, SKILLTYPE t, List<talent> dep){
-            id = i; x = xPos; y = yPos; icon = Resources.Load<Sprite>(ic); name= n; desc = d; type = t;dependencies = dep;
-            Transform g = Instantiate(SkillTree.Instance.prefab, parent:SkillTree.Instance.display.transform).transform;
-            g.Translate(new Vector3(x, y, 0));
-            (buttonImage = g.GetComponent<Image>()).sprite = icon;
-            button = g.GetComponent<Button>();
+        public talent(int i, Vector2 position, string ic, string n,string d, SKILLTYPE t, List<talent> dep){
+            id = i; pos = position; icon = Resources.Load<Sprite>(ic); name= n; desc = d; type = t;dependencies = dep;
+            node = Instantiate(SkillTree.Instance.prefab, parent:SkillTree.Instance.display.transform).transform;
+            node.Translate(new Vector3(pos.x, pos.y, 0));
+            (buttonImage = node.GetComponent<Image>()).sprite = icon;
+            button = node.GetComponent<Button>();
             button.onClick.AddListener(delegate{
                 if(SkillTree.Instance.playerTalents.Contains(this)) {this.removeTalent();}
                 else {this.addTalent();}
             });
+            if(dependencies != null){
+                
+                
+                for(int count = 0; count < dependencies.Count; count++){
+                    UILineRenderer.Instance.AddPoint(pos.x, pos.y);
+                }
+                
+            }
             //g.GetComponent<SkillNode>
         }
         public void addTalent(){
            
             if(SkillTree.Instance.pp > 0){
                 bool can = true;
+            
                 if(dependencies != null){
                     foreach(talent t in dependencies){
                         Debug.Log("test");
@@ -74,6 +84,7 @@ public class SkillTree : MonoBehaviour
     public SortedList<int,talent> allTalents = new SortedList<int,talent>();
     public List<talent> playerTalents = new List<talent>();
     public void Awake(){
+        
         if(Instance != null){
             Debug.Log("TWO Skil trees bakana");
         }else{Instance = this;}
@@ -84,9 +95,8 @@ public class SkillTree : MonoBehaviour
             );
 
         dep.Add(allTalents[0]);
-        Debug.Log(allTalents[0].name);
         allTalents.Add(1,
-            new talent(1,0,400,"flash2", "Flash2","Copyrighted", SKILLTYPE.STAT,dep)
+            new talent(1,0,200,"flash2", "Flash2","Copyrighted", SKILLTYPE.STAT,dep)
             );
         dep.Remove(allTalents[0]);
         
