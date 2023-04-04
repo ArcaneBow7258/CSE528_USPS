@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UILineRenderer : Graphic
 {
     List<Vector2> points = new List<Vector2>();
-    public float thickness;
+    public float thickness = 10f;
     public static UILineRenderer Instance;
     protected override void Awake(){
         if(Instance == null){

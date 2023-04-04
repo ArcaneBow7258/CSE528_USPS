@@ -41,7 +41,7 @@ public class SkillTree : MonoBehaviour
                 
                 
                 for(int count = 0; count < dependencies.Count; count++){
-                    UILineRenderer.Instance.AddPoint(pos.x, pos.y);
+                    UILineRenderer.Instance.AddPoint(new Vector2(pos.x, pos.y));
                 }
                 
             }
@@ -91,12 +91,12 @@ public class SkillTree : MonoBehaviour
         List<talent> dep = new List<talent>();
 
         allTalents.Add(0,
-            new talent(0,0,0,"flash", "Flash","Copyrighted", SKILLTYPE.STAT, null)
+            new talent(0,new Vector2(0,0),"flash", "Flash","Copyrighted", SKILLTYPE.STAT, null)
             );
 
         dep.Add(allTalents[0]);
         allTalents.Add(1,
-            new talent(1,0,200,"flash2", "Flash2","Copyrighted", SKILLTYPE.STAT,dep)
+            new talent(1,new Vector2(0,200),"flash2", "Flash2","Copyrighted", SKILLTYPE.STAT,dep)
             );
         dep.Remove(allTalents[0]);
         
