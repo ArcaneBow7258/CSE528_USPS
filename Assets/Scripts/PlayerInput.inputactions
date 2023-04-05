@@ -24,10 +24,10 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Drag",
+                    "name": "MouseMove",
                     "type": "Value",
-                    "id": "f91dfb4c-b2f8-4e39-9443-77ea81d12c9a",
-                    "expectedControlType": "Button",
+                    "id": "f3f98c4b-66fc-475d-900c-1c07e00f1941",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -146,23 +146,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a3e01a34-fa5f-4c15-870c-703e60ce25b9",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a896d63f-f6e3-4629-9eb5-d5c64759c37e",
-                    "path": "",
+                    "id": "4cb49f33-ce3e-49eb-b64a-41b5d0c56153",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drag",
+                    "action": "MouseMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

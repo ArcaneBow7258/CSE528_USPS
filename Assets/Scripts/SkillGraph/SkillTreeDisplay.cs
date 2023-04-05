@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 public class SkillTreeDisplay : MonoBehaviour
 {
     public Transform view;
@@ -14,10 +15,8 @@ public class SkillTreeDisplay : MonoBehaviour
     private float zooming;
     private Vector2 panning;
     private float dragging;
-
-    void OnDrag(){
-
-    }
+    
+    
     void OnPan(InputValue value){
         panning = value.Get<Vector2>();
         //Debug.Log(val*Time.deltaTime*panSpeed);
@@ -41,7 +40,8 @@ public class SkillTreeDisplay : MonoBehaviour
         }
     }
     public void Update(){
-        view.Translate(panning.x*panSpeed*Time.deltaTime,panning.y*panSpeed*Time.deltaTime,0);
+        view.Translate(-panning.x*panSpeed*Time.deltaTime,-panning.y*panSpeed*Time.deltaTime,0);
+        
     }
   
 }

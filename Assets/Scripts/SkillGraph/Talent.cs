@@ -15,65 +15,118 @@ public class talent{
         public Sprite icon;
         public string name;
         string desc;
-        
+        private SkillTree tree;
         SKILLTYPE type;
         public List<talent> dependencies = new List<talent>();
+        public List<talent> children = new List<talent>();
         private Transform node;
         private Button button;
         private Image buttonImage;
-        public talent(int i, Vector2 position, Sprite im, string n,string d, SKILLTYPE t, List<talent> dep){
-            id = i; pos = position; icon = im; name= n; desc = d; type = t;dependencies = dep;
+        private UILineRenderer lr;
+        public talent(int i, SkillTree oak, Vector2 position, Sprite im, string n,string d, SKILLTYPE t){
+            id = i; tree = oak; pos = position; icon = im; name= n; desc = d; type = t;//dependencies = dep; this.children = children;
            
             //g.GetComponent<SkillNode>
         }
         public void draw(){
-            node = SkillTree.Instantiate(SkillTree.Instance.prefab, parent:SkillTree.Instance.display.transform).transform;
+            node = SkillTree.Instantiate(tree.prefab, parent:tree.display.transform).transform;
+            node.gameObject.name = id +name;
+            //Debug.Log(pos);
             node.Translate(new Vector3(pos.x, pos.y, 0));
             (buttonImage = node.GetComponent<Image>()).sprite = icon;
             button = node.GetComponent<Button>();
             button.onClick.AddListener(delegate{
-                if(SkillTree.Instance.playerTalents.Contains(this)) {this.removeTalent();}
+                if(tree.playerTalents.Contains(this)) {this.removeTalent();}
                 else {this.addTalent();}
             });
-            if(dependencies != null){
+            //tooltip set up
+            node.GetComponent<ToolTip>().UpdateText("<b>" + name + "</b>\n" + desc);
+            
+            //resizing
+            switch(type){
+                case SKILLTYPE.PASSIVE:
+                    Vector3 scale = 
+                    button.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+                    node.GetChild(0).transform.localScale = new Vector3(2f, 2f, 2f);
+                    break;
+                case SKILLTYPE.ABILITY:
+                    button.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+                    break;
+                case SKILLTYPE.PROC:
+                    button.transform.localScale = new Vector3(1,1,1);
+                    break;
+                default:
+                    button.transform.localScale = new Vector3(1,1,1);
+                    break;
                 
-                
-                for(int count = 0; count < dependencies.Count; count++){
-                   // UILineRenderer.Instance.AddPoint(new Vector2(pos.x, pos.y));
+                    
+            }
+            //drwaing lines 
+            if(children.Count > 0){
+                UILineRenderer ex = new GameObject(id+"childrenLines").AddComponent<UILineRenderer>();
+                ex.gameObject.AddComponent<CanvasRenderer>();
+                for(int count = 0; count < children.Count; count++){
+                    ex.AddPoint(pos, new Color32(100,100,100,255));
+                    ex.AddPoint(children[count].pos, new Color32(100,100,100,255));
                 }
+                lr = SkillTree.Instantiate(ex.gameObject, parent:tree.display.transform).GetComponent<UILineRenderer>();
+                lr.transform.SetAsFirstSibling();
                 
             }
         }
         public void addTalent(){
            
-            if(SkillTree.Instance.pp > 0){
+            if(tree.pp > 0){
                 bool can = true;
             
                 if(dependencies != null){
                     foreach(talent t in dependencies){
-                        Debug.Log("test");
-                        can &= SkillTree.Instance.playerTalents.Contains(t);
+                        
+                        can &= tree.playerTalents.Contains(t);
                     }
                 }
                 if(can){
-                    SkillTree.Instance.playerTalents.Add(this);
-                    SkillTree.Instance.pp -= 1;
+                    tree.playerTalents.Add(this);
+                    tree.pp -= 1;
                     buttonImage.color = new Color32(255,255,255,255);
+                    if(children.Count > 0){
+                        for(int count =0; count < children.Count; count++){
+                            
+                            lr.ChangeColor(count*2, new Color32(255,255,255,255));
+                            //lr.ChangeColor(count*2 + 1, new Color32(255,255,255,255));
+                        }
+                    }
+                    if(dependencies.Count >0){
+                        foreach(talent t in dependencies){
+                            t.lr.ChangeColor(t.children.FindIndex(u=> u.id == this.id)*2+1, new Color32(255,255,255,255));
+                        }
+                    }   
                 }
             
             }
         }
         public void removeTalent(){
             bool can = true;
-            foreach(talent t in SkillTree.Instance.playerTalents){
+            foreach(talent t in tree.playerTalents){
                 if(t.dependencies != null){
                     can &= !t.dependencies.Contains(this);
                 }
             }
             if(can){
-                SkillTree.Instance.playerTalents.Remove(this);
-                SkillTree.Instance.pp += 1;
+                tree.playerTalents.Remove(this);
+                tree.pp += 1;
                 buttonImage.color = new Color32(100,100,100,255);
+                if(children.Count > 0){
+                    for(int count =0; count < children.Count; count++){
+                        lr.ChangeColor(count*2, new Color32(100,100,100,255));
+                        //lr.ChangeColor(count*2 + 1, new Color32(100,100,100,255));
+                    }
+                if(dependencies.Count >0){
+                    foreach(talent t in dependencies){
+                        t.lr.ChangeColor(t.children.FindIndex(u=> u.id == this.id)*2+1, new Color32(100,100,100,255));
+                    }
+                }
+                } 
             }
         }
     }

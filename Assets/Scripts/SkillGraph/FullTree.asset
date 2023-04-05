@@ -1,5 +1,106 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8105534198660832124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Ability
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -280, y: 8}
+  ports:
+    keys:
+    - function
+    - entry
+    - exits
+    values:
+    - _fieldName: function
+      _node: {fileID: -8105534198660832124}
+      _typeQualifiedName: System.Func`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: entry
+      _node: {fileID: -8105534198660832124}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -6515049380742727790}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -8105534198660832124}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 104
+  icon: {fileID: 21300000, guid: 958e46c54a3678248a89c5c1f4be810d, type: 3}
+  skillName: smite
+  skillDesc: 
+  type: 1
+--- !u!114 &-7501703406788322231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Passive
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 584, y: -232}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7501703406788322231}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -6419116570605954395}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -7501703406788322231}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 201
+  icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
+  skillName: f1
+  skillDesc: 
+  type: 0
 --- !u!114 &-6515049380742727790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,6 +137,18 @@ MonoBehaviour:
       - fieldName: entry
         node: {fileID: -2805258180370465164}
         reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -1155120122713753424}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -3907888020032923787}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -8105534198660832124}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -6419116570605954395}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -45,6 +158,169 @@ MonoBehaviour:
   skillName: Test
   skillDesc: wow
   type: 0
+--- !u!114 &-6419116570605954395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Ability
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 296, y: -120}
+  ports:
+    keys:
+    - function
+    - entry
+    - exits
+    values:
+    - _fieldName: function
+      _node: {fileID: -6419116570605954395}
+      _typeQualifiedName: System.Func`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: entry
+      _node: {fileID: -6419116570605954395}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -6515049380742727790}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -6419116570605954395}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8862858516450249720}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -7501703406788322231}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 101
+  icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
+  skillName: flash1
+  skillDesc: g
+  type: 1
+--- !u!114 &-4568546587185869592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Passive
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 584, y: 248}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4568546587185869592}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -2805258180370465164}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -4568546587185869592}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 203
+  icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
+  skillName: f3
+  skillDesc: 
+  type: 0
+--- !u!114 &-3907888020032923787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Ability
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: 232}
+  ports:
+    keys:
+    - function
+    - entry
+    - exits
+    values:
+    - _fieldName: function
+      _node: {fileID: -3907888020032923787}
+      _typeQualifiedName: System.Func`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: entry
+      _node: {fileID: -3907888020032923787}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -6515049380742727790}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -3907888020032923787}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 103
+  icon: {fileID: 21300000, guid: d0b80a07023b5bd4d9dbcf7a5465db5d, type: 3}
+  skillName: ignite
+  skillDesc: 
+  type: 1
 --- !u!114 &-2805258180370465164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +334,7 @@ MonoBehaviour:
   m_Name: Ability
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 300, y: 0}
+  position: {x: 296, y: 120}
   ports:
     keys:
     - function
@@ -91,15 +367,77 @@ MonoBehaviour:
       _node: {fileID: -2805258180370465164}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8862858516450249720}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -4568546587185869592}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 102
+  icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
+  skillName: flash2
+  skillDesc: You can use this!
+  type: 1
+--- !u!114 &-1155120122713753424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Ability
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: -248}
+  ports:
+    keys:
+    - function
+    - entry
+    - exits
+    values:
+    - _fieldName: function
+      _node: {fileID: -1155120122713753424}
+      _typeQualifiedName: System.Func`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: entry
+      _node: {fileID: -1155120122713753424}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -6515049380742727790}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -1155120122713753424}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  id: 1
-  icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
-  skillName: Pogu
-  skillDesc: You can use this!
+  id: 100
+  icon: {fileID: 21300000, guid: 7937a0e470d0b4242b523a8a6eebec3e, type: 3}
+  skillName: ghost
+  skillDesc: 
   type: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -116,3 +454,58 @@ MonoBehaviour:
   nodes:
   - {fileID: -2805258180370465164}
   - {fileID: -6515049380742727790}
+  - {fileID: 8862858516450249720}
+  - {fileID: -7501703406788322231}
+  - {fileID: -4568546587185869592}
+  - {fileID: -8105534198660832124}
+  - {fileID: -1155120122713753424}
+  - {fileID: -3907888020032923787}
+  - {fileID: -6419116570605954395}
+--- !u!114 &8862858516450249720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Passive
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 584, y: 8}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8862858516450249720}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -2805258180370465164}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -6419116570605954395}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 8862858516450249720}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 202
+  icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
+  skillName: f2
+  skillDesc: 
+  type: 0
