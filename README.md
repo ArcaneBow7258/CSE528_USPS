@@ -9,8 +9,20 @@ You play as couriers-for-hire working in hostile environments.
 "Be it beasts or bandits, we will deliver"
 
 <h2>Gameplay Loop</h2>
-You select a mandatory deliver, and make optional additonal delivers/pickups afterward. After your mandatory delivery, you can decide to greed for better loot for future deliveries.
+You select a mandatory deliver, and make optional additonal delivers/pickups afterward. After your mandatory delivery, you can decide to greed for better loot for future deliveries. While trying for your deliver, you face waves of creatures from ___ to ___.
 
-You start a mission with a loadout made by your stash. 
+You start a mission with a loadout made by your stash, with a default set-up if you don't have anything.
+After extraction you gain experience to level up which allows you to:
+<li> 
+<ul>Allocate levels to an expansive skill tree to gain gain abilities and stats to aide you.</ul>
+<ul>Unlock higher difficulties for better rewards and gear</ul>
+</li>
 
-After extraction you gain expriecne to level ip and allocate to skill tree and gain ability to use higher level gear.
+<h2>Lore </h2>
+TO BE FILLED
+
+<h3>The Skill Tree</h3>
+
+<h3>Loot Diversity</h3>
+
+<h3>Uniqueness of runs</h3>
