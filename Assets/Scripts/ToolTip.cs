@@ -24,7 +24,9 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void UpdateText(string stuff){
         text.text = stuff;
-        Debug.Log( text.preferredHeight );
+        tooltip.transform.localPosition += transform.localPosition;
+        tooltip.SetParent(transform.parent,true);
+        //Debug.Log( text.preferredHeight );
         
         
     }

@@ -31,48 +31,54 @@ public class talent{
         public void draw(){
             node = SkillTree.Instantiate(tree.prefab, parent:tree.display.transform).transform;
             node.gameObject.name = id +name;
-            //Debug.Log(pos);
-            node.Translate(new Vector3(pos.x, pos.y, 0));
+            Debug.Log(pos);
+            node.localPosition = (new Vector3(pos.x, pos.y, 0));
             (buttonImage = node.GetComponent<Image>()).sprite = icon;
             button = node.GetComponent<Button>();
             button.onClick.AddListener(delegate{
                 if(tree.playerTalents.Contains(this)) {this.removeTalent();}
                 else {this.addTalent();}
             });
-            //tooltip set up
-            node.GetComponent<ToolTip>().UpdateText("<b>" + name + "</b>\n" + desc);
+            ToolTip tooltip = node.GetComponent<ToolTip>();
+            tooltip.UpdateText("<b>" + name + "</b>\n" + desc);
             
             //resizing
             switch(type){
                 case SKILLTYPE.PASSIVE:
                     Vector3 scale = 
                     button.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-                    node.GetChild(0).transform.localScale = new Vector3(2f, 2f, 2f);
+                    tooltip.tooltip.transform.localScale = new Vector3(4f, 4f, 4f);
                     break;
                 case SKILLTYPE.ABILITY:
                     button.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+                    tooltip.tooltip.transform.localScale = new Vector3(2f, 2f, 2f);
                     break;
                 case SKILLTYPE.PROC:
                     button.transform.localScale = new Vector3(1,1,1);
+                    tooltip.tooltip.transform.localScale = new Vector3(2f, 2f, 2f);
                     break;
                 default:
                     button.transform.localScale = new Vector3(1,1,1);
+                    tooltip.tooltip.transform.localScale = new Vector3(2f, 2f, 2f);
                     break;
                 
                     
             }
             //drwaing lines 
             if(children.Count > 0){
-                UILineRenderer ex = new GameObject(id+"childrenLines").AddComponent<UILineRenderer>();
-                ex.gameObject.AddComponent<CanvasRenderer>();
+                lr = new GameObject(id+"childrenLines").AddComponent<UILineRenderer>();
+                lr.gameObject.AddComponent<CanvasRenderer>();
                 for(int count = 0; count < children.Count; count++){
-                    ex.AddPoint(pos, new Color32(100,100,100,255));
-                    ex.AddPoint(children[count].pos, new Color32(100,100,100,255));
+                    lr.AddPoint(pos, new Color32(100,100,100,255));
+                    lr.AddPoint(children[count].pos, new Color32(100,100,100,255));
                 }
-                lr = SkillTree.Instantiate(ex.gameObject, parent:tree.display.transform).GetComponent<UILineRenderer>();
+                lr.transform.SetParent(tree.display.transform, false);
+                lr.transform.localPosition = new Vector3(0,0,0);
                 lr.transform.SetAsFirstSibling();
                 
             }
+            //tooltip set up
+            
         }
         public void addTalent(){
            
@@ -121,12 +127,13 @@ public class talent{
                         lr.ChangeColor(count*2, new Color32(100,100,100,255));
                         //lr.ChangeColor(count*2 + 1, new Color32(100,100,100,255));
                     }
+                }
                 if(dependencies.Count >0){
                     foreach(talent t in dependencies){
                         t.lr.ChangeColor(t.children.FindIndex(u=> u.id == this.id)*2+1, new Color32(100,100,100,255));
                     }
                 }
-                } 
+                
             }
         }
     }
