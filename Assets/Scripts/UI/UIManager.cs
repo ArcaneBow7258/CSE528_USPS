@@ -13,6 +13,10 @@ using TMPro;
 using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
+    public GameObject backButton;
+    public GameObject u_skilltree;
+    //menu
+    public GameObject u_mainmenu;
     //entire lobby interface
     public GameObject u_lobby;
     //large lobby 
@@ -38,27 +42,73 @@ public class UIManager : MonoBehaviour
 
     //Events
     UnityEvent e_swapLobby;
-
+    private GameObject previous = null;
+    private GameObject current;
+    
+    
 
     void Awake(){
         //you shuldn't be lobby in awake right..
-        u_joinLobby.SetActive(true);
+        u_mainmenu.SetActive(true);
+        //lobby stuff
+        u_lobby.SetActive(false);
         u_inLobby.SetActive(false);
+        u_joinLobby.SetActive(true);
+        
+        //build and unload
+        u_skilltree.SetActive(true);
+        u_skilltree.SetActive(false);
+        current = u_mainmenu;
 
 
     }
     void Start(){
-        LobbyManager.Instance.e_swapLobby.AddListener(swapUI);
+        LobbyManager.Instance.e_swapLobby.AddListener(swapLobby);
         LobbyManager.Instance.e_lobbyUpdate.AddListener(updateLobbyInfo);
         LobbyManager.Instance.e_startGame.AddListener(toggleJoin);
     }
-    private void swapUI(){
+    #region changing menus
+    public void goBack(){
+        if(previous == null) return;
+        current.SetActive(false);
+        previous.SetActive(true);
+        if(current == u_skilltree)
+            current.transform.localPosition = Vector3.zero;
+        current = previous;
+        previous = null;
+        swapBack();
+    }
+    public void goSkillTree(){
+        previous = u_mainmenu;
+        current = u_skilltree;
+        u_skilltree.SetActive(true);
+        u_mainmenu.SetActive(false);
+        swapBack();
+    }
+    public void goLobby(){
+        previous = u_mainmenu;
+        LobbyManager.Instance.Login(u_mainmenu.transform.Find("Menuground/PlayerName").GetComponent<TMP_InputField>().text);
+        current = u_lobby;
+        u_lobby.SetActive(true);
+        u_mainmenu.SetActive(false);
+        swapBack();
+    }
+
+    #endregion
+    private void swapLobby(){
         if(u_joinLobby.activeSelf){
             u_joinLobby.SetActive(false);
             u_inLobby.SetActive(true);
         }else{
             u_joinLobby.SetActive(true);
             u_inLobby.SetActive(false);
+        }
+    }
+    private void swapBack(){
+        if(previous != null){
+            backButton.SetActive(true);
+        }else{
+            backButton.SetActive(false);
         }
     }
     private void toggleJoin(){
@@ -69,9 +119,7 @@ public class UIManager : MonoBehaviour
             u_lobby.SetActive(true);
         }
     }
-    public async void joinByCode(){
-        await LobbyManager.Instance.joinByCode(joinCode.text);
-    }
+    
     //==========Need to subsrcibe this to data change in LobbyManager to update UI
     private void updateLobbyInfo(){
         gameInfo.updateLobbyInfo(LobbyManager.Instance.currentLobby.Name, 
@@ -93,6 +141,7 @@ public class UIManager : MonoBehaviour
         }
         
     }
+    #region lobbybuttons
     public async void createLobby(){
         await LobbyManager.Instance.createLobby(lname.text,4-size.value,difficulty.value.ToString(),length.value.ToString(),visibility.isOn);
     }
@@ -102,7 +151,10 @@ public class UIManager : MonoBehaviour
     public async void readyUp(){
         await LobbyManager.Instance.updatePlayer("Ready",PlayerDataObject.VisibilityOptions.Public, "Ready");
     }
-
+    public async void joinByCode(){
+        await LobbyManager.Instance.joinByCode(joinCode.text);
+    }
+    #endregion
     public async void refreshLobbies(){
         try
         {

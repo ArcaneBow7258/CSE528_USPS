@@ -14,6 +14,9 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         UpdateText("Place Holder Data\nWhat is going on");
         tooltip.gameObject.SetActive(false);
     }
+    public void Start(){
+        tooltip.sizeDelta = new Vector2(text.preferredWidth + padding, text.preferredHeight + padding);
+    }
     public void OnPointerEnter(PointerEventData eventData){
         tooltip.sizeDelta = new Vector2(text.preferredWidth + padding, text.preferredHeight + padding);
         tooltip.gameObject.SetActive(true);
@@ -31,6 +34,7 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         
     }
     public void Update(){
+        tooltip.sizeDelta = new Vector2(text.preferredWidth + padding, text.preferredHeight + padding);
         //Vector2 localPoint;
         //RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponent<RectTransform>(), Input.mousePosition, uiCam, out localPoint);
         //tooltip.transform.localPosition = localPoint;

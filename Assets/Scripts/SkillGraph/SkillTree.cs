@@ -21,4 +21,19 @@ public class SkillTree : MonoBehaviour
         pp = initpp;
     }
 
+    public void Awake(){
+        LobbyManager.Instance.e_startGame.AddListener(AggregateStats);
+        //delegate {updatePlayer(aggregateStats)}
+    }
+    //
+    public void AggregateStats(){
+        foreach(talent t in playerTalents){
+            if(t.type == SKILLTYPE.PASSIVE){
+                //do stats
+            }
+        }
+    }
+    
+
+
 }

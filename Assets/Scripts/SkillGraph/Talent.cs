@@ -16,7 +16,7 @@ public class talent{
         public string name;
         string desc;
         private SkillTree tree;
-        SKILLTYPE type;
+        public SKILLTYPE type;
         public List<talent> dependencies = new List<talent>();
         public List<talent> children = new List<talent>();
         private Transform node;
@@ -31,7 +31,7 @@ public class talent{
         public void draw(){
             node = SkillTree.Instantiate(tree.prefab, parent:tree.display.transform).transform;
             node.gameObject.name = id +name;
-            Debug.Log(pos);
+            //Debug.Log(pos);
             node.localPosition = (new Vector3(pos.x, pos.y, 0));
             (buttonImage = node.GetComponent<Image>()).sprite = icon;
             button = node.GetComponent<Button>();

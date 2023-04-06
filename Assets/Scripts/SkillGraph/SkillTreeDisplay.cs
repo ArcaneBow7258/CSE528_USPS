@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 public class SkillTreeDisplay : MonoBehaviour
 {
-    public Transform view;
+    
     public float zoomSpeed;
     public float minZoom;
     public float maxZoom;
@@ -26,21 +26,23 @@ public class SkillTreeDisplay : MonoBehaviour
     void OnZoom(InputValue value){
         float val = value.Get<float>();
         if(val> 0){
-            Vector3 newScale = view.localScale + new Vector3(zoomSpeed*4*Time.deltaTime, 
+            Vector3 newScale = transform.localScale + new Vector3(zoomSpeed*4*Time.deltaTime, 
                                                 zoomSpeed*4*Time.deltaTime, 
                                                 zoomSpeed*4*Time.deltaTime);
             newScale = new Vector3(Mathf.Clamp(newScale.x, minZoom, maxZoom), Mathf.Clamp(newScale.y, minZoom, maxZoom),Mathf.Clamp(newScale.z, minZoom, maxZoom));
-            view.localScale = newScale;
+            transform.localScale = newScale;
         }else{
-            Vector3 newScale = view.localScale - new Vector3(zoomSpeed*Time.deltaTime, 
+            Vector3 newScale = transform.localScale - new Vector3(zoomSpeed*Time.deltaTime, 
                                                 zoomSpeed*Time.deltaTime, 
                                                 zoomSpeed*Time.deltaTime);
             newScale = new Vector3(Mathf.Clamp(newScale.x, minZoom, maxZoom), Mathf.Clamp(newScale.y, minZoom, maxZoom),Mathf.Clamp(newScale.z, minZoom, maxZoom));
-            view.localScale = newScale;
+            transform.localScale = newScale;
         }
     }
     public void Update(){
-        view.Translate(-panning.x*panSpeed*Time.deltaTime,-panning.y*panSpeed*Time.deltaTime,0);
+        //need to clmap later
+        transform.Translate(-panning.x*panSpeed*Time.deltaTime,-panning.y*panSpeed*Time.deltaTime,0);
+        
         
     }
   

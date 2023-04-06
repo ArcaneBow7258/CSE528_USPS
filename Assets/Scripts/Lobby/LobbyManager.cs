@@ -53,11 +53,15 @@ public class LobbyManager : MonoBehaviour
     {
         //log into service, need to run before doing API calls
         await UnityServices.InitializeAsync();
-        loggedInPlayer = await GetPlayerFromAnonymousLoginAsync();
+        
         //AuthenticationService.Instance.IsSignedIn;
         e_startGame.AddListener(StartGame);
         e_swapLobby.AddListener(delegate{if(heartbeatRoutine != null)StopCoroutine(heartbeatRoutine);});
 
+    }
+    public async void Login(string playerName){
+        loggedInPlayer = await GetPlayerFromAnonymousLoginAsync(playerName);
+        await prejoinUpdate();
     }
     public void StartGameButton(){
         e_startGame.Invoke();
@@ -75,6 +79,7 @@ public class LobbyManager : MonoBehaviour
                 });
                 currentLobby = lobby;
                 //e_startGame.Invoke();
+                
 
             }
             catch(Exception e){
@@ -321,8 +326,12 @@ public class LobbyManager : MonoBehaviour
         await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, playerId, options);
     }
     // Log in a player using Unity's "Anonymous Login" API and construct a Player object for use with the Lobbies APIs
-    static async Task<Player> GetPlayerFromAnonymousLoginAsync()
+    static async Task<Player> GetPlayerFromAnonymousLoginAsync(String playerName)
     {
+        if(AuthenticationService.Instance.IsSignedIn){
+            Debug.Log("already signed in, logging out");
+            AuthenticationService.Instance.SignOut();
+        }
         if (!AuthenticationService.Instance.IsSignedIn)
         {
             Debug.Log($"Trying to log in a player ...");
@@ -340,9 +349,10 @@ public class LobbyManager : MonoBehaviour
           
         //Ensure you sign-in before calling Authentication Instance
         //See IAuthenticationService interface
+        if(playerName == "") playerName = Guid.NewGuid().ToString();
         string playerId = AuthenticationService.Instance.PlayerId;
         return new Player(AuthenticationService.Instance.PlayerId, null, new Dictionary<string, PlayerDataObject>(){
-            {"Name", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, "feet")},
+            {"Name", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, playerName)},
             {"Level", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, "1")},
             {"Ready", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, "Not")},
         });
