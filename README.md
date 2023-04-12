@@ -19,7 +19,9 @@ After extraction you gain experience to level up which allows you to:
 </li>
 
 <h2>Lore </h2>
-TO BE FILLED
+You are part of a postal delivery company for hire, but due to a string of bad luck and poor decisions, you are vastly in debt.
+However, your luck is about to change! A set of tough but rewarding deliveries are about to come your way. 
+Making the trek to your dropoff location, you must complete your day job and if you dare, dive deeper for more rare and powerful loot.
 
 <h3>The Skill Tree</h3>
 
