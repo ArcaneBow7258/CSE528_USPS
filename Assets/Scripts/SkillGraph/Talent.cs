@@ -14,7 +14,7 @@ public class talent{
         public Vector2 pos;
         public Sprite icon;
         public string name;
-        string desc;
+        public string desc;
         private SkillTree tree;
         public SKILLTYPE type;
         public List<talent> dependencies = new List<talent>();
@@ -25,13 +25,16 @@ public class talent{
         private UILineRenderer lr;
         public talent(int i, SkillTree oak, Vector2 position, Sprite im, string n,string d, SKILLTYPE t){
             id = i; tree = oak; pos = position; icon = im; name= n; desc = d; type = t;//dependencies = dep; this.children = children;
+            // why does it have to be negatiev?
+            pos.y = -pos.y;
            
             //g.GetComponent<SkillNode>
         }
         public void draw(){
-            node = SkillTree.Instantiate(tree.prefab, parent:tree.display.transform).transform;
+            node = SkillTreeDisplay.Instantiate(tree.prefab, parent:tree.display.transform).transform;
             node.gameObject.name = id +name;
             //Debug.Log(pos);
+            
             node.localPosition = (new Vector3(pos.x, pos.y, 0));
             (buttonImage = node.GetComponent<Image>()).sprite = icon;
             button = node.GetComponent<Button>();
@@ -120,6 +123,8 @@ public class talent{
             }
             if(can){
                 tree.playerTalents.Remove(this);
+                tree.equippedAbilities.Remove(this);
+                tree.playerAbilities.Remove(this);
                 tree.pp += 1;
                 buttonImage.color = new Color32(100,100,100,255);
                 if(children.Count > 0){

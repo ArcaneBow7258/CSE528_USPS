@@ -6,6 +6,7 @@ public class UIManagerEditor : Editor
 {
     SerializedProperty backButton;
     SerializedProperty u_skilltree;
+    SerializedProperty u_skillSelect;
     SerializedProperty u_mainmenu;
     //entire lobby interface
     SerializedProperty u_lobby;
@@ -34,6 +35,7 @@ public class UIManagerEditor : Editor
         serializedObject.Update();
         EditorGUILayout.PropertyField(u_mainmenu);
         EditorGUILayout.PropertyField(u_skilltree);
+        EditorGUILayout.PropertyField(u_skillSelect);
         //entire lobby interface
         EditorGUILayout.PropertyField(u_lobby);
         //large lobby 
@@ -70,6 +72,7 @@ public class UIManagerEditor : Editor
         backButton=serializedObject.FindProperty("backButton");
         u_skilltree=serializedObject.FindProperty("u_skilltree");
         u_mainmenu=serializedObject.FindProperty("u_mainmenu");
+        u_skillSelect=serializedObject.FindProperty("u_skillSelect");
         //entire lobby interface
         u_lobby=serializedObject.FindProperty("u_lobby");
         //large lobby 

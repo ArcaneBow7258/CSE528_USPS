@@ -54,7 +54,7 @@ MonoBehaviour:
   id: 104
   icon: {fileID: 21300000, guid: 958e46c54a3678248a89c5c1f4be810d, type: 3}
   skillName: smite
-  skillDesc: 
+  skillDesc: from the godess herself
   type: 1
 --- !u!114 &-7501703406788322231
 MonoBehaviour:
@@ -99,7 +99,7 @@ MonoBehaviour:
   id: 201
   icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
   skillName: f1
-  skillDesc: 
+  skillDesc: cd
   type: 0
 --- !u!114 &-6515049380742727790
 MonoBehaviour:
@@ -263,7 +263,7 @@ MonoBehaviour:
   id: 203
   icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
   skillName: f3
-  skillDesc: 
+  skillDesc: cd
   type: 0
 --- !u!114 &-3907888020032923787
 MonoBehaviour:
@@ -319,7 +319,7 @@ MonoBehaviour:
   id: 103
   icon: {fileID: 21300000, guid: d0b80a07023b5bd4d9dbcf7a5465db5d, type: 3}
   skillName: ignite
-  skillDesc: 
+  skillDesc: fire alarm
   type: 1
 --- !u!114 &-2805258180370465164
 MonoBehaviour:
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Name: Ability
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -8, y: -248}
+  position: {x: 0, y: -264}
   ports:
     keys:
     - function
@@ -437,7 +437,7 @@ MonoBehaviour:
   id: 100
   icon: {fileID: 21300000, guid: 7937a0e470d0b4242b523a8a6eebec3e, type: 3}
   skillName: ghost
-  skillDesc: 
+  skillDesc: wow you move kinda fast
   type: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -507,5 +507,5 @@ MonoBehaviour:
   id: 202
   icon: {fileID: 21300000, guid: cfaabdb2f74a3ab45a29e5e559247232, type: 3}
   skillName: f2
-  skillDesc: 
+  skillDesc: cd
   type: 0

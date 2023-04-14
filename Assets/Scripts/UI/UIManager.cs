@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject backButton;
     public GameObject u_skilltree;
+    public GameObject u_skillSelect;
     //menu
     public GameObject u_mainmenu;
     //entire lobby interface
@@ -54,7 +55,7 @@ public class UIManager : MonoBehaviour
         u_lobby.SetActive(false);
         u_inLobby.SetActive(false);
         u_joinLobby.SetActive(true);
-        
+        u_skillSelect.SetActive(false);
         //build and unload
         u_skilltree.SetActive(true);
         u_skilltree.SetActive(false);
@@ -83,6 +84,15 @@ public class UIManager : MonoBehaviour
         current = u_skilltree;
         u_skilltree.SetActive(true);
         u_mainmenu.SetActive(false);
+        
+        swapBack();
+    }
+    public void goSkillSelect(){
+        previous = u_mainmenu;
+        current = u_skillSelect;
+        u_skillSelect.SetActive(true);
+        u_mainmenu.SetActive(false);
+        u_skillSelect.transform.Find("SkillSelect").GetComponent<SkillSelectHolder>().Refresh();
         swapBack();
     }
     public void goLobby(){
