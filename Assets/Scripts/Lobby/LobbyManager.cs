@@ -17,7 +17,7 @@ public class LobbyManager : MonoBehaviour
     
     //lobby data
     public Lobby currentLobby;
-    private Player loggedInPlayer;
+    private Player loggedInPlayer = null;
     private float pollTimer;
     public static LobbyManager Instance;
     public bool readyAll = false;
@@ -232,7 +232,6 @@ public class LobbyManager : MonoBehaviour
         }
 
     }
-
     public async Task joinByCode(string lobbyCode){
         try
         {
@@ -253,7 +252,12 @@ public class LobbyManager : MonoBehaviour
         }
     }
     public async Task prejoinUpdate(){
+        if(loggedInPlayer == null) return;
         foreach(var d in loggedInPlayer.Data){
+            Debug.Log(d.Key);
+            Debug.Log(visDict[d.Key]);
+            Debug.Log(d.Value.Value);
+
             await updatePlayer(d.Key,visDict[d.Key],d.Value.Value);
         }
     }
@@ -351,6 +355,7 @@ public class LobbyManager : MonoBehaviour
         //See IAuthenticationService interface
         if(playerName == "") playerName = Guid.NewGuid().ToString();
         string playerId = AuthenticationService.Instance.PlayerId;
+        
         return new Player(AuthenticationService.Instance.PlayerId, null, new Dictionary<string, PlayerDataObject>(){
             {"Name", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, playerName)},
             {"Level", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, "1")},

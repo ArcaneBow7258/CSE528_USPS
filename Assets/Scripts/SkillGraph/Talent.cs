@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using System.IO;
 public enum SKILLTYPE
     {
@@ -86,15 +87,17 @@ public class talent{
         public void addTalent(){
            
             if(tree.pp > 0){
-                bool can = true;
+                bool can = false;
             
-                if(dependencies != null){
-                    foreach(talent t in dependencies){
+                if(id != 0 ){
+                    foreach(talent t in tree.playerTalents){
                         
-                        can &= tree.playerTalents.Contains(t);
+                        can |= dependencies.Contains(t) || children.Contains(t);
                     }
+                }else{
+                    can = true;
                 }
-                if(can){
+                if(can){              
                     tree.playerTalents.Add(this);
                     tree.pp -= 1;
                     buttonImage.color = new Color32(255,255,255,255);
@@ -121,6 +124,11 @@ public class talent{
                     can &= !t.dependencies.Contains(this);
                 }
             }
+            can = (canRemove() || (dependencies.Count == 0 || children.Count == 0)) ^ id == 0;
+            List<talent> allPaths = new List<talent>();
+            allPaths.AddRange(this.children.FindAll(t => tree.playerTalents.Contains(t)) );
+            allPaths.AddRange(this.dependencies.FindAll(t => tree.playerTalents.Contains(t)));
+            can |= allPaths.Count == 1;
             if(can){
                 tree.playerTalents.Remove(this);
                 tree.equippedAbilities.Remove(this);
@@ -139,6 +147,35 @@ public class talent{
                     }
                 }
                 
+            }
+        }
+
+        private bool canRemove(){
+            List<talent> testList = new List<talent>();
+            foreach(talent t in tree.playerTalents){
+                testList.Add(t);
+            }
+            testList.Remove(this);
+            List<talent> foundList = new List<talent>();
+            foundList.Add(this);
+            searchTree(this.tree.playerTalents.Find(t => t.id == 0),testList, ref foundList);
+            foundList.Remove(this);
+            return testList.Count == foundList.Count;
+        }
+        private void searchTree(talent origin, List<talent>  test, ref List<talent> foundList){
+            foundList.Add(origin);
+            List<talent> allPaths = new List<talent>();
+            allPaths.AddRange(origin.children.FindAll(t => tree.playerTalents.Contains(t)) );
+            allPaths.AddRange(origin.dependencies.FindAll(t => tree.playerTalents.Contains(t)));
+            //Debug.Log(allPaths.Count);
+            allPaths.Except(foundList);
+            //Debug.Log(allPaths.Count);
+            //Debug.Log("origin" + origin.name);
+            foreach(talent t in allPaths){
+                //Debug.Log(t.name);
+                if(!foundList.Contains(t)) {
+                    searchTree(t, test, ref foundList);
+                }
             }
         }
     }

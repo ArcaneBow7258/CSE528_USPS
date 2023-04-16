@@ -16,6 +16,7 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void Start(){
         tooltip.sizeDelta = new Vector2(text.preferredWidth + padding, text.preferredHeight + padding);
+        tooltip.SetAsLastSibling();
     }
     public void OnPointerEnter(PointerEventData eventData){
         tooltip.sizeDelta = new Vector2(text.preferredWidth + padding, text.preferredHeight + padding);
@@ -29,6 +30,7 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         text.text = stuff;
         tooltip.transform.localPosition += transform.localPosition;
         tooltip.SetParent(transform.parent,true);
+        
         //Debug.Log( text.preferredHeight );
         
         

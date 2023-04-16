@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+[NodeTint("#00FF7F")]
 public class AbilityNode : SkillNode{
 	[Input] public Func<GameObject> function;
 	protected override void Init() {

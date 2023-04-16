@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
     void Start(){
         LobbyManager.Instance.e_swapLobby.AddListener(swapLobby);
         LobbyManager.Instance.e_lobbyUpdate.AddListener(updateLobbyInfo);
-        LobbyManager.Instance.e_startGame.AddListener(toggleJoin);
+        LobbyManager.Instance.e_startGame.AddListener(delegate {toggleJoin(); backButton.SetActive(false);});
     }
     #region changing menus
     public void goBack(){
@@ -150,6 +150,10 @@ public class UIManager : MonoBehaviour
             
         }
         
+    }
+    public void Quit(){
+        Application.Quit();
+
     }
     #region lobbybuttons
     public async void createLobby(){
