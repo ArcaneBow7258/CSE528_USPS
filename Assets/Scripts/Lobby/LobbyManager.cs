@@ -60,8 +60,13 @@ public class LobbyManager : MonoBehaviour
 
     }
     public async void Login(string playerName){
-        loggedInPlayer = await GetPlayerFromAnonymousLoginAsync(playerName);
-        await prejoinUpdate();
+        if(loggedInPlayer == null){
+            loggedInPlayer = await GetPlayerFromAnonymousLoginAsync(playerName);
+        }else{
+            await updatePlayer("Name", PlayerDataObject.VisibilityOptions.Public, playerName);
+        }
+        
+        //await prejoinUpdate();
     }
     public void StartGameButton(){
         e_startGame.Invoke();
@@ -254,9 +259,11 @@ public class LobbyManager : MonoBehaviour
     public async Task prejoinUpdate(){
         if(loggedInPlayer == null) return;
         foreach(var d in loggedInPlayer.Data){
+            /*
             Debug.Log(d.Key);
             Debug.Log(visDict[d.Key]);
             Debug.Log(d.Value.Value);
+            */
 
             await updatePlayer(d.Key,visDict[d.Key],d.Value.Value);
         }
@@ -313,21 +320,27 @@ public class LobbyManager : MonoBehaviour
 
     }
     public async Task updatePlayer(string key, PlayerDataObject.VisibilityOptions vis, string val){
-        UpdatePlayerOptions options = new UpdatePlayerOptions();
+        try{
+            UpdatePlayerOptions options = new UpdatePlayerOptions();
 
-        options.Data = new Dictionary<string, PlayerDataObject>()
-        {
+            options.Data = new Dictionary<string, PlayerDataObject>()
             {
-                key, new PlayerDataObject(
-                    visibility: vis,
-                    value: val)
-            },
-        };
+                {
+                    key, new PlayerDataObject(
+                        visibility: vis,
+                        value: val)
+                },
+            };
 
-        //Ensure you sign-in before calling Authentication Instance
-        //See IAuthenticationService interface
-        string playerId = AuthenticationService.Instance.PlayerId;
-        await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, playerId, options);
+            //Ensure you sign-in before calling Authentication Instance
+            //See IAuthenticationService interface
+            string playerId = AuthenticationService.Instance.PlayerId;
+            currentLobby = await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, playerId, options);
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
     // Log in a player using Unity's "Anonymous Login" API and construct a Player object for use with the Lobbies APIs
     static async Task<Player> GetPlayerFromAnonymousLoginAsync(String playerName)
@@ -368,7 +381,7 @@ public class LobbyManager : MonoBehaviour
             
             pollTimer -= Time.deltaTime;
             if(pollTimer< 0f){
-                pollTimer = 5.0f;
+                pollTimer = 2.0f;
                 Lobby lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
                 if(currentLobby.LobbyCode != lobby.LobbyCode){
                     Debug.Log("Lobby mismatch on poll");
