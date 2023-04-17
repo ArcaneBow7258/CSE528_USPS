@@ -5,7 +5,7 @@ using UnityEngine;
 using XNode;
 [NodeTint("#00FF7F")]
 public class AbilityNode : SkillNode{
-	[Input] public Func<GameObject> function;
+	public ActiveAbility function;
 	protected override void Init() {
 		type = SKILLTYPE.ABILITY;
 		
