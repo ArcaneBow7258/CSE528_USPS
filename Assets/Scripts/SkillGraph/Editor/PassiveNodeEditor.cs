@@ -12,11 +12,12 @@ public class PassiveNodeEditor : NodeEditor {
     private bool showDrop = true;
     public override void OnBodyGUI() {
         //GUI.contentColor = Color.black;
+        
         if (node == null) node = target as PassiveNode;
         //Rename(node.skillName);
         // Update serialized object's representation
         serializedObject.Update();
-        
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("stats"));
         /*
         Color prev = GUI.backgroundColor;
         GUI.backgroundColor = Color.red;
@@ -32,12 +33,12 @@ public class PassiveNodeEditor : NodeEditor {
         showDrop = EditorGUILayout.BeginFoldoutHeaderGroup(showDrop, "Settings");
         if(showDrop){
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("id"));
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
-            
+            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
+            node.icon= (Sprite)EditorGUILayout.ObjectField("Sprite",node.icon, typeof(Sprite),false);
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("skillName"));
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("skillDesc"));
         }else{
-            GUILayout.Box(node.icon.texture, GUILayout.Width(40),  GUILayout.Height(40));
+            //GUILayout.Box(node.icon.texture, GUILayout.Width(40),  GUILayout.Height(40));
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
         
@@ -52,7 +53,7 @@ public class PassiveNodeEditor : NodeEditor {
         if(showDrop){
             return 200;
         }else{
-            return 80;
+            return 200;
         }
     }
 }
