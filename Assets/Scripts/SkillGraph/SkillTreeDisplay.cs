@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using TMPro;
 public class SkillTreeDisplay : MonoBehaviour
 {
     
@@ -11,11 +12,12 @@ public class SkillTreeDisplay : MonoBehaviour
     public float maxZoom;
     public float panSpeed;
     public float dragSpeed;
-
+    public SkillTree tree;
     private float zooming;
     private Vector2 panning;
     private float dragging;
-    
+    public TMP_Text pp;
+
     
     void OnPan(InputValue value){
         panning = value.Get<Vector2>();
@@ -42,7 +44,7 @@ public class SkillTreeDisplay : MonoBehaviour
     public void Update(){
         //need to clmap later
         transform.Translate(-panning.x*panSpeed*Time.deltaTime,-panning.y*panSpeed*Time.deltaTime,0);
-        
+        pp.text = "Points: " + tree.pp;
         
     }
   
