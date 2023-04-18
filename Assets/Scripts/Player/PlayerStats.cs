@@ -3,22 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum STATTYPE{
+    LIFE,
+    SHIELD,
+
     WEAPON,
     SMG,
     RIFLE,
     SHOTGUN,
+    PISTOL,
 
-    FIRE,
-    ICE,
-    LIGHTNING,
+    HEAT,
+    COLD,
+    ELECTRIC,
+    ACID,
 
     MOVESPEED,
     DAMAGE,
 
-    AMMO,
+    CLIP,
+    RESERVE,
     RELOAD,
     FIRERATE,
 
+    ABILITYDAMAGE,
     COOLDOWN,
 }
 public class PlayerStats : MonoBehaviour
@@ -31,12 +38,16 @@ public class PlayerStats : MonoBehaviour
 
     public void Awake(){
         foreach(STATTYPE type in Enum.GetValues(typeof(STATTYPE))){
-            stats.Add(type,new float[]{0,1});
+            try{stats.Add(type,new float[]{0,1});}
+            catch{
+                stats[type] = new float[]{0,1};
+            }
+            
         }
         
-        tree = GameObject.Find("SkiillTree").GetComponent<SkillTree>();
+        tree = GameObject.Find("SkillTree").GetComponent<SkillTree>();
         //add stats to player
-        tree.AggregateStats();
+        tree.AggregateStats(this);
 
         //bind abilites
         //tree.equippedAbilities;

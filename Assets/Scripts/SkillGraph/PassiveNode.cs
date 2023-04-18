@@ -10,13 +10,11 @@ public class PassiveNode : SkillNode{
 		type = SKILLTYPE.PASSIVE;
 		
 	}
-	
+	public override void CreateData(SkillTree tree){
+		base.CreateData(tree);
+		talent.stat = stats;
+	}
 	override public void OnEnter(){
 
 	}
-}
-[Serializable]
-public struct passiveStat{
-	public STATTYPE tag;
-	public float[] value;
 }

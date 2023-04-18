@@ -10,6 +10,10 @@ public class AbilityNode : SkillNode{
 		type = SKILLTYPE.ABILITY;
 		
 	}
+	public override void CreateData(SkillTree tree){
+		base.CreateData(tree);
+		talent.ability = function;
+	}
 	override public void OnEnter(){
 
 	}

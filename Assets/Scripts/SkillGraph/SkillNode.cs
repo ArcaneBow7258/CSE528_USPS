@@ -8,7 +8,7 @@ using XNode;
 abstract public class SkillNode : Node {
 	public int id;
 	public Sprite icon;
-	public string skillName;
+	[TextArea]
 	public string skillDesc;
 	
 	private List<talent> dependencies= new List<talent>();
@@ -25,17 +25,18 @@ abstract public class SkillNode : Node {
 	// Use this for initialization
 	protected override void Init() {
 		base.Init();
-		this.name = id + skillName;
+		
 		
 	}
 	abstract public void OnEnter();
-	public void CreateData(SkillTree tree){
-		
-		talent = new talent(id,tree, this.position,icon,skillName,skillDesc, type);
+	public virtual void CreateData(SkillTree tree){
+		//Debug.Log(this.name);
+		talent = new talent(id,tree, this.position*0.75f,icon, this.name,skillDesc, type);
 		tree.allTalents.Add(id,
             talent
             );
 	}
+	//gets dependencies and children, essentialy "wher the lines connect"
 	public void GetLines(){
 		NodePort entryPort = GetInputPort("entry");
 		if(entryPort.IsConnected){
@@ -73,5 +74,7 @@ abstract public class SkillNode : Node {
 	}*/
 	[Serializable]
 	public class Empty{}
+	[ContextMenu("Test")]
+    public virtual void Run(){}
 }
 

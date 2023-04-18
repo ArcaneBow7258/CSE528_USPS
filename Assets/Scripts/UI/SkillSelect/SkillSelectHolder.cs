@@ -19,7 +19,7 @@ public class SkillSelectHolder : MonoBehaviour, IDropHandler
     }
 
     public void Refresh(){
-        s.AggregateStats();
+        s.getAbilities();
         //Debug.Log(transform.childCount);
         GameObject.Find("SkillDesc").transform.GetChild(0).GetComponent<TMP_Text>().text = "";
     
