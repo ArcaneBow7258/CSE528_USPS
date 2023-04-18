@@ -7,7 +7,7 @@ using XNodeEditor;
 [CustomNodeEditor(typeof(PassiveNode))]
 public class PassiveNodeEditor : NodeEditor {
     private PassiveNode node;
-    private bool collapse = false;
+    
 
     private bool showDrop = false;
     public override void OnBodyGUI() {
@@ -17,16 +17,12 @@ public class PassiveNodeEditor : NodeEditor {
         //Rename(node.skillName);
         // Update serialized object's representation
         serializedObject.Update();
-        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("id"));
-        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("stats"));
         
-        Color prev = GUI.backgroundColor;
-        GUI.backgroundColor = Color.red;
-        if(GUILayout.Button("Collapse")){
-            collapse = !collapse;
-        }
-        GUI.backgroundColor = prev;
-        if(!collapse){
+        
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("id"), GUIContent.none, true, GUILayout.Width(50));
+        if(!node.collapse){
+            
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("stats"));
             showDrop = EditorGUILayout.BeginFoldoutHeaderGroup(showDrop, "Settings");
             if(showDrop){
                 
@@ -48,11 +44,14 @@ public class PassiveNodeEditor : NodeEditor {
         serializedObject.ApplyModifiedProperties();
     }
     public override int GetWidth(){
-        if(collapse){
-            return 80;
-        }else{
-            return 200;
-        }
+        if(node != null){
+            if(node.collapse){
+                return 100;
+            }else{
+                return 200;
+            }
+            }
+        else{return 200;}
     }
 
 

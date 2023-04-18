@@ -20,7 +20,9 @@ abstract public class SkillNode : Node {
 	[HideInInspector]
 	public SKILLTYPE type;
 	
-	
+	//vairables to wrok with editor
+	[HideInInspector]
+	public bool collapse = true;
 
 	// Use this for initialization
 	protected override void Init() {
@@ -74,7 +76,9 @@ abstract public class SkillNode : Node {
 	}*/
 	[Serializable]
 	public class Empty{}
-	[ContextMenu("Test")]
-    public virtual void Run(){}
+	[ContextMenu("Collapse")]
+    public virtual void Collapse(){
+		collapse = !collapse;
+	}
 }
 

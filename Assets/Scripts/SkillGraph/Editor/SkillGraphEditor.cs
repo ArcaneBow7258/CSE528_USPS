@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,9 +27,14 @@ public class SkillGraphEditor : NodeGraphEditor
         if(graph == null){
             graph = target as SkillGraph;
         }
+        GUILayout.BeginArea(new Rect(10,10,200,300));
+        if(graph.highest != null){
+            foreach(STATTYPE type in graph.highest.Keys){
+                EditorGUILayout.LabelField(type + " " +((int)type*1000 +  graph.highest[type]).ToString());
+            }
+        }
 
-
-
+        GUILayout.EndArea();
         /*
         GUI.backgroundColor = Color.red;
         Node selected = (Node)Selection.activeObject;
