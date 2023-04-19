@@ -15,8 +15,8 @@ public class Pannable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData){
         dragging = true;
     }
-    public void OnMouseMove(InputValue inputValue){
-        mouseDelta=inputValue.Get<Vector2>();
+    public void OnMouseMove(InputAction.CallbackContext inputValue){
+        mouseDelta=inputValue.ReadValue<Vector2>();
 
     }
     public void Update(){

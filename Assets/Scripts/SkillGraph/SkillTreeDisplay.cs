@@ -19,14 +19,14 @@ public class SkillTreeDisplay : MonoBehaviour
     public TMP_Text pp;
 
     
-    void OnPan(InputValue value){
-        panning = value.Get<Vector2>();
+    public void OnPan(InputAction.CallbackContext value){
+        panning = value.ReadValue<Vector2>();
         //Debug.Log(val*Time.deltaTime*panSpeed);
         
 
     }
-    void OnZoom(InputValue value){
-        float val = value.Get<float>();
+    public void OnZoom(InputAction.CallbackContext value){
+        float val = value.ReadValue<float>();
         if(val> 0){
             Vector3 newScale = transform.localScale + new Vector3(zoomSpeed*4*Time.deltaTime, 
                                                 zoomSpeed*4*Time.deltaTime, 

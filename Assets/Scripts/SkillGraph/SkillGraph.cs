@@ -28,15 +28,13 @@ public class SkillGraph : NodeGraph {
     }
     [ContextMenu("Collapse All")]
     public void CollapseAll(){
-            UnityEngine.Object[] nodes =  Selection.GetFiltered(typeof(PassiveNode), SelectionMode.Editable);
-            foreach(PassiveNode n in nodes){
+            foreach(SkillNode n in nodes){
                 n.collapse = true;
             }
     }
-    [ContextMenu("Opem All")]
-    public void OpenAll(){
-            UnityEngine.Object[] nodes =  Selection.GetFiltered(typeof(PassiveNode), SelectionMode.Editable);
-            foreach(PassiveNode n in nodes){
+    [ContextMenu("Open All")]
+    public void OpenAll(){;
+            foreach(SkillNode n in nodes){
                 n.collapse = false;
             }
     }

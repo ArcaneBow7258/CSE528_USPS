@@ -11,7 +11,7 @@ using Unity.Services.Core;
 using Unity.Services.Lobbies.Models;
 using TMPro;
 using UnityEngine.UI;
-public class UIManager : MonoBehaviour
+public class MenuUIManager : MonoBehaviour
 {
     public GameObject backButton;
     public GameObject u_skilltree;

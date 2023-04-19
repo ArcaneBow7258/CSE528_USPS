@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-[CustomEditor(typeof(UIManager))]
-public class UIManagerEditor : Editor
+[CustomEditor(typeof(MenuUIManager))]
+public class MenuUIManagerEditor : Editor
 {
     SerializedProperty backButton;
     SerializedProperty u_skilltree;
