@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Samples/test.uss?fileID=7433441132597879392&amp;guid=9820391a913ad6b43ad7a8db77f8ad72&amp;type=3#test" />
+    <ui:VisualElement name="BackGround" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: center; align-items: center;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgb(81, 255, 251); background-image: none; width: 280px; height: 310px; justify-content: center; align-items: center; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+            <ui:Label tabindex="-1" text="USPS" display-tooltip-when-elided="true" style="position: absolute; top: 20px; font-size: 64px;" />
+            <ui:TextField picking-mode="Ignore" label="Player Name" name="TextField" focusable="false" value="test" style="align-items: stretch; flex-direction: column; color: rgb(0, 0, 0);" />
+            <ui:Button text="Find a Lobby" display-tooltip-when-elided="true" name="Lobby" class="button-style" />
+            <ui:Button text="Open Tree" display-tooltip-when-elided="true" name="SkillTree" class="button-style" style="width: 184px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
