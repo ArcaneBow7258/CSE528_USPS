@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
-public class PlayerAiming : MonoBehaviour
+using Unity.Netcode;
+public class PlayerAiming : NetworkBehaviour
 {
 	[Header("References")]
 	public Transform bodyTransform;
@@ -35,33 +35,39 @@ public class PlayerAiming : MonoBehaviour
 		// Lock the mouse
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
+		if(!IsOwner){
+            Destroy(gameObject.GetComponent<AudioListener>());
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+        }
 	}
 
 	private void Update()
 	{
 		// Fix pausing
-		if (Mathf.Abs(Time.timeScale) <= 0)
-			return;
+		if(IsOwner){
+			if (Mathf.Abs(Time.timeScale) <= 0)
+				return;
 
-		DecayPunchAngle();
+			DecayPunchAngle();
 
-		// Input
-		float xMovement = Input.GetAxisRaw("Mouse X") * horizontalSensitivity * sensitivityMultiplier;
-		float yMovement = -Input.GetAxisRaw("Mouse Y") * verticalSensitivity  * sensitivityMultiplier;
+			// Input
+			float xMovement = Input.GetAxisRaw("Mouse X") * horizontalSensitivity * sensitivityMultiplier;
+			float yMovement = -Input.GetAxisRaw("Mouse Y") * verticalSensitivity  * sensitivityMultiplier;
 
-		// Calculate real rotation from input
-		realRotation   = new Vector3(Mathf.Clamp(realRotation.x + yMovement, minYRotation, maxYRotation), realRotation.y + xMovement, realRotation.z);
-		realRotation.z = Mathf.Lerp(realRotation.z, 0f, Time.deltaTime * 3f);
+			// Calculate real rotation from input
+			realRotation   = new Vector3(Mathf.Clamp(realRotation.x + yMovement, minYRotation, maxYRotation), realRotation.y + xMovement, realRotation.z);
+			realRotation.z = Mathf.Lerp(realRotation.z, 0f, Time.deltaTime * 3f);
 
-		//Apply real rotation to body
-		bodyTransform.eulerAngles = Vector3.Scale(realRotation, new Vector3(0f, 1f, 0f));
+			//Apply real rotation to body
+			bodyTransform.eulerAngles = Vector3.Scale(realRotation, new Vector3(0f, 1f, 0f));
 
-		//Apply rotation and recoil
-		Vector3 cameraEulerPunchApplied = realRotation;
-		cameraEulerPunchApplied.x += punchAngle.x;
-		cameraEulerPunchApplied.y += punchAngle.y;
+			//Apply rotation and recoil
+			Vector3 cameraEulerPunchApplied = realRotation;
+			cameraEulerPunchApplied.x += punchAngle.x;
+			cameraEulerPunchApplied.y += punchAngle.y;
 
-		transform.eulerAngles = cameraEulerPunchApplied;
+			transform.eulerAngles = cameraEulerPunchApplied;
+		}
 	}
 
 	public void ViewPunch(Vector2 punchAmount)

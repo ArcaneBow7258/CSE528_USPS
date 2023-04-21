@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
-
+using Unity.Netcode;
 namespace Fragsurf.Movement {
 
     /// <summary>
     /// Easily add a surfable character to the scene
     /// </summary>
     [AddComponentMenu ("Fragsurf/Surf Character")]
-    public class SurfCharacter : MonoBehaviour, ISurfControllable {
+    public class SurfCharacter : NetworkBehaviour, ISurfControllable {
 
         public enum ColliderType {
             Capsule,
@@ -218,49 +218,50 @@ namespace Fragsurf.Movement {
         }
 
         private void Update () {
+            if(IsOwner){
+                _colliderObject.transform.rotation = Quaternion.identity;
 
-            _colliderObject.transform.rotation = Quaternion.identity;
 
+                //UpdateTestBinds ();
+                UpdateMoveData ();
+                
+                // Previous movement code
+                Vector3 positionalMovement = transform.position - prevPosition;
+                transform.position = prevPosition;
+                moveData.origin += positionalMovement;
 
-            //UpdateTestBinds ();
-            UpdateMoveData ();
-            
-            // Previous movement code
-            Vector3 positionalMovement = transform.position - prevPosition;
-            transform.position = prevPosition;
-            moveData.origin += positionalMovement;
+                // Triggers
+                if (numberOfTriggers != triggers.Count) {
+                    numberOfTriggers = triggers.Count;
 
-            // Triggers
-            if (numberOfTriggers != triggers.Count) {
-                numberOfTriggers = triggers.Count;
+                    underwater = false;
+                    triggers.RemoveAll (item => item == null);
+                    foreach (Collider trigger in triggers) {
 
-                underwater = false;
-                triggers.RemoveAll (item => item == null);
-                foreach (Collider trigger in triggers) {
+                        if (trigger == null)
+                            continue;
 
-                    if (trigger == null)
-                        continue;
+                        if (trigger.GetComponentInParent<Water> ())
+                            underwater = true;
 
-                    if (trigger.GetComponentInParent<Water> ())
-                        underwater = true;
+                    }
 
                 }
 
+                _moveData.cameraUnderwater = _cameraWaterCheck.IsUnderwater ();
+                _cameraWaterCheckObject.transform.position = viewTransform.position;
+                moveData.underwater = underwater;
+                
+                if (allowCrouch)
+                    _controller.Crouch (this, movementConfig, Time.deltaTime);
+
+                _controller.ProcessMovement (this, movementConfig, Time.deltaTime);
+
+                transform.position = moveData.origin;
+                prevPosition = transform.position;
+
+                _colliderObject.transform.rotation = Quaternion.identity;
             }
-
-            _moveData.cameraUnderwater = _cameraWaterCheck.IsUnderwater ();
-            _cameraWaterCheckObject.transform.position = viewTransform.position;
-            moveData.underwater = underwater;
-            
-            if (allowCrouch)
-                _controller.Crouch (this, movementConfig, Time.deltaTime);
-
-            _controller.ProcessMovement (this, movementConfig, Time.deltaTime);
-
-            transform.position = moveData.origin;
-            prevPosition = transform.position;
-
-            _colliderObject.transform.rotation = Quaternion.identity;
 
         }
         
