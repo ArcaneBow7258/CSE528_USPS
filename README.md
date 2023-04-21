@@ -2,7 +2,7 @@
  Repository for CSE 528 @ UofL (Game Design)
  Group Project Coordinated with Alvin Tran, Cian Toole, Quang Dang, and Calvin Wu
  
-<h1>____ ____ Postal Service</h1>
+<h1>Underdog Snail Postal Service</h1>
 Our game is a Co-op Sci-Fi Fantasy Looter Shooter RPG 
 
 You play as couriers-for-hire working in hostile environments.
