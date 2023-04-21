@@ -35,7 +35,7 @@ public class TileGenerator : MonoBehaviour
                 GameObject choice = gen.gen();
 
                 GameObject r = Instantiate(choice, new Vector3(i* offset.x+this.transform.position.x, 0, -j*offset.y + this.transform.position.y),Quaternion.identity, transform);
-                //r.GetComponent<RoomBehavior>().UpdateRoom(currentCell.status);
+                r.GetComponent<RoomBehavior>().UpdateRoom(currentCell.status);
                 //update room
             }
 
