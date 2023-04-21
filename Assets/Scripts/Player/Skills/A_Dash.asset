@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: A_Dash
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  cooldown: 0
-  colldownMax: 0
-  tags: []
-  force: 0
+  stats: {fileID: 0}
+  cooldown: 5
+  cooldownMax: 5
+  tags: 
+  force: 10

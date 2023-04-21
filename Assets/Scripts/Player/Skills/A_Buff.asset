@@ -17,4 +17,4 @@ MonoBehaviour:
   cooldown: 0
   cooldownMax: 0
   tags: 
-  buff: {fileID: 0}
+  buff: {fileID: 11400000, guid: ca56f955ce4750246b5d3ec36e4b9ec8, type: 2}

@@ -8,6 +8,7 @@ public class A_Buff : ActiveAbility{
     public Buff buff;
     public override void activate(){
         //add buffer to component
-        buff.apply();
+        
+        buff.apply(stats);
     }
 }

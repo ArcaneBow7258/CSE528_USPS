@@ -13,18 +13,27 @@ public class A_Projectile : ActiveAbility{
     public float range;
     public override void activate(){
         float modified = damage;
+        /*
         foreach(STATTYPE t in stats.stats.Keys){
-            damage += stats.stats[t][0];
+            modified += stats.stats[t][0];
         }
         foreach(STATTYPE t in stats.stats.Keys){
-            damage *= 1+stats.stats[t][1];
-        }
+            modified *= 1+stats.stats[t][1];
+        }*/
 
 
         Camera cam = owner.transform.GetComponentInChildren<Camera>();
         Ray target = cam.ScreenPointToRay(Input.mousePosition); //swap 
         if(ray){    
-            Physics.Linecast(target.origin,target.GetPoint(range), out RaycastHit hit, mask );
+            //Debug.Log(target);
+            //Debug.Log(target.GetPoint(range));
+            if(Physics.Linecast(owner.transform.position,target.GetPoint(range), out RaycastHit hit, mask )){
+                Debug.Log(hit.collider.gameObject.name);
+            }else{
+                Debug.Log("Miss");
+            }
+            
+          
         }
         else{
             GameObject g = GameObject.Instantiate(prefab);

@@ -33,34 +33,32 @@ public enum STATTYPE{
     COOLDOWN = 51,
 
 }
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : GeneralStats
 {
-    public Dictionary<STATTYPE,float> bases = new Dictionary<STATTYPE,float>();
-    public Dictionary<STATTYPE, float[]> stats = new Dictionary<STATTYPE, float[]>(); //stored as [additive, multiplicative]
+    public float life;
+    public float shield;
+    
     public Dictionary<string, bool> flags = new Dictionary<string, bool>();
     public List<SpecialStats> notable = new List<SpecialStats>();
+    
     public SkillTree tree;
 
-    public void Awake(){
-        foreach(STATTYPE type in Enum.GetValues(typeof(STATTYPE))){
-            try{stats.Add(type,new float[]{0,1});}
-            catch{
-                stats[type] = new float[]{0,1};
-            }
-            
-        }
+    public override void Awake(){
+        base.Awake();
         
         tree = GameObject.Find("SkillTree").GetComponent<SkillTree>();
         //add stats to player
-        tree.AggregateStats(this);
-
+        if(tree != null){
+            tree.AggregateStats(this);
+        }
         //bind abilites
         //tree.equippedAbilities;
     }
-
-
-
-
+    public override void Update()
+    {
+        base.Update();
+        Debug.Log("outside");
+    }
 }
 public class SpecialStats{
 

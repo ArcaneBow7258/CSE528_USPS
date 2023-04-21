@@ -895,6 +895,56 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &-6527775125473780183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Fire Rate
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 824, y: 504}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6527775125473780183}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -3907888020032923787}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -6527775125473780183}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 43002
+  icon: {fileID: 21300000, guid: 125bb49b217257347be09ede099b888d, type: 3}
+  skillDesc: 
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 43
+    value:
+    - 0
+    - 0
 --- !u!114 &-6515049380742727790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2225,7 +2275,10 @@ MonoBehaviour:
       _node: {fileID: -3907888020032923787}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -6527775125473780183}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -3638,6 +3691,7 @@ MonoBehaviour:
   - {fileID: -4127548738364114378}
   - {fileID: -4486129487503742681}
   - {fileID: 5602599631050474585}
+  - {fileID: -6527775125473780183}
 --- !u!114 &29645322993092898
 MonoBehaviour:
   m_ObjectHideFlags: 0

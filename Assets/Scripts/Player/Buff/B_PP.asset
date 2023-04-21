@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20818f524e123e542a2f8c1576c41548, type: 3}
   m_Name: B_PP
   m_EditorClassIdentifier: 
-  duration: 0
-  durationMax: 0
-  stackable: 0
-  stacks: 1
+  durationMax: 1
+  stackable: 1
+  shield: 0
