@@ -66,6 +66,7 @@ MonoBehaviour:
   spawned:
   - {fileID: 1559490679532516367, guid: 4a240de1e43189e498e278b396797649, type: 3}
   - {fileID: 1475404758802909724, guid: e5d6991702daa464099526012d83619f, type: 3}
+  - {fileID: 7309739071432897076, guid: 1e58b145efc86b143b6502db1e591e4c, type: 3}
   spawnPoints:
   - {fileID: 1027792262382347799}
   - {fileID: 4389861378183393847}
@@ -73,6 +74,7 @@ MonoBehaviour:
   - {fileID: 768841958090522442}
   chances:
   - 2
+  - 1
   - 1
   noChance: 0
 --- !u!1 &609269929813028355

@@ -617,6 +617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cool Room
       objectReference: {fileID: 0}
+    - target: {fileID: 5238705857450062212, guid: fcdb4f116614cc344a33061269ad578e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8218128114756832702, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
       propertyPath: spawnPoints.Array.size
