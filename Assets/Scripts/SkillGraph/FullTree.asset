@@ -1,5 +1,226 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9192679384681550131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: RELOAD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 400, y: 1400}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -9192679384681550131}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -4127548738364114378}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -9192679384681550131}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5602599631050474585}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 42000
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: +2% Reload Speed
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 42
+    value:
+    - 0
+    - 2
+--- !u!114 &-9191569710379458050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -750, y: 1080}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -9191569710379458050}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 2216755226656615955}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -9191569710379458050}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 172249284707888849}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: 493938689112091451}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31003
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
+    value:
+    - 0
+    - 1
+--- !u!114 &-9165912160117618826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Shield - Weapon Damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -584, y: -264}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -9165912160117618826}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -883157744817861329}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -9165912160117618826}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1155120122713753424}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 2011
+  icon: {fileID: 21300000, guid: f6b8b85cbdc82ce439a41ae3d56d57ee, type: 3}
+  skillDesc: '+2 Max Shield
+
+    -1% Weapom damage'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 2
+    value:
+    - 2
+    - 0
+  - tag: 10
+    value:
+    - 0
+    - -1
+--- !u!114 &-8991744588747364743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -300, y: 1352}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8991744588747364743}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 7842565739196358763}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -8991744588747364743}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8653949543589831494}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31006
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
+    value:
+    - 0
+    - 1
 --- !u!114 &-8906949949209791765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +289,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1352, y: 712}
+  position: {x: -1112, y: 728}
   ports:
     keys:
     - entry
@@ -78,7 +299,10 @@ MonoBehaviour:
       _node: {fileID: -8848419506461101146}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exits
+        node: {fileID: -5918051956689027464}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -87,10 +311,7 @@ MonoBehaviour:
       _node: {fileID: -8848419506461101146}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: entry
-        node: {fileID: -5918051956689027464}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -105,6 +326,103 @@ MonoBehaviour:
     value:
     - 0
     - 3
+--- !u!114 &-8198980052795138604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Doorbreaker
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 360}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8198980052795138604}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -8198980052795138604}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 110
+  icon: {fileID: 21300000, guid: 65d211f55b476254ea778e5c4d2e5735, type: 3}
+  skillDesc: Strike an enemy for moderate damage, and increasing their damage taken
+    for a short period.
+  type: 1
+  collapse: 1
+  function: {fileID: 0}
+--- !u!114 &-8138889062980166494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -392, y: -1000}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8138889062980166494}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -4152317020972404542}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -8138889062980166494}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 621314602513389825}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50002
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: +1% Ability Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
+    value:
+    - 0
+    - 1
 --- !u!114 &-8105534198660832124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +485,7 @@ MonoBehaviour:
   m_Name: Ability damage
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1208, y: -1320}
+  position: {x: -1096, y: 1656}
   ports:
     keys:
     - entry
@@ -193,7 +511,7 @@ MonoBehaviour:
       _dynamic: 0
   id: 50
   icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
-  skillDesc: +1% Weapon Damage
+  skillDesc: +1% Ability Damage
   type: 0
   collapse: 1
   stats:
@@ -237,6 +555,9 @@ MonoBehaviour:
       - fieldName: entry
         node: {fileID: -5579769700325054401}
         reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -1750951949259289169}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -251,6 +572,55 @@ MonoBehaviour:
     value:
     - 0
     - 2
+--- !u!114 &-7602044915919039334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Unstoppable Service
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -450, y: 1064}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7602044915919039334}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 29645322993092898}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -7602044915919039334}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 7842565739196358763}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 112
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
+  skillDesc: Dash forward, knocking enemies away and dealing fire damage.
+  type: 1
+  collapse: 1
+  function: {fileID: 0}
 --- !u!114 &-7438963220170488359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +634,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8, y: 700}
+  position: {x: 0, y: 700}
   ports:
     keys:
     - entry
@@ -307,6 +677,59 @@ MonoBehaviour:
   collapse: 1
   stats:
   - tag: 20
+    value:
+    - 0
+    - 1
+--- !u!114 &-7045365640811990581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1160, y: -1048}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7045365640811990581}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 1106011998318376348}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -7045365640811990581}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 838619765126283314}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50004
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: +1% Ability Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
     value:
     - 0
     - 1
@@ -376,7 +799,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1144, y: 712}
+  position: {x: -1368, y: 712}
   ports:
     keys:
     - entry
@@ -388,10 +811,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: exits
-        node: {fileID: -3556123951146111266}
-        reroutePoints: []
-      - fieldName: exits
-        node: {fileID: -5918051956689027464}
+        node: {fileID: -6086830782919052048}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -401,7 +821,13 @@ MonoBehaviour:
       _node: {fileID: -6947831794066839347}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -3556123951146111266}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -5918051956689027464}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -573,6 +999,65 @@ MonoBehaviour:
   type: 1
   collapse: 1
   function: {fileID: 11400000, guid: dd789960c5ddac04eac3afceed5be2d6, type: 2}
+--- !u!114 &-6326656585158901103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Shield - Health
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -712, y: -424}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6326656585158901103}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 2917644993616478363}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -6326656585158901103}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1361175532466408451}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 2014
+  icon: {fileID: 21300000, guid: f6b8b85cbdc82ce439a41ae3d56d57ee, type: 3}
+  skillDesc: '+2 Max Shield
+
+    -1 Life'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 2
+    value:
+    - 2
+    - 0
+  - tag: 1
+    value:
+    - -1
+    - 0
 --- !u!114 &-6219233539817721340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +1071,7 @@ MonoBehaviour:
   m_Name: Reload
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -904, y: -1640}
+  position: {x: -1000, y: 1304}
   ports:
     keys:
     - entry
@@ -620,6 +1105,55 @@ MonoBehaviour:
     value:
     - 0
     - 0
+--- !u!114 &-6086830782919052048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Bag Swing
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1704, y: 472}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6086830782919052048}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -6086830782919052048}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4689733495354170222}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -6947831794066839347}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 113
+  icon: {fileID: 21300000, guid: 08c71e4e0565fe4469d1e0a593047156, type: 3}
+  skillDesc: Swing your bag around, knock enemies back from you and dealing damage.
+  type: 1
+  collapse: 1
+  function: {fileID: 0}
 --- !u!114 &-5918051956689027464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +1167,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1240, y: 808}
+  position: {x: -1240, y: 824}
   ports:
     keys:
     - entry
@@ -645,7 +1179,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: exits
-        node: {fileID: -8848419506461101146}
+        node: {fileID: -6947831794066839347}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -657,7 +1191,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: entry
-        node: {fileID: -6947831794066839347}
+        node: {fileID: -8848419506461101146}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -673,6 +1207,49 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &-5784734027057871357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Speed Delivery
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: -1304}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5784734027057871357}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -5784734027057871357}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 108
+  icon: {fileID: 21300000, guid: f41413a91e8d778458b926d8cf1d1c9a, type: 3}
+  skillDesc: Increases your reload  speed and fire rate for a short period of time.
+  type: 1
+  collapse: 1
+  function: {fileID: 0}
 --- !u!114 &-5579769700325054401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +1362,59 @@ MonoBehaviour:
   type: 1
   collapse: 1
   function: {fileID: 11400000, guid: c50870004217ab94dbfc794472c6ba43, type: 2}
+--- !u!114 &-5365064465602998453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: COLD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1192, y: -552}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5365064465602998453}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -5255662616953139042}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -5365064465602998453}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -2750068344530116347}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 32001
+  icon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+  skillDesc: +1% Cold Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 32
+    value:
+    - 0
+    - 1
 --- !u!114 &-5323186330426596396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +1468,59 @@ MonoBehaviour:
     value:
     - 1
     - 0
+--- !u!114 &-5255662616953139042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: COLD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1096, y: -664}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5255662616953139042}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 4115221597395405290}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -5255662616953139042}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -5365064465602998453}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 32000
+  icon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+  skillDesc: +1% Cold Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 32
+    value:
+    - 0
+    - 1
 --- !u!114 &-5234555781886214236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +1601,9 @@ MonoBehaviour:
       - fieldName: exits
         node: {fileID: -5579769700325054401}
         reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -2707680583011347910}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -964,7 +1650,10 @@ MonoBehaviour:
       _node: {fileID: -4689733495354170222}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exits
+        node: {fileID: -6086830782919052048}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1009,7 +1698,7 @@ MonoBehaviour:
   m_Name: ACID
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1624, y: -1352}
+  position: {x: -1512, y: 1624}
   ports:
     keys:
     - entry
@@ -1056,7 +1745,7 @@ MonoBehaviour:
   m_Name: Fire Rate
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1416, y: -1384}
+  position: {x: -1304, y: 1592}
   ports:
     keys:
     - entry
@@ -1090,6 +1779,62 @@ MonoBehaviour:
     value:
     - 0
     - 0
+--- !u!114 &-4486129487503742681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: RELOAD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: 1250}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4486129487503742681}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -4127548738364114378}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -4486129487503742681}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5602599631050474585}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: 6624202537999882138}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 42002
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: +1% Reload Speed
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 42
+    value:
+    - 0
+    - 1
 --- !u!114 &-4436922680000701454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,6 +1998,127 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &-4152317020972404542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -696, y: -664}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4152317020972404542}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 2917644993616478363}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -1559153849570899886}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: 2377180460639960025}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -2750068344530116347}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -4152317020972404542}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -8138889062980166494}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: 3100988010445316501}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50000
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: +1% Ability Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
+    value:
+    - 0
+    - 1
+--- !u!114 &-4127548738364114378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: RELOAD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 300, y: 1250}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4127548738364114378}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 5253407798542812161}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -4127548738364114378}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4486129487503742681}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -9192679384681550131}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 42001
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: +1% Reload Speed
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 42
+    value:
+    - 0
+    - 2
 --- !u!114 &-4057871188214740316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,10 +2232,118 @@ MonoBehaviour:
       _dynamic: 0
   id: 103
   icon: {fileID: 21300000, guid: 2a5c892bdd014164da633b8c6fd0f246, type: 3}
-  skillDesc: Slashes a target at short range.
+  skillDesc: Slashes a target at short range for high damage.
   type: 1
   collapse: 1
   function: {fileID: 11400000, guid: 27888eb62e255764a966ff998f8d062b, type: 2}
+--- !u!114 &-3808607661682136537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Weapon Damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -300, y: 904}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -3808607661682136537}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 29645322993092898}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -3808607661682136537}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8653949543589831494}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 10007
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 10
+    value:
+    - 0
+    - 1
+--- !u!114 &-3781118384691236511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Cooldown
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1096, y: -824}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -3781118384691236511}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -178347861831668759}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -3781118384691236511}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1559153849570899886}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 51005
+  icon: {fileID: 21300000, guid: eecb85004343b0e4d8b78fd7f9877b32, type: 3}
+  skillDesc: '+1% Cooldown
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 51
+    value:
+    - 0
+    - 1
 --- !u!114 &-3671264566905252318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,7 +2357,7 @@ MonoBehaviour:
   m_Name: ELECTRIC
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1768, y: -1288}
+  position: {x: -1656, y: 1688}
   ports:
     keys:
     - entry
@@ -1493,7 +2467,10 @@ MonoBehaviour:
       _node: {fileID: -3556123951146111266}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exits
+        node: {fileID: -6947831794066839347}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1503,9 +2480,6 @@ MonoBehaviour:
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
-      - fieldName: entry
-        node: {fileID: -6947831794066839347}
-        reroutePoints: []
       - fieldName: entry
         node: {fileID: -4057871188214740316}
         reroutePoints: []
@@ -1576,6 +2550,61 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &-3002796725929745419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Fire Rate
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 0, y: 1256}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -3002796725929745419}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 8653949543589831494}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -3002796725929745419}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5253407798542812161}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 43001
+  icon: {fileID: 21300000, guid: 125bb49b217257347be09ede099b888d, type: 3}
+  skillDesc: '+2% Fire Rate
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 43
+    value:
+    - 0
+    - 2
 --- !u!114 &-2951637752604957147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,7 +2618,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1080, y: -1544}
+  position: {x: -888, y: 1480}
   ports:
     keys:
     - entry
@@ -1636,7 +2665,7 @@ MonoBehaviour:
   m_Name: COLD
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1720, y: -1464}
+  position: {x: -1608, y: 1512}
   ports:
     keys:
     - entry
@@ -1663,6 +2692,59 @@ MonoBehaviour:
   id: 32
   icon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
   skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 32
+    value:
+    - 0
+    - 1
+--- !u!114 &-2750068344530116347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: COLD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1064, y: -504}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2750068344530116347}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -5365064465602998453}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -2750068344530116347}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4152317020972404542}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 32002
+  icon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+  skillDesc: +1% Cold Damage
   type: 0
   collapse: 1
   stats:
@@ -1705,7 +2787,10 @@ MonoBehaviour:
       _node: {fileID: -2707680583011347910}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -5194374311928661113}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1717,6 +2802,59 @@ MonoBehaviour:
   collapse: 1
   stats:
   - tag: 41
+    value:
+    - 0
+    - 1
+--- !u!114 &-2526759982901569565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -920, y: -1288}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2526759982901569565}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 5430874455676340852}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -2526759982901569565}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1010850924094525348}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31000
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
     value:
     - 0
     - 1
@@ -1733,7 +2871,7 @@ MonoBehaviour:
   m_Name: Weapon Damage
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1112, y: -1416}
+  position: {x: -1000, y: 1560}
   ports:
     keys:
     - entry
@@ -1849,7 +2987,10 @@ MonoBehaviour:
       _node: {fileID: -1750951949259289169}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exits
+        node: {fileID: -7679222262073394587}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1876,6 +3017,127 @@ MonoBehaviour:
     value:
     - 0
     - 2
+--- !u!114 &-1559153849570899886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Cooldown+Ability Damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -936, y: -840}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1559153849570899886}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -3781118384691236511}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: 838619765126283314}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -1559153849570899886}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4152317020972404542}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 51004
+  icon: {fileID: 21300000, guid: eecb85004343b0e4d8b78fd7f9877b32, type: 3}
+  skillDesc: '+1% Cooldown
+
+    +1% Ability Damage'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 51
+    value:
+    - 0
+    - 1
+  - tag: 50
+    value:
+    - 0
+    - 1
+--- !u!114 &-1361175532466408451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Shield - Health
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -584, y: -424}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1361175532466408451}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -6326656585158901103}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -1361175532466408451}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1155120122713753424}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 2013
+  icon: {fileID: 21300000, guid: f6b8b85cbdc82ce439a41ae3d56d57ee, type: 3}
+  skillDesc: '+2 Max Shield
+
+    -1 Life'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 2
+    value:
+    - 2
+    - 0
+  - tag: 1
+    value:
+    - -1
+    - 0
 --- !u!114 &-1324976284721008406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,7 +3216,13 @@ MonoBehaviour:
       _node: {fileID: -1155120122713753424}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exits
+        node: {fileID: -9165912160117618826}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -1361175532466408451}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1977,6 +3245,269 @@ MonoBehaviour:
   type: 1
   collapse: 1
   function: {fileID: 11400000, guid: 27888eb62e255764a966ff998f8d062b, type: 2}
+--- !u!114 &-1048447618784285260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: PISTOL
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -680, y: 1528}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1048447618784285260}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -1048447618784285260}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 14
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: '+1% Pistol Damage
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 14
+    value:
+    - 0
+    - 1
+--- !u!114 &-1010850924094525348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -824, y: -1288}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1010850924094525348}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -2526759982901569565}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -1010850924094525348}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 2377180460639960025}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31001
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
+    value:
+    - 0
+    - 1
+--- !u!114 &-953043021586525843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: AllDamage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1240, y: 1304}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -953043021586525843}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -953043021586525843}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 4
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
+  skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 4
+    value:
+    - 0
+    - 1
+--- !u!114 &-883157744817861329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Shield - Weapon Damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -712, y: -264}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -883157744817861329}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 2917644993616478363}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -883157744817861329}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -9165912160117618826}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 2012
+  icon: {fileID: 21300000, guid: f6b8b85cbdc82ce439a41ae3d56d57ee, type: 3}
+  skillDesc: '+2 Max Shield
+
+    -1% Weapom damage'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 2
+    value:
+    - 2
+    - 0
+  - tag: 10
+    value:
+    - 0
+    - -1
+--- !u!114 &-178347861831668759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Cooldown
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1256, y: -888}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: -178347861831668759}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 1106011998318376348}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: -178347861831668759}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -3781118384691236511}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 51006
+  icon: {fileID: 21300000, guid: eecb85004343b0e4d8b78fd7f9877b32, type: 3}
+  skillDesc: '+1% Cooldown
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 51
+    value:
+    - 0
+    - 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,7 +3542,6 @@ MonoBehaviour:
   - {fileID: 6930070402260282863}
   - {fileID: 3997324236682208132}
   - {fileID: -7804933319483459466}
-  - {fileID: 4201801721538033942}
   - {fileID: 6903486381204628007}
   - {fileID: -2838078499261962155}
   - {fileID: -3671264566905252318}
@@ -2055,6 +3585,270 @@ MonoBehaviour:
   - {fileID: -5194374311928661113}
   - {fileID: -2707680583011347910}
   - {fileID: -1750951949259289169}
+  - {fileID: 4115221597395405290}
+  - {fileID: 5430874455676340852}
+  - {fileID: 214609255542302968}
+  - {fileID: -5784734027057871357}
+  - {fileID: 6624202537999882138}
+  - {fileID: -8198980052795138604}
+  - {fileID: -7602044915919039334}
+  - {fileID: -6086830782919052048}
+  - {fileID: -5255662616953139042}
+  - {fileID: -5365064465602998453}
+  - {fileID: -2750068344530116347}
+  - {fileID: -2526759982901569565}
+  - {fileID: 2377180460639960025}
+  - {fileID: -1010850924094525348}
+  - {fileID: -8138889062980166494}
+  - {fileID: -4152317020972404542}
+  - {fileID: 2917644993616478363}
+  - {fileID: -953043021586525843}
+  - {fileID: 5480690971061312739}
+  - {fileID: -1559153849570899886}
+  - {fileID: -3781118384691236511}
+  - {fileID: 1106011998318376348}
+  - {fileID: -178347861831668759}
+  - {fileID: -7045365640811990581}
+  - {fileID: 838619765126283314}
+  - {fileID: 4569360002999923627}
+  - {fileID: 3100988010445316501}
+  - {fileID: 7361725820203951769}
+  - {fileID: 4397108201979065926}
+  - {fileID: 5561712847497709773}
+  - {fileID: -1361175532466408451}
+  - {fileID: -9165912160117618826}
+  - {fileID: -6326656585158901103}
+  - {fileID: -883157744817861329}
+  - {fileID: 8653949543589831494}
+  - {fileID: 493938689112091451}
+  - {fileID: -3808607661682136537}
+  - {fileID: 5253407798542812161}
+  - {fileID: -3002796725929745419}
+  - {fileID: -1048447618784285260}
+  - {fileID: 172249284707888849}
+  - {fileID: -8991744588747364743}
+  - {fileID: -9191569710379458050}
+  - {fileID: 7842565739196358763}
+  - {fileID: 29645322993092898}
+  - {fileID: 6269859056243938212}
+  - {fileID: 6519950925587272851}
+  - {fileID: 8510854725891378974}
+  - {fileID: 1104592382263336428}
+  - {fileID: -9192679384681550131}
+  - {fileID: -4127548738364114378}
+  - {fileID: -4486129487503742681}
+  - {fileID: 5602599631050474585}
+--- !u!114 &29645322993092898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability + Weapon Damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -450, y: 824}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 29645322993092898}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 493938689112091451}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 29645322993092898}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -3808607661682136537}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -7602044915919039334}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50006
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: '+2% Ability Damage
+
+    +2% Weapon Damage'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
+    value:
+    - 0
+    - 2
+  - tag: 10
+    value:
+    - 0
+    - 2
+--- !u!114 &172249284707888849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: 1352}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 172249284707888849}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -9191569710379458050}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 172249284707888849}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 7842565739196358763}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31004
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
+    value:
+    - 0
+    - 1
+--- !u!114 &214609255542302968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Bullseye
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: -568}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 214609255542302968}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 214609255542302968}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 109
+  icon: {fileID: 21300000, guid: 5d1d51ce1560d254db60f4cb6c26cdaf, type: 3}
+  skillDesc: Increases your critical damage and movespeed for a short period.
+  type: 1
+  collapse: 1
+  function: {fileID: 11400000, guid: 0c931a3ce73bb614f96444008bad6dbc, type: 2}
+--- !u!114 &493938689112091451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: 904}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 493938689112091451}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -9191569710379458050}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 493938689112091451}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 29645322993092898}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50005
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: +1% Ability Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
+    value:
+    - 0
+    - 1
 --- !u!114 &621314602513389825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,6 +3875,9 @@ MonoBehaviour:
       connections:
       - fieldName: exits
         node: {fileID: -5579769700325054401}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -8138889062980166494}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2158,6 +3955,59 @@ MonoBehaviour:
     value:
     - 2
     - 0
+--- !u!114 &838619765126283314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1016, y: -968}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 838619765126283314}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -7045365640811990581}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 838619765126283314}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1559153849570899886}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50003
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: +1% Ability Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
+    value:
+    - 0
+    - 1
 --- !u!114 &946503720953708249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,6 +4090,9 @@ MonoBehaviour:
       - fieldName: exits
         node: {fileID: 7362645465309916512}
         reroutePoints: []
+      - fieldName: exits
+        node: {fileID: 8653949543589831494}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -2251,6 +4104,9 @@ MonoBehaviour:
       connections:
       - fieldName: entry
         node: {fileID: 4807810355237393274}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: 5253407798542812161}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2266,6 +4122,117 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &1104592382263336428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: PISTOL
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: 950}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 1104592382263336428}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 6269859056243938212}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: 8510854725891378974}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 1104592382263336428}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 6624202537999882138}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 14003
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: '+1% Pistol Damage
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 14
+    value:
+    - 0
+    - 1
+--- !u!114 &1106011998318376348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Cooldown+Ability Damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1352, y: -1064}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 1106011998318376348}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 1106011998318376348}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -7045365640811990581}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -178347861831668759}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 51007
+  icon: {fileID: 21300000, guid: eecb85004343b0e4d8b78fd7f9877b32, type: 3}
+  skillDesc: 
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 51
+    value:
+    - 3
+    - 2
 --- !u!114 &1514901121404503331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,6 +4327,9 @@ MonoBehaviour:
       - fieldName: entry
         node: {fileID: 3981196554161593730}
         reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -9191569710379458050}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -2371,6 +4341,59 @@ MonoBehaviour:
   collapse: 1
   stats:
   - tag: 51
+    value:
+    - 0
+    - 1
+--- !u!114 &2377180460639960025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: -1288}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 2377180460639960025}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -1010850924094525348}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 2377180460639960025}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4152317020972404542}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31002
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
     value:
     - 0
     - 1
@@ -2442,7 +4465,7 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -200, y: 648}
+  position: {x: -200, y: 650}
   ports:
     keys:
     - entry
@@ -2482,6 +4505,65 @@ MonoBehaviour:
     value:
     - 1
     - 0
+--- !u!114 &2917644993616478363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Ability damage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -968, y: -296}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 2917644993616478363}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 3190007811017666588}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 2917644993616478363}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4152317020972404542}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -6326656585158901103}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -883157744817861329}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 50001
+  icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  skillDesc: +1% Ability Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 50
+    value:
+    - 0
+    - 1
 --- !u!114 &3035427245128831554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,6 +4616,59 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &3100988010445316501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: AllDamage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: -584}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 3100988010445316501}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -4152317020972404542}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 3100988010445316501}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 4569360002999923627}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 4007
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
+  skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 4
+    value:
+    - 0
+    - 1
 --- !u!114 &3190007811017666588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2572,6 +4707,9 @@ MonoBehaviour:
         reroutePoints: []
       - fieldName: entry
         node: {fileID: -4057871188214740316}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: 2917644993616478363}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2762,7 +4900,7 @@ MonoBehaviour:
   m_Name: Reserve
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1288, y: -1528}
+  position: {x: -1176, y: 1448}
   ports:
     keys:
     - entry
@@ -2796,7 +4934,53 @@ MonoBehaviour:
     value:
     - 0
     - 1
---- !u!114 &4201801721538033942
+--- !u!114 &4115221597395405290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Snow Swirl
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1368, y: -728}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4115221597395405290}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 4115221597395405290}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -5255662616953139042}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 106
+  icon: {fileID: 21300000, guid: eced15bb959edc54c8457ab75f9a45b5, type: 3}
+  skillDesc: Drop off a cold vortex that damages and slows enemies over time.
+  type: 1
+  collapse: 1
+  function: {fileID: 11400000, guid: 27888eb62e255764a966ff998f8d062b, type: 2}
+--- !u!114 &4397108201979065926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2809,14 +4993,14 @@ MonoBehaviour:
   m_Name: AllDamage
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1128, y: -1576}
+  position: {x: -424, y: -760}
   ports:
     keys:
     - entry
     - exits
     values:
     - _fieldName: entry
-      _node: {fileID: 4201801721538033942}
+      _node: {fileID: 4397108201979065926}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections: []
@@ -2825,15 +5009,71 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exits
-      _node: {fileID: 4201801721538033942}
+      _node: {fileID: 4397108201979065926}
       _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 7361725820203951769}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  id: 4
+  id: 4011
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
+  skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 4
+    value:
+    - 0
+    - 1
+--- !u!114 &4569360002999923627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: AllDamage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: -584}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4569360002999923627}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 3100988010445316501}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 4569360002999923627}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5480690971061312739}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 4008
   icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
   skillDesc: +1% Weapon Damage
   type: 0
@@ -2951,6 +5191,164 @@ MonoBehaviour:
     value:
     - 0
     - 1
+--- !u!114 &5253407798542812161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: ACID
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 150, y: 1080}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5253407798542812161}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 1031716457748083994}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -3002796725929745419}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 5253407798542812161}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 6269859056243938212}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -4127548738364114378}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 34001
+  icon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
+  skillDesc: +1% Acid Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 34
+    value:
+    - 0
+    - 1
+--- !u!114 &5430874455676340852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Dragon's Breath
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1100, y: -1288}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5430874455676340852}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 5430874455676340852}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -2526759982901569565}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 107
+  icon: {fileID: 21300000, guid: 42f6c722ead369b4b934a116b4324a4d, type: 3}
+  skillDesc: Radiate heat in front of you dealing damage over time.
+  type: 1
+  collapse: 1
+  function: {fileID: 0}
+--- !u!114 &5480690971061312739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: AllDamage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -184, y: -760}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5480690971061312739}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 4569360002999923627}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: 7361725820203951769}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 5480690971061312739}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 4009
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
+  skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 4
+    value:
+    - 0
+    - 1
 --- !u!114 &5523505031755042404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2964,7 +5362,7 @@ MonoBehaviour:
   m_Name: Cooldown
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1560, y: -1656}
+  position: {x: -1448, y: 1320}
   ports:
     keys:
     - entry
@@ -2998,6 +5396,164 @@ MonoBehaviour:
     value:
     - 0
     - 0
+--- !u!114 &5561712847497709773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1304, y: 1816}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5561712847497709773}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 5561712847497709773}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 2
+  icon: {fileID: 21300000, guid: f6b8b85cbdc82ce439a41ae3d56d57ee, type: 3}
+  skillDesc: +2 Max Shield
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 2
+    value:
+    - 2
+    - 0
+--- !u!114 &5602599631050474585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: RELOAD
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 500, y: 1528}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5602599631050474585}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -4486129487503742681}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -9192679384681550131}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 5602599631050474585}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 42003
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: +1% Reload Speed
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 42
+    value:
+    - 0
+    - 1
+--- !u!114 &6269859056243938212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: PISTOL
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 300, y: 950}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6269859056243938212}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 5253407798542812161}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 6269859056243938212}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 1104592382263336428}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: 6519950925587272851}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 14000
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: '+1% Pistol Damage
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 14
+    value:
+    - 0
+    - 1
 --- !u!114 &6288649952574984005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3107,6 +5663,110 @@ MonoBehaviour:
     value:
     - 1
     - 0
+--- !u!114 &6519950925587272851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: PISTOL
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 400, y: 808}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6519950925587272851}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 6269859056243938212}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 6519950925587272851}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8510854725891378974}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 14001
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: '+2% Pistol Damage
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 14
+    value:
+    - 0
+    - 2
+--- !u!114 &6624202537999882138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837587d7b842964418c8ad5c83432916, type: 3}
+  m_Name: Snot Sap
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: 1096}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6624202537999882138}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 1104592382263336428}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -4486129487503742681}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 6624202537999882138}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 111
+  icon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
+  skillDesc: Sneeze a glob of snot at a target, reducing their damage done.
+  type: 1
+  collapse: 1
+  function: {fileID: 0}
 --- !u!114 &6903486381204628007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +5780,7 @@ MonoBehaviour:
   m_Name: HEAT
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1864, y: -1688}
+  position: {x: -1672, y: 1336}
   ports:
     keys:
     - entry
@@ -3220,7 +5880,7 @@ MonoBehaviour:
   m_Name: Clip
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1416, y: -1528}
+  position: {x: -1304, y: 1448}
   ports:
     keys:
     - entry
@@ -3254,6 +5914,59 @@ MonoBehaviour:
     value:
     - 0
     - 0
+--- !u!114 &7361725820203951769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: AllDamage
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -296, y: -792}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7361725820203951769}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 4397108201979065926}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 7361725820203951769}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5480690971061312739}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 4010
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
+  skillDesc: +1% Weapon Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 4
+    value:
+    - 0
+    - 1
 --- !u!114 &7362645465309916512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3307,6 +6020,62 @@ MonoBehaviour:
     value:
     - 0
     - 1.5
+--- !u!114 &7842565739196358763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -450, y: 1352}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7842565739196358763}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 172249284707888849}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -7602044915919039334}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 7842565739196358763}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -8991744588747364743}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31005
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +2% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
+    value:
+    - 0
+    - 2
 --- !u!114 &7957057676244347617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,7 +6226,121 @@ MonoBehaviour:
       _dynamic: 0
   id: 101
   icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
-  skillDesc: Throw a letter at perfect accuracy
+  skillDesc: Throw a letter at perfect accuracy, has increased critical damage.
   type: 1
   collapse: 1
   function: {fileID: 11400000, guid: dd789960c5ddac04eac3afceed5be2d6, type: 2}
+--- !u!114 &8510854725891378974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: PISTOL
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 500, y: 680}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8510854725891378974}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: 6519950925587272851}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 8510854725891378974}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 1104592382263336428}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 14002
+  icon: {fileID: 21300000, guid: b450d0b398880cb458f83d1a01b399ca, type: 3}
+  skillDesc: '+1% Pistol Damage
+
+'
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 14
+    value:
+    - 0
+    - 1
+--- !u!114 &8653949543589831494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ed190b32538c4fa0aeaed823fd8c8, type: 3}
+  m_Name: HEAT
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -150, y: 1080}
+  ports:
+    keys:
+    - entry
+    - exits
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8653949543589831494}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exits
+        node: {fileID: -8991744588747364743}
+        reroutePoints: []
+      - fieldName: exits
+        node: {fileID: -3808607661682136537}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exits
+      _node: {fileID: 8653949543589831494}
+      _typeQualifiedName: SkillNode+Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 1031716457748083994}
+        reroutePoints: []
+      - fieldName: entry
+        node: {fileID: -3002796725929745419}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  id: 31007
+  icon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  skillDesc: +1% Heat Damage
+  type: 0
+  collapse: 1
+  stats:
+  - tag: 31
+    value:
+    - 0
+    - 1

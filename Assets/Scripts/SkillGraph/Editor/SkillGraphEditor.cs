@@ -27,7 +27,7 @@ public class SkillGraphEditor : NodeGraphEditor
         if(graph == null){
             graph = target as SkillGraph;
         }
-        GUILayout.BeginArea(new Rect(10,10,200,300));
+        GUILayout.BeginArea(new Rect(10,10,200,500));
         if(graph.highest != null){
             foreach(STATTYPE type in graph.highest.Keys){
                 EditorGUILayout.LabelField(type + " " +((int)type*1000 +  graph.highest[type]).ToString());

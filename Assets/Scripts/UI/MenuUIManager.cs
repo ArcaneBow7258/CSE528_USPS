@@ -71,6 +71,7 @@ public class MenuUIManager : MonoBehaviour
     #region changing menus
     public void goBack(){
         if(previous == null) return;
+        //if(current == u_skilltree) GameObject.Find("SkillTree").GetComponent<SkillTree>().Save();
         current.SetActive(false);
         previous.SetActive(true);
         if(current == u_skilltree)

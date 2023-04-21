@@ -55,6 +55,9 @@ public class talent{
                 }
                 if(can){              
                     tree.playerTalents.Add(this);
+                    if(this.type == SKILLTYPE.ABILITY){
+                        tree.playerAbilities.Add(this);
+                    }
                     tree.pp -= 1;
                     buttonImage.color = new Color32(255,255,255,255);
                     if(children.Count > 0){
