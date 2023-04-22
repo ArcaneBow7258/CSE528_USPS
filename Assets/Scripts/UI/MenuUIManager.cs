@@ -13,7 +13,9 @@ using TMPro;
 using UnityEngine.UI;
 public class MenuUIManager : MonoBehaviour
 {
-    public GameObject backButton;
+    /// <summary>
+    ///  UI Windows
+    /// </summary>
     public GameObject u_skilltree;
     public GameObject u_skillSelect;
     //menu
@@ -22,6 +24,10 @@ public class MenuUIManager : MonoBehaviour
     public GameObject u_lobby;
     //large lobby 
     public GameObject u_joinLobby;
+
+
+    public GameObject backButton;
+    
     //create lobby
     public TMP_InputField lname;
     public TMP_Dropdown size;
