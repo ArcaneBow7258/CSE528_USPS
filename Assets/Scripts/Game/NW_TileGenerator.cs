@@ -1,41 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class TileGenerator : MonoBehaviour
+using Unity.Netcode;
+using System;
+public class NW_TileGenerator : NetworkBehaviour
 {
     
     public Vector2 offset;
 
     public Vector2 size;
     public int startPos = 0;
-    public int iterations = 10;
-    public GameObject[] rooms;
-    public float[] chances;
+    public int iterations = 20;
+    public List<GameObject_Chance> rooms;
     private weightedRNG gen;
     List<Cell> board;
     private class Cell{
         public bool visted = false;
         public RoomStatus status = new RoomStatus();
-
     }
     void Awake(){
-        gen = new weightedRNG(chances, rooms);
+        gen = new weightedRNG(rooms);
     }
     void Start(){
+        
+        
+    }
+    public override void OnNetworkSpawn(){
+        base.OnNetworkSpawn();
+        if(IsServer) GridGenerator();
+    }
+    [ContextMenu("Regen")]
+    public void Regenerate(){
+        while(transform.childCount > 0){
+            transform.GetChild(0).GetComponent<NetworkObject>().Despawn(false);
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
         GridGenerator();
     }
 
-
     void RoomGenerator(){
-        
+        Debug.Log("Room start");
         for(int i = 0; i < size.x; i++){
             for(int j=0; j < size.y; j++){
                 Cell currentCell = board[((int)(i +( j * size.x)))];
                 GameObject choice = gen.gen();
-
+                
                 GameObject r = Instantiate(choice, new Vector3(i* offset.x+this.transform.position.x, 0, -j*offset.y + this.transform.position.y),Quaternion.identity, transform);
-                r.GetComponent<RoomBehavior>().UpdateRoom(currentCell.status);
+                //GameObject r = Instantiate(choice, new Vector3(i* offset.x+this.transform.position.x, 0, -j*offset.y + this.transform.position.y),Quaternion.identity, transform);
+                NetworkObject n = r.GetComponent<NetworkObject>();
+                
+                //n.gameObject.SetActive(false);
+                n.gameObject.GetComponent<NW_RoomBehavior>().UpdateRoom(currentCell.status);
+                n.Spawn();
+                n.TrySetParent(transform);
                 //update room
             }
 
@@ -71,7 +88,7 @@ public class TileGenerator : MonoBehaviour
             }else{
                 path.Push(currentCell);
                 distance++;
-                int newCell = neighbors[Random.Range(0,neighbors.Count)];
+                int newCell = neighbors[UnityEngine.Random.Range(0,neighbors.Count)];
 
                 if (newCell > currentCell){
                     if(newCell -1 == currentCell){

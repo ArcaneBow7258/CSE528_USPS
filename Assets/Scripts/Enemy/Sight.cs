@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Sight : MonoBehaviour
+using Unity.Netcode;
+using System.Linq;
+public class Sight : NetworkBehaviour
 {
     public float distance;
     public float angle;
@@ -13,30 +15,39 @@ public class Sight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider[] colliders = Physics.OverlapSphere(
-            transform.position, distance, objectLayers
-        );
-        detectedObject = null;
-        for (int i = 0; i < colliders.Length; i++){
-            Collider collider = colliders[i];
-            Vector3 directionToController = Vector3.Normalize(
-                collider.bounds.center - transform.position
+        if(IsServer){
+            Collider[] colliders = Physics.OverlapSphere(
+                transform.position, distance, objectLayers
             );
-            float angleToCollider = Vector3.Angle(transform.forward, directionToController);
-            //Debug.Log(angleToCollider);
-            if (angleToCollider < angle){
-                if(!Physics.Linecast(transform.position, collider.bounds.center, out RaycastHit hit, blockLayers))
-                {
-                    Debug.DrawLine(transform.position, collider.bounds.center, Color.green);
-                    detectedObject = collider.gameObject;
-                    //Debug.Log("enemy found player");
-                    break;
-                }else{
-                    Debug.DrawLine(transform.position, hit.point, Color.red);
-                    //detectedObject = null;
+            detectedObject = null;
+            List<GameObject> legal = new List<GameObject>();
+            for (int i = 0; i < colliders.Length; i++){
+                Collider collider = colliders[i];
+                Vector3 directionToController = Vector3.Normalize(
+                    collider.bounds.center - transform.position
+                );
+                float angleToCollider = Vector3.Angle(transform.forward, directionToController);
+                //Debug.Log(angleToCollider);
+                
+                if (angleToCollider < angle){
+                    if(!Physics.Linecast(transform.position, collider.bounds.center, out RaycastHit hit, blockLayers))
+                    {
+                        
+                        legal.Add(collider.gameObject);
+                        //Debug.Log("enemy found player");
+                    }else{
+                        Debug.DrawLine(transform.position, hit.point, Color.red);
+                        //detectedObject = null;
+                    }
                 }
             }
-
+            if(legal.Count > 0){
+                legal.Sort(delegate(GameObject a, GameObject b){ 
+                    return Vector3.Distance(transform.position, a.transform.position).CompareTo(Vector3.Distance(transform.position, b.transform.position));
+                    });
+                detectedObject = legal[0];
+                Debug.DrawLine(transform.position, detectedObject.transform.position, Color.green);
+            }
         }
         
     }

@@ -102,6 +102,7 @@ public class MenuUIManager : MonoBehaviour
         current = u_lobby;
         u_lobby.SetActive(true);
         u_mainmenu.SetActive(false);
+        refreshLobbies();
         swapBack();
     }
 

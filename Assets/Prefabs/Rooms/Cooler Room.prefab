@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3741659042071909137}
-  - component: {fileID: 6072492428983948570}
+  - component: {fileID: 1307421406026368282}
+  - component: {fileID: 693513820111035471}
   m_Layer: 0
   m_Name: Cooler Room
   m_TagString: Untagged
@@ -32,16 +33,16 @@ Transform:
   - {fileID: 6428454702301910918}
   - {fileID: 6845836589179947529}
   - {fileID: 2514805664180253262}
-  - {fileID: 3896243857630557547}
   - {fileID: 2767467883727674632}
+  - {fileID: 3896243857630557547}
   - {fileID: 6728485217161989143}
   - {fileID: 2362392631850372041}
-  - {fileID: 7538214029433364890}
   - {fileID: 790703539868885126}
+  - {fileID: 7538214029433364890}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6072492428983948570
+--- !u!114 &1307421406026368282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,35 +51,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 312544117290112597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d235ca74090503e4f9db0e61f447988a, type: 3}
+  m_Script: {fileID: 11500000, guid: a483b5e90e473554f9faec7a21684893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls:
-  - {fileID: 5024400275992934609}
-  - {fileID: 6204889217871758601}
-  - {fileID: 7703632448477937144}
-  - {fileID: 609269929813028355}
-  doors:
-  - {fileID: 4501629666609086090}
-  - {fileID: 4886834843863841108}
-  - {fileID: 7629174034658693659}
-  - {fileID: 829924894263055111}
-  spawned:
-  - {fileID: 1559490679532516367, guid: 4a240de1e43189e498e278b396797649, type: 3}
-  - {fileID: 1475404758802909724, guid: e5d6991702daa464099526012d83619f, type: 3}
-  - {fileID: 7309739071432897076, guid: 1e58b145efc86b143b6502db1e591e4c, type: 3}
-  - {fileID: 7587678490797475219, guid: 6116cf21272fe384cb4281f418a4ef2e, type: 3}
+  sides:
+  - first: {fileID: 5024400275992934609}
+    second: {fileID: 4501629666609086090}
+  - first: {fileID: 6204889217871758601}
+    second: {fileID: 4886834843863841108}
+  - first: {fileID: 7703632448477937144}
+    second: {fileID: 7629174034658693659}
+  - first: {fileID: 609269929813028355}
+    second: {fileID: 829924894263055111}
   spawnPoints:
-  - {fileID: 1027792262382347799}
   - {fileID: 4389861378183393847}
+  - {fileID: 1027792262382347799}
   - {fileID: 8599682538321506164}
   - {fileID: 768841958090522442}
-  chances:
-  - 2
-  - 1
-  - 1
-  - 1
-  noChance: 0
+  table:
+  - prefab: {fileID: 7309739071432897076, guid: 1e58b145efc86b143b6502db1e591e4c,
+      type: 3}
+    chance: 2
+  - prefab: {fileID: 1559490679532516367, guid: 4a240de1e43189e498e278b396797649,
+      type: 3}
+    chance: 1
+  - prefab: {fileID: 1475404758802909724, guid: e5d6991702daa464099526012d83619f,
+      type: 3}
+    chance: 1
+  - prefab: {fileID: 7587678490797475219, guid: 6116cf21272fe384cb4281f418a4ef2e,
+      type: 3}
+    chance: 1
+--- !u!114 &693513820111035471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312544117290112597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &609269929813028355
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +110,7 @@ GameObject:
   - component: {fileID: 6296748868526707168}
   - component: {fileID: 2190609273629020743}
   m_Layer: 0
-  m_Name: e wall
+  m_Name: w wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,7 +523,7 @@ GameObject:
   - component: {fileID: 3872143258365920626}
   - component: {fileID: 6375064879138938883}
   m_Layer: 0
-  m_Name: w wall
+  m_Name: e wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -754,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 4401798990578179318, guid: 1992724def0a4234b8a1e8132ff2066d,
         type: 3}
       propertyPath: m_Name
-      value: e door
+      value: w door
       objectReference: {fileID: 0}
     - target: {fileID: 4401798990578179318, guid: 1992724def0a4234b8a1e8132ff2066d,
         type: 3}
@@ -859,7 +877,7 @@ PrefabInstance:
     - target: {fileID: 4401798990578179318, guid: 1992724def0a4234b8a1e8132ff2066d,
         type: 3}
       propertyPath: m_Name
-      value: w door
+      value: e door
       objectReference: {fileID: 0}
     - target: {fileID: 4401798990578179318, guid: 1992724def0a4234b8a1e8132ff2066d,
         type: 3}

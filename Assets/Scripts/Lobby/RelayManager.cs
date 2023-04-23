@@ -7,9 +7,11 @@ using Unity.Networking.Transport.Relay;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using System.Threading.Tasks;
+using UnityEngine.Events;
 public class RelayManager : MonoBehaviour
 {
     public static RelayManager Instance;
+    public UnityEvent e_relayDone;
     void Awake(){
         if(Instance != null){
             Debug.Log("You have two relay managers");
@@ -30,6 +32,7 @@ public class RelayManager : MonoBehaviour
             //get network manage rto work with relay.
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
             NetworkManager.Singleton.StartHost();
+            e_relayDone.Invoke();
             return joinCode;
         }
         catch(RelayServiceException e){
@@ -47,6 +50,7 @@ public class RelayManager : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
 
             NetworkManager.Singleton.StartClient();
+            e_relayDone.Invoke();
         }catch(RelayServiceException e){
             Debug.Log(e);
         }

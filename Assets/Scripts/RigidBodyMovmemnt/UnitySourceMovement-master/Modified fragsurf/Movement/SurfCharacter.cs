@@ -130,6 +130,7 @@ namespace Fragsurf.Movement {
             _cameraWaterCheckSphere.radius = 0.1f;
             _cameraWaterCheckSphere.isTrigger = true;
 
+                
             Rigidbody _cameraWaterCheckRb = _cameraWaterCheckObject.AddComponent<Rigidbody> ();
             _cameraWaterCheckRb.useGravity = false;
             _cameraWaterCheckRb.isKinematic = true;
@@ -216,7 +217,10 @@ namespace Fragsurf.Movement {
             _moveData.stepOffset = stepOffset;
 
         }
-
+        public override void OnNetworkSpawn(){
+            base.OnNetworkSpawn();
+            transform.position = Vector3.zero;
+        }
         private void Update () {
             if(IsOwner){
                 _colliderObject.transform.rotation = Quaternion.identity;
