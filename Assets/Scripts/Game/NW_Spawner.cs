@@ -10,7 +10,7 @@ public class NW_Spawner : NetworkBehaviour
     public float timeToSpawn;
     public float lastSpawn;
     public bool DestroyWithSpawner;
-    public List<GameObject> spawned = new List<GameObject>();
+    public List<NetworkObject> spawned = new List<NetworkObject>();
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
@@ -23,19 +23,20 @@ public class NW_Spawner : NetworkBehaviour
     {
         base.OnNetworkDespawn();
         if(IsServer && DestroyWithSpawner){
-            foreach(GameObject s in spawned){
-                s.GetComponent<NetworkObject>().Despawn();
+            foreach(NetworkObject s in spawned){
+                NetworkObjectPool.Singleton.ReturnNetworkObject(s,s.gameObject);
             }
         }
     }
     public void Start(){
-        lastSpawn = Time.time;
+        //lastSpawn = Time.time;
     }
     public void Update(){
         if( Time.timeScale != 0 && (Time.time >= lastSpawn + timeToSpawn)){
-            GameObject g = Instantiate(table[0].prefab, transform.position, transform.rotation);
+            NetworkObject g = NetworkObjectPool.Singleton.GetNetworkObject(table[0].prefab, transform.position + new Vector3(0,table[0].prefab.transform.localScale.y,0), transform.rotation);
+            g.Spawn();
             spawned.Add(g);
-            g.GetComponent<NetworkObject>().Spawn();
+            g.StartCoroutine(g.GetComponent<EnemyAI>().Deactive(table[0].prefab));
             g.GetComponent<NetworkObject>().TrySetParent(transform);
             lastSpawn = Time.time;
         }

@@ -14,7 +14,7 @@ public class Sight : NetworkBehaviour
   
     // Update is called once per frame
     void Update()
-    {
+    {  
         if(IsServer){
             Collider[] colliders = Physics.OverlapSphere(
                 transform.position, distance, objectLayers

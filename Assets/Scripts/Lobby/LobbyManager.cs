@@ -400,7 +400,7 @@ public class LobbyManager : MonoBehaviour
                         e_startGame.Invoke();
                         
                     }
-                    currentLobby = null;
+                    //currentLobby = null;
                 }
 
                 //ready check

@@ -27,17 +27,17 @@ public class EnemyAI : NetworkBehaviour
         //animator = GetComponent<Animator>();
     }
     public override void OnNetworkSpawn(){
-        if(!IsOwner){
+        if(!IsServer){
             agent.enabled = false;
             sightSensor.enabled = false;
             
-        }else{
-            StartCoroutine(Deactive());
         }
+       
     }
-    IEnumerator Deactive(){
+    public IEnumerator Deactive(GameObject prefab){
         yield return new WaitForSeconds(5.0f);
-        gameObject.SetActive(false);
+        NetworkObjectPool.Singleton.ReturnNetworkObject(gameObject.GetComponent<NetworkObject>(), prefab);  
+        gameObject.GetComponent<NetworkObject>().Despawn();
     }
     void Update(){
         if(IsServer){

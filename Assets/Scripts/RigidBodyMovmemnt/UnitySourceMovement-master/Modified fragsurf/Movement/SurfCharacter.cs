@@ -136,7 +136,8 @@ namespace Fragsurf.Movement {
             _cameraWaterCheckRb.isKinematic = true;
 
             _cameraWaterCheck = _cameraWaterCheckObject.AddComponent<CameraWaterCheck> ();
-
+            _cameraWaterCheckObject.transform.SetParent(transform);
+            _cameraWaterCheckObject.layer = LayerMask.NameToLayer("PlayerProj");
             prevPosition = transform.position;
 
             if (viewTransform == null)
@@ -216,10 +217,6 @@ namespace Fragsurf.Movement {
             _moveData.useStepOffset = useStepOffset;
             _moveData.stepOffset = stepOffset;
 
-        }
-        public override void OnNetworkSpawn(){
-            base.OnNetworkSpawn();
-            transform.position = Vector3.zero;
         }
         private void Update () {
             if(IsOwner){
