@@ -45,13 +45,15 @@ public class NW_TileGenerator : NetworkBehaviour
                 Cell currentCell = board[((int)(i +( j * size.x)))];
                 GameObject choice = gen.gen();
                 
-                GameObject r = Instantiate(choice, new Vector3(i* offset.x+this.transform.position.x, 0, -j*offset.y + this.transform.position.y),Quaternion.identity, transform);
+                GameObject r = Instantiate(choice, new Vector3(i* offset.x, 0, -j*offset.y),Quaternion.identity, transform);
                 //GameObject r = Instantiate(choice, new Vector3(i* offset.x+this.transform.position.x, 0, -j*offset.y + this.transform.position.y),Quaternion.identity, transform);
+                r.transform.localPosition = r.transform.localPosition - new Vector3(0,r.transform.localPosition.y,0);
                 NetworkObject n = r.GetComponent<NetworkObject>();
                 
                 //n.gameObject.SetActive(false);
-                n.gameObject.GetComponent<NW_RoomBehavior>().UpdateRoom(currentCell.status);
                 n.Spawn();
+                n.gameObject.GetComponent<NW_RoomBehavior>().UpdateRoom(currentCell.status);
+                
                 n.TrySetParent(transform);
                 //update room
             }

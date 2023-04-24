@@ -5,7 +5,7 @@ using System;
 using Unity.Netcode;
 public class NW_Spawner : NetworkBehaviour
 {
-    public spawnList[] table;
+    public spawnList[] table;   
     public int weight;
     public float timeToSpawn;
     public float lastSpawn;

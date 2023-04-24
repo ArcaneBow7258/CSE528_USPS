@@ -15,7 +15,7 @@ public class CountInCollider : NetworkBehaviour
         enabled = IsHost;
     }
     
-    void OnTriggerEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         minPlayers = Mathf.Max(minPlayers, NetworkManager.Singleton.ConnectedClients.Count);
         detected += 1;
@@ -27,7 +27,7 @@ public class CountInCollider : NetworkBehaviour
             }
         }
     }
-    void OnTriggerExit(Collision other)
+    void OnTriggerExit(Collider other)
     {
         detected -= 1;
     }

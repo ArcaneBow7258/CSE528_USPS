@@ -23,8 +23,14 @@ public class GameManager : NetworkBehaviour
             _instance = this;
         }
         startZone.hit.AddListener(delegate{
-            GameObject g = Instantiate(tileGen.gameObject, spawnPosition, Quaternion.identity);
-            g.GetComponent<NetworkObject>().Spawn();
+            if(IsHost){
+                GameObject g = Instantiate(tileGen.gameObject, spawnPosition, Quaternion.identity );
+                g.GetComponent<NetworkObject>().Spawn();
+                foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player")){
+                    go.transform.position = spawnPosition + new Vector3(0,10,0);
+                }
+            }
+            
         });
 
     }
