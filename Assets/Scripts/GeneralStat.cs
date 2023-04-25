@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GeneralStats : MonoBehaviour
+using Unity.Netcode;
+public class GeneralStats : NetworkBehaviour
 {
     public Dictionary<STATTYPE,float> bases = new Dictionary<STATTYPE,float>();
     public Dictionary<STATTYPE, float[]> stats = new Dictionary<STATTYPE, float[]>(); //stored as [additive, multiplicative]
@@ -21,7 +21,7 @@ public class GeneralStats : MonoBehaviour
 
     public virtual void Update(){
         List<Buff> removeQueue = new List<Buff>();
-        Debug.Log("update");
+        //Debug.Log("update");
         foreach(Buff b in buffs.Keys){
             Debug.Log(b.name);
             buffs[b][0] -= Time.deltaTime;

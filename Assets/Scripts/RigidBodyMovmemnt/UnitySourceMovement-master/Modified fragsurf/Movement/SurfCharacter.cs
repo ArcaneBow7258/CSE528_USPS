@@ -170,8 +170,8 @@ namespace Fragsurf.Movement {
                 // Box collider
                 case ColliderType.Box:
 
-                //_collider = _colliderObject.AddComponent<BoxCollider> ();
-                _collider = gameObject.AddComponent<BoxCollider> ();
+                _collider = _colliderObject.AddComponent<BoxCollider> ();
+                //_collider = gameObject.AddComponent<BoxCollider> ();
 
                 var boxc = (BoxCollider)_collider;
                 boxc.size = colliderSize;
@@ -389,7 +389,7 @@ namespace Fragsurf.Movement {
         }
 
         private void OnCollisionStay (Collision collision) {
-
+            //Debug.Log("Collision");
             if (collision.rigidbody == null)
                 return;
 

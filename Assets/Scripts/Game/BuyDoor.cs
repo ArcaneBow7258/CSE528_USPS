@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BuyDoor : MonoBehaviour
+using Unity.Netcode;
+public class BuyDoor : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public float cost = 500;
+    public float cooldown = 1;
+    public float cooldownTime = 0;
+    public bool dangerDoor = false;
+    void OnCollisionEnter(Collision collision){
+        //if(collision.gameObject.layer != LayerMask.GetMask("Player")) return;
+        if(Time.time > cooldownTime){
+            cooldownTime = Time.time + cooldown;
+        }else{
+            return;
+        }
+        GameManager.Instance.TryBuyServerRPC(cost, gameObject);
+       
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [ClientRpc]
+    public void BuyEventClientRpc(ClientRpcParams clientRpcParams = default){
+        GameManager.Instance.forceSpawnServerRPC();
+        GameManager.Instance.DespawnObjectServerRPC(gameObject,default);
+        GameManager.Instance.RefreshNavMeshServerRPC();
     }
 }

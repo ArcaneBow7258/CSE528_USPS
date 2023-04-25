@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 public enum STATTYPE{
     LIFE = 1,
     SHIELD = 2,
@@ -33,6 +34,7 @@ public enum STATTYPE{
     COOLDOWN = 51,
 
 }
+
 public class PlayerStats : GeneralStats
 {
     public float life;
@@ -46,7 +48,7 @@ public class PlayerStats : GeneralStats
     public override void Awake(){
         base.Awake();
         
-        tree = GameObject.Find("SkillTree").GetComponent<SkillTree>();
+        tree = GameObject.FindObjectsOfType<SkillTree>(true)[0].GetComponent<SkillTree>();
         //add stats to player
         if(tree != null){
             tree.AggregateStats(this);
@@ -57,7 +59,7 @@ public class PlayerStats : GeneralStats
     public override void Update()
     {
         base.Update();
-        Debug.Log("outside");
+        //Debug.Log("outside");
     }
 }
 public class SpecialStats{

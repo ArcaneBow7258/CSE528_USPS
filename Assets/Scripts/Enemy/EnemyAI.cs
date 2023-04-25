@@ -21,23 +21,18 @@ public class EnemyAI : NetworkBehaviour
 
     //private Animator animator;
     private void Awake(){
+        
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.enabled = IsSpawned;
         sightSensor = GetComponent<Sight>();
         
         //animator = GetComponent<Animator>();
     }
     public override void OnNetworkSpawn(){
-        if(!IsServer){
-            agent.enabled = false;
-            sightSensor.enabled = false;
-            
-        }
+        agent.enabled = IsServer;
+        sightSensor.enabled = IsServer;
+
        
-    }
-    public IEnumerator Deactive(GameObject prefab){
-        yield return new WaitForSeconds(5.0f);
-        NetworkObjectPool.Singleton.ReturnNetworkObject(gameObject.GetComponent<NetworkObject>(), prefab);  
-        gameObject.GetComponent<NetworkObject>().Despawn();
     }
     void Update(){
         if(IsServer){

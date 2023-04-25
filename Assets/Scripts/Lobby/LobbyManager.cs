@@ -394,11 +394,10 @@ public class LobbyManager : MonoBehaviour
 
                 //start game
                 if(currentLobby.Data["RelayCode"].Value != "0"){
-                    if(!IsLobbyHost()){
+                    if(!IsLobbyHost() && !RelayManager.Instance.connected){
                         
                         RelayManager.Instance.JoinRelay(currentLobby.Data["RelayCode"].Value);
-                        e_startGame.Invoke();
-                        
+                        e_startGame.Invoke();    
                     }
                     //currentLobby = null;
                 }

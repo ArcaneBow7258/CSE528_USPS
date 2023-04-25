@@ -31,9 +31,14 @@ public class NW_TileGenerator : NetworkBehaviour
     }
     [ContextMenu("Regen")]
     public void Regenerate(){
-        while(transform.childCount > 0){
-            transform.GetChild(0).GetComponent<NetworkObject>().Despawn(false);
-            DestroyImmediate(transform.GetChild(0).gameObject);
+        foreach(Transform child in transform){
+            while(child.childCount > 0){                    
+                    child.GetChild(0).GetComponent<NetworkObject>().Despawn(false);
+                DestroyImmediate(transform.GetChild(0).gameObject);
+            }
+            child.GetComponent<NetworkObject>().Despawn(false);
+            DestroyImmediate(child.GetChild(0).gameObject);
+            
         }
         GridGenerator();
     }

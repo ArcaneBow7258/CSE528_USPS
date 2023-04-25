@@ -12,6 +12,7 @@ public class RelayManager : MonoBehaviour
 {
     public static RelayManager Instance;
     public UnityEvent e_relayDone;
+    public bool connected = false;
     void Awake(){
         if(Instance != null){
             Debug.Log("You have two relay managers");
@@ -19,6 +20,7 @@ public class RelayManager : MonoBehaviour
         else{
             Instance = this;
         }
+        e_relayDone.AddListener(delegate{connected = !connected;});
     }
     public async Task<string> CreateRelay(int playerNumber = 4){
         try{

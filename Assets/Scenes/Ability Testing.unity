@@ -170,12 +170,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table:
-  - prefab: {fileID: 8024797657967898999, guid: c94dbb396988e504d8093d6bb3e9b920,
+  - prefab: {fileID: 9098887535944377925, guid: c94dbb396988e504d8093d6bb3e9b920,
       type: 3}
     chance: 1
     weight: 1
-  weight: 10
-  timeToSpawn: 10
+  maxWeight: 0
+  timeToSpawn: 1
   lastSpawn: 0
   DestroyWithSpawner: 0
   spawned: []
@@ -371,6 +371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6698d9438e485e4bb3599232b057a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  e_relayDone:
+    m_PersistentCalls:
+      m_Calls: []
+  connected: 0
 --- !u!114 &632665261
 MonoBehaviour:
   m_ObjectHideFlags: 0

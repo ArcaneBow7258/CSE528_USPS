@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3356158464980912242
+--- !u!1 &727362872607008142
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,69 +8,69 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4901970284360976997}
-  - component: {fileID: 3538306024857622202}
-  - component: {fileID: 4823514582277547998}
-  m_Layer: 0
-  m_Name: TileGen
+  - component: {fileID: 5246995518307567690}
+  - component: {fileID: 2404834457687749011}
+  - component: {fileID: 9041699387608443325}
+  m_Layer: 5
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4901970284360976997
-Transform:
+--- !u!224 &5246995518307567690
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356158464980912242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 727362872607008142}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3538306024857622202
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2404834457687749011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356158464980912242}
+  m_GameObject: {fileID: 727362872607008142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50408eb631cab0b4592ea4c251d1f722, type: 3}
+  m_Script: {fileID: 11500000, guid: b1ead1121cb364f4fae557b20c52ab14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 40, y: 40}
-  size: {x: 3, y: 3}
-  startPos: 0
-  iterations: 10
-  rooms:
-  - prefab: {fileID: 3241597099252727753, guid: 8bd0c14baf9d27f4095847c5b93ec2df,
+  table:
+  - prefab: {fileID: 9098887535944377925, guid: c94dbb396988e504d8093d6bb3e9b920,
       type: 3}
     chance: 1
     weight: 0
-    limit: 0
-  - prefab: {fileID: 5753432690654809574, guid: fcdb4f116614cc344a33061269ad578e,
+  - prefab: {fileID: 6258330510645161425, guid: 801d99e37648ca143a9c9ff3931b0439,
       type: 3}
     chance: 1
     weight: 0
-    limit: 0
-  - prefab: {fileID: 425141221746727062, guid: b865b9ae31cc4814c8b4cfadd2905751, type: 3}
-    chance: 1
-    weight: 0
-    limit: 0
---- !u!114 &4823514582277547998
+  maxWeight: 0
+  timeToSpawn: 5
+  lastSpawn: 0
+  DestroyWithSpawner: 1
+  spawned: []
+--- !u!114 &9041699387608443325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356158464980912242}
+  m_GameObject: {fileID: 727362872607008142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}

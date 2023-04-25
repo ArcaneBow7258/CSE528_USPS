@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEditor;
 using XNode;
 using XNodeEditor;
-using System;
 
 [CustomNodeGraphEditor(typeof(SkillGraph))]
 public class SkillGraphEditor : NodeGraphEditor

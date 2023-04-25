@@ -7,7 +7,7 @@ public class CountInCollider : NetworkBehaviour
 {
     public bool single_use;
     private bool use = true;
-    public int minPlayers;
+    public int minPlayers = 4;
     private int detected = 0;
     public UnityEvent hit;
     void Awake(){
@@ -17,9 +17,11 @@ public class CountInCollider : NetworkBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        minPlayers = Mathf.Max(minPlayers, NetworkManager.Singleton.ConnectedClients.Count);
+        if(IsServer){
+            minPlayers = Mathf.Min(minPlayers, NetworkManager.Singleton.ConnectedClients.Count);
+        }
         detected += 1;
-        Debug.Log("pog");
+        //Debug.Log("pog");
         if(detected >= minPlayers && use){
             hit.Invoke();
             if(single_use){
