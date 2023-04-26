@@ -60,7 +60,7 @@ MonoBehaviour:
     chance: 1
     weight: 0
   maxWeight: 0
-  timeToSpawn: 5
+  timeToSpawn: 10
   lastSpawn: 0
   DestroyWithSpawner: 1
   spawned: []
