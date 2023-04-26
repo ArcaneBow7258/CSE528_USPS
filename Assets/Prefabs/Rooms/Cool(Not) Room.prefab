@@ -80,6 +80,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
+      propertyPath: roomgen
+      value: 
+      objectReference: {fileID: 11400000, guid: 6df010a61c41a664da1811affe285a38,
+        type: 2}
+    - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
+        type: 3}
       propertyPath: spacing.x
       value: 1
       objectReference: {fileID: 0}
@@ -92,6 +98,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spacing.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
+        type: 3}
+      propertyPath: spawnCount
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}

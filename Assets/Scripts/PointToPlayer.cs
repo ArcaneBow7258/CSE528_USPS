@@ -34,7 +34,15 @@ public class PointToPlayer : MonoBehaviour
     void Update()
     {   
         if(playerCam == null){
-            playerCam = GameObject.Find("Camera").GetComponent<Camera>();
+            try{
+                playerCam = GameObject.Find("Camera").GetComponent<Camera>();
+            }catch{
+                return;
+            }
+        }
+        //failled to get cam
+        if(playerCam == null){
+            return;
         }
         Vector3 directionToPosition;
         directionToPosition = Vector3.Normalize(playerCam.transform.position - transform.position);

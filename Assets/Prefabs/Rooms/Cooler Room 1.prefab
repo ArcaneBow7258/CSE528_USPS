@@ -82,27 +82,38 @@ PrefabInstance:
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
       propertyPath: size.x
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
       propertyPath: size.y
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
+      propertyPath: roomgen
+      value: 
+      objectReference: {fileID: 11400000, guid: cf0df677bb6e23b4d9699a1cbfc5467b,
+        type: 2}
+    - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
+        type: 3}
       propertyPath: spacing.x
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
       propertyPath: spacing.y
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}
       propertyPath: spacing.z
-      value: 1
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
+        type: 3}
+      propertyPath: spawnCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2472189708983702264, guid: fcdb4f116614cc344a33061269ad578e,
         type: 3}

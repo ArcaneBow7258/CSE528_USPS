@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Microsoft.CSharp;
-
-public class InventoryManager : MonoBehaviour
+using Unity.Netcode;
+public class InventoryManager : NetworkBehaviour
 {
     [SerializeField] private GameObject inventorySlotHolder;
     [SerializeField] private GameObject weaponSlotHolder;
@@ -30,7 +30,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-
+        if(!IsOwner) return;
         inventorySlots = new GameObject[inventorySlotHolder.transform.childCount];
         weaponSlots = new GameObject[weaponSlotHolder.transform.childCount];
         equipmentSlots = new GameObject[equipmentSlotHolder.transform.childCount];
@@ -83,6 +83,18 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        if(!IsOwner) return;
+        if(Input.GetKeyDown(KeyCode.P)){
+            if(Cursor.lockState == CursorLockMode.None) Cursor.lockState = CursorLockMode.Locked;
+            else  Cursor.lockState = CursorLockMode.None;
+            
+        }
+        for(int i = 0; i < transform.parent.childCount; i++){
+            if(transform.parent.GetChild(i).name != "InventoryManager"){
+                transform.parent.GetChild(i).gameObject.SetActive(Cursor.lockState == CursorLockMode.None);
+            }
+        }
+        if(Cursor.lockState == CursorLockMode.Locked){return;}
         if(Input.GetMouseButtonDown(0)) // Clicked
         {
             //Find Closest Slot or slot we clicked on
@@ -168,9 +180,23 @@ public class InventoryManager : MonoBehaviour
 
         //Check if duplicate item exists
         Slot slot = Contains(item);
-        if(slot != null && slot.GetItem().isStackable)
+        if(slot != null)
         {
-            slot.SetQuantity(slot.GetQuantity() + 1);
+            if(slot.GetItem().isStackable)
+            {
+                 slot.SetQuantity(slot.GetQuantity() + 1);
+            }
+            else{
+                for(int i = 0; i < items.Length; i++)
+                {
+                    if(items[i].GetItem() == null)
+                    {
+                        items[i].AddItem(item, 1);
+                        break;
+                    }
+                }
+            }
+           
         }
         else
         {

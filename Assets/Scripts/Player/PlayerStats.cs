@@ -37,8 +37,6 @@ public enum STATTYPE{
 
 public class PlayerStats : GeneralStats
 {
-    public float life;
-    public float shield;
     
     public Dictionary<string, bool> flags = new Dictionary<string, bool>();
     public List<SpecialStats> notable = new List<SpecialStats>();
@@ -50,16 +48,25 @@ public class PlayerStats : GeneralStats
         
         tree = GameObject.FindObjectsOfType<SkillTree>(true)[0].GetComponent<SkillTree>();
         //add stats to player
+        
+        //bind abilites
+        //tree.equippedAbilities;
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        
+        if(!IsOwner) return;
         if(tree != null){
             tree.AggregateStats(this);
         }
-        //bind abilites
-        //tree.equippedAbilities;
+        base.OnNetworkSpawn();
+        
     }
     public override void Update()
     {
         base.Update();
-        //Debug.Log("outside");
+        
     }
 }
 public class SpecialStats{

@@ -41,6 +41,7 @@ public class Sight : NetworkBehaviour
                     }
                 }
             }
+            legal = legal.Where(g =>{return g.gameObject.tag == "Player";}).ToList();
             if(legal.Count > 0){
                 legal.Sort(delegate(GameObject a, GameObject b){ 
                     return Vector3.Distance(transform.position, a.transform.position).CompareTo(Vector3.Distance(transform.position, b.transform.position));
