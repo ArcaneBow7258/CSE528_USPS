@@ -66,13 +66,14 @@ public class MenuUIManager : MonoBehaviour
         u_skilltree.SetActive(true);
         u_skilltree.SetActive(false);
         current = u_mainmenu;
+        u_mainmenu.transform.parent.gameObject.SetActive(true);
 
 
     }
     void Start(){
         LobbyManager.Instance.e_swapLobby.AddListener(swapLobby);
         LobbyManager.Instance.e_lobbyUpdate.AddListener(updateLobbyInfo);
-        LobbyManager.Instance.e_startGame.AddListener(delegate {toggleJoin(); backButton.SetActive(false);});
+        LobbyManager.Instance.e_startGame.AddListener(delegate {toggleJoin(); backButton.SetActive(false); u_mainmenu.transform.parent.gameObject.SetActive(false);});
     }
     #region changing menus
     public void goBack(){
@@ -108,6 +109,7 @@ public class MenuUIManager : MonoBehaviour
         current = u_lobby;
         u_lobby.SetActive(true);
         u_mainmenu.SetActive(false);
+        refreshLobbies();
         swapBack();
     }
 

@@ -29,16 +29,18 @@ public class PlayerAiming : NetworkBehaviour
 
 	[HideInInspector]
 	public Vector2 punchAngleVel;
-
+	public override void OnNetworkSpawn(){
+		if(!IsOwner){
+            Destroy(gameObject.GetComponent<AudioListener>());
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+        }
+	}
 	private void Start()
 	{
 		// Lock the mouse
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
-		if(!IsOwner){
-            Destroy(gameObject.GetComponent<AudioListener>());
-            Destroy(gameObject.transform.GetChild(0).gameObject);
-        }
+		
 	}
 
 	private void Update()

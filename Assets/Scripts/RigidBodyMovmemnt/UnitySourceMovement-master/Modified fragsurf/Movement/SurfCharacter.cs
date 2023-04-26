@@ -130,12 +130,14 @@ namespace Fragsurf.Movement {
             _cameraWaterCheckSphere.radius = 0.1f;
             _cameraWaterCheckSphere.isTrigger = true;
 
+                
             Rigidbody _cameraWaterCheckRb = _cameraWaterCheckObject.AddComponent<Rigidbody> ();
             _cameraWaterCheckRb.useGravity = false;
             _cameraWaterCheckRb.isKinematic = true;
 
             _cameraWaterCheck = _cameraWaterCheckObject.AddComponent<CameraWaterCheck> ();
-
+            _cameraWaterCheckObject.transform.SetParent(transform);
+            _cameraWaterCheckObject.layer = LayerMask.NameToLayer("PlayerProj");
             prevPosition = transform.position;
 
             if (viewTransform == null)
@@ -169,6 +171,7 @@ namespace Fragsurf.Movement {
                 case ColliderType.Box:
 
                 _collider = _colliderObject.AddComponent<BoxCollider> ();
+                //_collider = gameObject.AddComponent<BoxCollider> ();
 
                 var boxc = (BoxCollider)_collider;
                 boxc.size = colliderSize;
@@ -216,7 +219,6 @@ namespace Fragsurf.Movement {
             _moveData.stepOffset = stepOffset;
 
         }
-
         private void Update () {
             if(IsOwner){
                 _colliderObject.transform.rotation = Quaternion.identity;
@@ -387,7 +389,7 @@ namespace Fragsurf.Movement {
         }
 
         private void OnCollisionStay (Collision collision) {
-
+            //Debug.Log("Collision");
             if (collision.rigidbody == null)
                 return;
 
