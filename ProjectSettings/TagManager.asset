@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -17,6 +18,9 @@ TagManager:
   - Enemy
   - PlayerProj
   - EnemyProj
+  - Detector
+  - Obstacles
+  - Purchase
   - 
   - 
   - 
@@ -27,10 +31,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
   - 
   - 
   - 

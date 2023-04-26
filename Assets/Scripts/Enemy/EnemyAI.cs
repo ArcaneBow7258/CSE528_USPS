@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EnemyAI : MonoBehaviour
+using Unity.Netcode;
+public class EnemyAI : NetworkBehaviour
 {
     public enum EnemyState{Sit, ChasePlayer, AttackPlayer};
     public EnemyState currentState;
@@ -21,24 +21,36 @@ public class EnemyAI : MonoBehaviour
 
     //private Animator animator;
     private void Awake(){
-        agent = GetComponentInParent<UnityEngine.AI.NavMeshAgent>();
+        
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.enabled = IsSpawned;
+        sightSensor = GetComponent<Sight>();
+        
         //animator = GetComponent<Animator>();
     }
+    public override void OnNetworkSpawn(){
+        agent.enabled = IsServer;
+        sightSensor.enabled = IsServer;
+
+       
+    }
     void Update(){
-        if (currentState == EnemyState.Sit){
-            //animator.SetBool("Moving", false);
-            //animator.SetBool("Attacking", false);
-            DoNothing();}
-        else if (currentState == EnemyState.ChasePlayer){
-            //animator.SetBool("Moving", true);
-            //animator.SetBool("Attacking", false);
-            ChasePlayer();
+        if(IsServer){
+            if (currentState == EnemyState.Sit){
+                //animator.SetBool("Moving", false);
+                //animator.SetBool("Attacking", false);
+                DoNothing();}
+            else if (currentState == EnemyState.ChasePlayer){
+                //animator.SetBool("Moving", true);
+                //animator.SetBool("Attacking", false);
+                ChasePlayer();
+                }
+            else {
+                
+                //animator.SetBool("Attacking", true);
+                //animator.SetBool("Moving", false);
+                AttackPlayer();
             }
-        else {
-            
-             //animator.SetBool("Attacking", true);
-             //animator.SetBool("Moving", false);
-             AttackPlayer();
         }
     }
     void DoNothing(){
