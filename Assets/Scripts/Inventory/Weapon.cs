@@ -11,8 +11,13 @@ public class Weapon : Item
         Other
     }
     public WeaponType weaponType;
-    public int ammoCount;
-    public int weaponDamage;
+    public int ammoReserve;
+    public float weaponDamage;
+    public float timePerShot;
+    public int MagSize;
+    public int currentMag;
+    public bool isAutomatic;
+
 
 
     public override Item GetItem() { return this; }
@@ -24,14 +29,14 @@ public class Weapon : Item
     public Weapon()
     {
         weaponType = WeaponType.Other;
-        ammoCount = int.MaxValue;
+        ammoReserve = int.MaxValue;
         weaponDamage = 0;
     }
 
     public Weapon(WeaponType type, int ammoCapacity, int damage)
     {
         weaponType = type;
-        ammoCount = ammoCapacity;
+        ammoReserve = ammoCapacity;
         weaponDamage = damage;
     }
 
