@@ -21,13 +21,15 @@ public class EnemyAI : NetworkBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
 
     private UnityEngine.AI.NavMeshPath path ;
+
+    private Color colorCache;
     //private Animator animator;
     private void Awake(){
         path = new UnityEngine.AI.NavMeshPath();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.enabled = IsSpawned;
         sightSensor = GetComponent<Sight>();
-        
+        colorCache = GetComponent<MeshRenderer>().material.color;
         //animator = GetComponent<Animator>();
     }
     public override void OnNetworkSpawn(){
@@ -78,6 +80,7 @@ public class EnemyAI : NetworkBehaviour
     }
     void ChasePlayer(){
         agent.isStopped = false;
+        SetColorClientRpc(colorCache);
         float distanceToPlayer= 0;
         if(pathOpen){
             GameObject player = GetClosestPlayer();
@@ -114,11 +117,15 @@ public class EnemyAI : NetworkBehaviour
         if (distanceToPlayer > playerAttackDistance * 1.1f){
             currentState = EnemyState.ChasePlayer;
         }else{
+            Debug.Log((Time.time - lastShootTime) / fireRate);
+            SetColorClientRpc(new Color(colorCache.r + colorCache.r*((Time.time - lastShootTime) / fireRate)*2, colorCache.g , colorCache.b ,colorCache.a));
+
             if(Time.time > lastShootTime + fireRate){
                 lastShootTime = Time.time;
                 if(bullet != null && shootpoint != null){
                     GameObject b = Instantiate(bullet, shootpoint.transform);
                     b.transform.LookAt(sightSensor.detectedObject.transform.position + Vector3.up*1);
+                    
                     //b.GetComponent<ContactDamage>().damage = damage;
                 }else{
                     //okay will probalby ufkc up later but thats okay
@@ -129,6 +136,10 @@ public class EnemyAI : NetworkBehaviour
         }
 
 
+    }
+    [ClientRpc]
+    void SetColorClientRpc(Color color){
+        gameObject.GetComponent<MeshRenderer>().material.color = color;
     }
     void Shoot(){
         var timeSinceLastShoot  = Time.time - lastShootTime;

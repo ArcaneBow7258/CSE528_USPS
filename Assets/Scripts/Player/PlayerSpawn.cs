@@ -19,8 +19,7 @@ public class PlayerSpawn : NetworkBehaviour
     [Tooltip("Information about character above you")]
     public TMP_Text topbar;
     public GameObject hud;
-    private bool workAround = true;
-    private NetworkVariable<FixedString128Bytes> networkPlayerName = new NetworkVariable<FixedString128Bytes>("test", NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private NetworkVariable<FixedString128Bytes> networkPlayerName = new NetworkVariable<FixedString128Bytes>("placeholder", NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public override void OnNetworkSpawn(){
         
         //Debug.Log("pog champion spaawned");
@@ -51,15 +50,15 @@ public class PlayerSpawn : NetworkBehaviour
         
     }
     public void Update(){
-        if(workAround){
-            try{
-                if(IsOwner){//polling to geet this update sigh
-                 networkPlayerName.Value = LobbyManager.Instance.currentLobby.Players.Where((p) => {return p.Data["ClientID"].Value.Equals(NetworkManager.Singleton.LocalClientId.ToString());}).First().Data["Name"].Value;
-                 workAround = false;
-                 topbar.text = networkPlayerName.Value.ToString();
+        if(networkPlayerName.Value == "placeholder"){
+            if(IsOwner){//polling to geet this update sigh
+                try{
+                networkPlayerName.Value = LobbyManager.Instance.currentLobby.Players.Where((p) => {return p.Data["ClientID"].Value.Equals(NetworkManager.Singleton.LocalClientId.ToString());}).First().Data["Name"].Value;
+                topbar.text = networkPlayerName.Value.ToString();
                 }
+                catch{}
             }
-            catch{}
+            topbar.text = networkPlayerName.Value.ToString();
         }
     }
     [ClientRpc]

@@ -117,16 +117,17 @@ namespace Fragsurf.Movement {
             //Debug.Log(direction);
             
             while(currentDistance < distance){
-                Debug.Log(currentDistance +" "+ distance);
-
+                Debug.Log(transform.position + transform.TransformDirection(direction.normalized) );
                 //StopAllCoroutines();
-                if(Physics.Raycast(transform.position, direction, out hit,2f, -1)){
+                if(Physics.Raycast(transform.position, transform.TransformDirection(direction.normalized), out hit,3f, LayerMask.GetMask("Default"))){
                     Debug.Log("In way");
-                    //Debug.DrawLine(transform.position, hit.point, Color.red);
-                    yield break;
-                }else{
+                    Debug.DrawLine(transform.position, hit.point, Color.red);
                     StopAllCoroutines();
                     yield break;
+                }else{
+                    currentDistance += Vector3.Magnitude(direction*Time.deltaTime);
+                    rb.transform.Translate(direction*Time.deltaTime, Space.Self);
+                    yield return new WaitForFixedUpdate();
                     //Debug.Log("Go go go");
                     //Debug.DrawLine(transform.position, direction + transform.position, Color.black);
                     //currentDistance += Vector3.Magnitude(direction*Time.deltaTime);

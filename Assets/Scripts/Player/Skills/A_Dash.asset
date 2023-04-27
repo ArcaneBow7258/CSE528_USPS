@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e84dc3a661db334fb972c7df3b81ba1, type: 3}
   m_Name: A_Dash
   m_EditorClassIdentifier: 
-  cooldown: -0.0006912127
-  cooldownMax: 1
+  cooldown: 0.7585172
+  cooldownMax: 5
   tags: 
-  force: -50
-  distance: 5
+  force: 5
+  distance: 2.5

@@ -11,8 +11,10 @@ public class b_ParcelProtection : Buff
         //Debug.Log("Add " +  this.name);
         if(!stats.buffs.TryAdd(this,new float[]{durationMax, 1}) && stackable){
             stats.buffs[this][1] += 1;
+            stats.buffs[this][0] = durationMax;
             //Debug.Log("Stacking");
         };
+
         stats.ChangeShieldClientRpc(shield, shield);
         
     }
@@ -21,7 +23,7 @@ public class b_ParcelProtection : Buff
     {
         //Debug.Log("Remove " +  this.name);
         //hope your script auto clamps
-        stats.ChangeShieldClientRpc(-shield, -shield);
+        stats.ChangeShieldClientRpc(0, -shield);
     }
 
     public override void trigger(GeneralStats stats)

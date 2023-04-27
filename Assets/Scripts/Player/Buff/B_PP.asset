@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20818f524e123e542a2f8c1576c41548, type: 3}
   m_Name: B_PP
   m_EditorClassIdentifier: 
-  durationMax: 2
+  durationMax: 3
   stackable: 1
   icon: {fileID: 21300000, guid: f6b8b85cbdc82ce439a41ae3d56d57ee, type: 3}
-  shield: 0
+  shield: 20

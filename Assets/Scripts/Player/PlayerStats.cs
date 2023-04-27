@@ -66,7 +66,7 @@ public class PlayerStats : GeneralStats
     }
     public override void Update()
     {
-
+        if(!IsOwner) return;
         foreach(var ta in tree.equippedAbilities){
             if(ta.ability.cooldown <= 0) continue;
             else ta.ability.cooldown -= Time.deltaTime;
@@ -75,7 +75,7 @@ public class PlayerStats : GeneralStats
         if(Input.GetKeyDown(KeyCode.Q) && tree.equippedAbilities.Count > 0){
             ActiveAbility a = tree.equippedAbilities[0].ability;
             if(a.cooldown <= 0){
-                Debug.Log("Cast");
+                //Debug.Log("Cast");
                 a.cooldown = a.cooldownMax;
                 a.activate(gameObject, this);
             }
@@ -83,7 +83,7 @@ public class PlayerStats : GeneralStats
         if(Input.GetKeyDown(KeyCode.E) &&  tree.equippedAbilities.Count > 1){
             ActiveAbility a = tree.equippedAbilities[1].ability;
             if(a.cooldown <= 0){
-                Debug.Log("Cast");
+                //Debug.Log("Cast");
                 a.cooldown = a.cooldownMax;
                 a.activate(gameObject, this);
             }

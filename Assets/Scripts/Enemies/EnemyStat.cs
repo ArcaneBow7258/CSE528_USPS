@@ -20,6 +20,7 @@ public class EnemyStat : GeneralStats
     public override void OnNetworkDespawn()
     {
         base.OnNetworkDespawn();
+        if(!IsServer) return;
         spawner.spawned.Remove(NetworkObject);
         GameManager.Instance.AddPointsServerRpc(points);
     }

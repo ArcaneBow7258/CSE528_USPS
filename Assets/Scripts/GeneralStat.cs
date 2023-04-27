@@ -87,7 +87,7 @@ public class GeneralStats : NetworkBehaviour
         }
     }
     [ClientRpc]
-    public void ChangeLifeClientRpc(float c, float m){
+    public void ChangeLifeClientRpc(float c, float m, ClientRpcParams clientRpcParams = default){
         if(!IsOwner) return;
         Debug.Log("Change Life");
         maxLife.Value += m;
@@ -95,7 +95,7 @@ public class GeneralStats : NetworkBehaviour
         
     }
     [ClientRpc]
-    public void ChangeShieldClientRpc(float c, float m){
+    public void ChangeShieldClientRpc(float c, float m, ClientRpcParams clientRpcParams = default){
         if(!IsOwner) return;
         Debug.Log("Change Shield");
         maxShield.Value += m;
