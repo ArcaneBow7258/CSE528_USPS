@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5052540b3edf9694186ccad3d1b6bde5, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  itemName: Shotgun
+  itemIcon: {fileID: 0}
+  itemModel: {fileID: 7469636488855024317, guid: 289c9d627bb4af742a4d6e16f44696c6,
+    type: 3}
+  isStackable: 0
+  weaponType: 0
+  ammoCount: 2147483647
+  weaponDamage: 0
