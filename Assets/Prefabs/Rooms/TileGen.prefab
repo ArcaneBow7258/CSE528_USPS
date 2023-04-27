@@ -46,24 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 40, y: 40}
-  size: {x: 3, y: 3}
+  size: {x: 2, y: 2}
   startPos: 0
-  iterations: 10
-  rooms:
-  - prefab: {fileID: 3241597099252727753, guid: 8bd0c14baf9d27f4095847c5b93ec2df,
-      type: 3}
-    chance: 1
-    weight: 0
-    limit: 0
-  - prefab: {fileID: 5753432690654809574, guid: fcdb4f116614cc344a33061269ad578e,
-      type: 3}
-    chance: 1
-    weight: 0
-    limit: 0
-  - prefab: {fileID: 425141221746727062, guid: b865b9ae31cc4814c8b4cfadd2905751, type: 3}
-    chance: 1
-    weight: 0
-    limit: 0
+  iterations: 100
+  gen: {fileID: 11400000, guid: e3558bada507a15498ac242f6cc1ff9b, type: 2}
 --- !u!114 &4823514582277547998
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,7 +19,8 @@ public class GameManager : NetworkBehaviour
     [SerializeField]
     private NavMeshSurface[] navmeshes;
 
-
+    [HideInInspector]
+    public List<GameObject> players = new List<GameObject>();
     [Header("Game Information")]
     public NetworkVariable<float> points = new NetworkVariable<float>();
     private List<NW_Spawner> spawners = new List<NW_Spawner>();
@@ -53,7 +54,6 @@ public class GameManager : NetworkBehaviour
     }
     [ServerRpc(RequireOwnership = false)]
     public void forceSpawnServerRPC(ServerRpcParams serverRpcParams = default){
-        return;
         foreach(NW_Spawner sp in spawners){
             sp.Spawn();
         }
@@ -83,6 +83,15 @@ public class GameManager : NetworkBehaviour
                 no.GetComponent<BuyDoor>().BuyEventClientRpc();
                 
             }
+        }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void AddPointsServerRpc(float add, ServerRpcParams serverRpcParams = default){
+        
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {   
+            points.Value += add;
         }
     }
     

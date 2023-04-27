@@ -6,12 +6,11 @@ using UnityEditor;
 
 [CreateAssetMenu(menuName ="ActiveAbility/Melee", fileName ="A_Melee")]
 public class A_Melee : ActiveAbility{
-    public GameObject prefab;
     public float damage;
     public LayerMask mask;
     public bool rect;
     public Vector3 range;
-    public override void activate(){
+    public override void activate(GameObject owner, PlayerStats stats){
         List<Collider> hits =new List<Collider>();
         float modified = damage;
         /*foreach(STATTYPE t in stats.stats.Keys){
@@ -36,6 +35,7 @@ public class A_Melee : ActiveAbility{
         }
         foreach(Collider hit in hits){
             //do something
+            hit.GetComponent<EnemyStat>().DealDamageServerRpc(modified);
             Debug.Log(hit.gameObject.name);
         }
     }

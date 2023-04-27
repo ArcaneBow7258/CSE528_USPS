@@ -12,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - MiniMap
   - 
   - Player
   - Enemy
@@ -30,7 +30,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Wall
   - Ground
   - 
   - 

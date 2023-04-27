@@ -11,15 +11,15 @@ public class NW_TileGenerator : NetworkBehaviour
     public Vector2 size;
     public int startPos = 0;
     public int iterations = 20;
-    public List<GameObject_Chance> rooms;
-    private weightedRNG gen;
+    [SerializeField]
+    private WeightedRNG gen;
     List<Cell> board;
     private class Cell{
         public bool visted = false;
         public RoomStatus status = new RoomStatus();
     }
     void Awake(){
-        gen = new weightedRNG(rooms);
+        gen.Awake();
     }
     void Start(){
         

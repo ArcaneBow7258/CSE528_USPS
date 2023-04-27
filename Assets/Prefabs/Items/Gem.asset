@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Gem
   itemIcon: {fileID: 21300002, guid: 28d1c55524528204e925fc37f6674d93, type: 3}
-  itemModel: {fileID: 3439633038736912633, guid: 398aad09d8b2a47eba664a076763cdcc,
+  itemModel: {fileID: 217368117491728979, guid: dbb3d07cf67be0742acce90c69e0405b,
     type: 3}
   isStackable: 1

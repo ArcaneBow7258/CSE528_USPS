@@ -26,13 +26,15 @@ public class NW_RoomBehavior : NetworkBehaviour
     public LayerMask layer;
     public Vector2 size;
     public Vector3 spacing;
-    public List<GameObject> spawnPoints;
-    public List<GameObject_Chance> table;
-    private weightedRNG roomgen;
-    public NetworkVariable<RoomStatus> stat = new NetworkVariable<RoomStatus>(writePerm:NetworkVariableWritePermission.Server);
+    //public List<GameObject> spawnPoints;
+    public int spawnCount =0;
+    [SerializeField]
+    private WeightedRNG roomgen;
+    [Header("Other stuff")]
+    private NetworkVariable<RoomStatus> stat = new NetworkVariable<RoomStatus>(writePerm:NetworkVariableWritePermission.Server);
     public GameObject doorPrefab;
     void Awake(){
-        roomgen = new weightedRNG(table);
+        roomgen.Awake();
     }
     public override void OnNetworkSpawn(){
         
@@ -42,7 +44,7 @@ public class NW_RoomBehavior : NetworkBehaviour
     {
         if(IsServer){
             stat.Value=status;
-            foreach(var sp in spawnPoints){
+            for(int i = 0; i < spawnCount; i++){
                 GameObject spawned = roomgen.gen();
                 bool valid = false;
                 GameObject r = Instantiate(spawned);

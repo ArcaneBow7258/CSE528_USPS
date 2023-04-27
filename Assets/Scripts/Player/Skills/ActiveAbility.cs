@@ -4,17 +4,11 @@ using UnityEngine;
 
 public abstract class ActiveAbility : ScriptableObject
 {
-    public GameObject owner;
-    public PlayerStats stats;
-    public float cooldown; //might delete
-    public float cooldownMax;
+    public float cooldown = 0; //might delete
+    public float cooldownMax = 0;
     public List<STATTYPE> tags = new List<STATTYPE>();
-    public void Init(GameObject o){
-        owner = o;
-        stats = owner.GetComponent<PlayerStats>();
-    }
 
-    public abstract void activate();
+    public abstract void activate(GameObject owner, PlayerStats stats);
     
 }
 

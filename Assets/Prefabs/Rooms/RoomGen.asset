@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81aad1121dfc7249a79264a8b41afdc, type: 3}
+  m_Name: RoomGen
+  m_EditorClassIdentifier: 
+  totalChance: 6
+  weightMax: 0
+  table:
+  - prefab: {fileID: 5753432690654809574, guid: fcdb4f116614cc344a33061269ad578e,
+      type: 3}
+    chance: 4
+    value: 0
+    limit: 0
+    limitMax: -1
+  - prefab: {fileID: 3241597099252727753, guid: 8bd0c14baf9d27f4095847c5b93ec2df,
+      type: 3}
+    chance: 1
+    value: 0
+    limit: 0
+    limitMax: -1
+  - prefab: {fileID: 425141221746727062, guid: b865b9ae31cc4814c8b4cfadd2905751, type: 3}
+    chance: 1
+    value: 0
+    limit: 1
+    limitMax: 1

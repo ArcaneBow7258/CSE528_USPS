@@ -11,7 +11,7 @@ public class A_Projectile : ActiveAbility{
     public LayerMask mask;
     public bool ray;
     public float range;
-    public override void activate(){
+    public override void activate(GameObject owner, PlayerStats stats){
         float modified = damage;
         /*
         foreach(STATTYPE t in stats.stats.Keys){
@@ -29,6 +29,7 @@ public class A_Projectile : ActiveAbility{
             //Debug.Log(target.GetPoint(range));
             if(Physics.Linecast(owner.transform.position,target.GetPoint(range), out RaycastHit hit, mask )){
                 Debug.Log(hit.collider.gameObject.name);
+                hit.collider.GetComponent<EnemyStat>().DealDamageServerRpc(modified);
             }else{
                 Debug.Log("Miss");
             }

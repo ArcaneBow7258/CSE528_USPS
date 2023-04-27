@@ -11,8 +11,7 @@ public class AbilityTest : MonoBehaviour
 
     void Awake(){
         stats = GetComponent<PlayerStats>();
-        a1.Init(gameObject);
-        a2.Init(gameObject);
+
     }
     // Update is called once per frame
     void Update()
@@ -20,11 +19,11 @@ public class AbilityTest : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             //Debug.Log("a1");
-            a1.activate();
+            a1.activate(gameObject, stats);
         }
         if(Input.GetKeyDown(KeyCode.Alpha2)){
             //Debug.Log("a2");
-            a2.activate();
+            a2.activate(gameObject, stats);
         }
     }
 }

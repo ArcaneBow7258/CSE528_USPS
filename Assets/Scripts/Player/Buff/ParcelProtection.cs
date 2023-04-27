@@ -7,21 +7,21 @@ public class b_ParcelProtection : Buff
     public float shield;
     public override void apply(GeneralStats stats)
     {
-        stats.stats[STATTYPE.SHIELD][0] += shield;
-        Debug.Log("Add " +  this.name);
+        
+        //Debug.Log("Add " +  this.name);
         if(!stats.buffs.TryAdd(this,new float[]{durationMax, 1}) && stackable){
             stats.buffs[this][1] += 1;
-            Debug.Log("Stacking");
+            //Debug.Log("Stacking");
         };
-        //maxshield +=
+        stats.ChangeShieldClientRpc(shield, shield);
         
     }
 
     public override void unapply(GeneralStats stats)
     {
-        stats.stats[STATTYPE.SHIELD][0] -= shield;
-        Debug.Log("Remove " +  this.name);
+        //Debug.Log("Remove " +  this.name);
         //hope your script auto clamps
+        stats.ChangeShieldClientRpc(-shield, -shield);
     }
 
     public override void trigger(GeneralStats stats)

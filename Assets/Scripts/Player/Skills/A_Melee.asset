@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44eeb1e504f6c8344a881f1efcc3ed52, type: 3}
   m_Name: A_Melee
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
-  stats: {fileID: 0}
   cooldown: 5
   cooldownMax: 5
   tags: 
-  prefab: {fileID: 0}
-  damage: 1
+  damage: 40
   mask:
     serializedVersion: 2
     m_Bits: 512

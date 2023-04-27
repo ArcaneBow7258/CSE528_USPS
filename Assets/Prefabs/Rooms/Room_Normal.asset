@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81aad1121dfc7249a79264a8b41afdc, type: 3}
+  m_Name: Room_Normal
+  m_EditorClassIdentifier: 
+  totalChance: 11
+  weightMax: 0
+  table:
+  - prefab: {fileID: 7587678490797475219, guid: 6116cf21272fe384cb4281f418a4ef2e,
+      type: 3}
+    chance: 3
+    value: 0
+    limit: 0
+    limitMax: -1
+  - prefab: {fileID: 1475404758802909724, guid: e5d6991702daa464099526012d83619f,
+      type: 3}
+    chance: 2
+    value: 0
+    limit: 0
+    limitMax: -1
+  - prefab: {fileID: 1559490679532516367, guid: 4a240de1e43189e498e278b396797649,
+      type: 3}
+    chance: 4
+    value: 0
+    limit: 0
+    limitMax: -1
+  - prefab: {fileID: 7309739071432897076, guid: 1e58b145efc86b143b6502db1e591e4c,
+      type: 3}
+    chance: 1
+    value: 0
+    limit: 0
+    limitMax: -1
+  - prefab: {fileID: 727362872607008142, guid: af16804643024c04faf9741b7cb63af8, type: 3}
+    chance: 1
+    value: 0
+    limit: 0
+    limitMax: 3

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,35 +16,50 @@ public class PlayerSpawn : NetworkBehaviour
     public MeshRenderer mr;
     public List<Color> colors;
     [Header("GUI Information")]
-    public Canvas canvas;
     [Tooltip("Information about character above you")]
     public TMP_Text topbar;
     public GameObject hud;
-    private NetworkVariable<FixedString128Bytes> networkPlayerName = new NetworkVariable<FixedString128Bytes>("Pogchampion", NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    private bool workAround = true;
+    private NetworkVariable<FixedString128Bytes> networkPlayerName = new NetworkVariable<FixedString128Bytes>("test", NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public override void OnNetworkSpawn(){
         
         //Debug.Log("pog champion spaawned");
         base.OnNetworkSpawn();
         //spawns[0].Despawn();
         mr.material.color = colors[(int)OwnerClientId];
-        
+        transform.Find("MipMapMarker").GetComponent<MeshRenderer>().material.color =  colors[(int)OwnerClientId];
+        GameManager.Instance.players.Add(gameObject);
         //Create the topbar locally, except ofr yourself
         if(IsOwner) {transform.position = offset;
-            
+            //topbar.transform.parent.gameObject.SetActive(false);
+            Debug.Log("I own this object");
+        }else{
+            hud.gameObject.SetActive(false);
+            Destroy(transform.Find("MipMapCamera").gameObject);
         }
     }
 
     public async void Awake(){
-        enabled = IsLocalPlayer;
+        await LobbyManager.Instance.updatePlayer("ClientID", PlayerDataObject.VisibilityOptions.Member,NetworkManager.Singleton.LocalClientId.ToString());
         if(IsOwner){
-            //LobbyManager.Instance.updatePlayer("GameObject", PlayerDataObject.VisibilityOptions.Member, );
-            await LobbyManager.Instance.updatePlayer("ClientID", PlayerDataObject.VisibilityOptions.Member,OwnerClientId.ToString());
-        }
+            
+            
+        } 
+        //}
     }
     public void Start(){
-        if(IsOwner){
-            networkPlayerName.Value = LobbyManager.Instance.currentLobby.Players.Where((p) => {return p.Data["ClientID"].Equals(OwnerClientId);}).First().Data["Name"].Value;
-            topbar.text = networkPlayerName.Value.ToString();
+        
+    }
+    public void Update(){
+        if(workAround){
+            try{
+                if(IsOwner){//polling to geet this update sigh
+                 networkPlayerName.Value = LobbyManager.Instance.currentLobby.Players.Where((p) => {return p.Data["ClientID"].Value.Equals(NetworkManager.Singleton.LocalClientId.ToString());}).First().Data["Name"].Value;
+                 workAround = false;
+                 topbar.text = networkPlayerName.Value.ToString();
+                }
+            }
+            catch{}
         }
     }
     [ClientRpc]
