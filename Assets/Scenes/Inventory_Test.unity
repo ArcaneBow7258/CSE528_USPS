@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 1849850903961774139, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1849850903961774139, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
@@ -200,12 +200,12 @@ PrefabInstance:
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
@@ -235,27 +235,27 @@ PrefabInstance:
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 745
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 419
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
@@ -295,12 +295,12 @@ PrefabInstance:
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 372.5
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 209.5
       objectReference: {fileID: 0}
     - target: {fileID: 8603005885756614737, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
         type: 3}
@@ -320,7 +320,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3925227652811787646, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1587639393}
   m_SourcePrefab: {fileID: 100100000, guid: 0e680d5a9830eaa45a3cc2c714c4a407, type: 3}
 --- !u!1 &203844586
 GameObject:
@@ -576,9 +580,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1577044280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3925227652811787646, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
+    type: 3}
+  m_PrefabInstance: {fileID: 55021252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &1587639391 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 1849850903961774139, guid: 0e680d5a9830eaa45a3cc2c714c4a407,
     type: 3}
   m_PrefabInstance: {fileID: 55021252}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587639393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577044280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3967449374
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

@@ -111,7 +111,34 @@ namespace Fragsurf.Movement {
             }
 
         }
+        public IEnumerator dashing(Rigidbody rb, float distance,Vector3 direction ){
+            float currentDistance = 0;
+            RaycastHit hit;
+            //Debug.Log(direction);
+            
+            while(currentDistance < distance){
+                Debug.Log(currentDistance +" "+ distance);
 
+                //StopAllCoroutines();
+                if(Physics.Raycast(transform.position, direction, out hit,2f, -1)){
+                    Debug.Log("In way");
+                    //Debug.DrawLine(transform.position, hit.point, Color.red);
+                    yield break;
+                }else{
+                    StopAllCoroutines();
+                    yield break;
+                    //Debug.Log("Go go go");
+                    //Debug.DrawLine(transform.position, direction + transform.position, Color.black);
+                    //currentDistance += Vector3.Magnitude(direction*Time.deltaTime);
+                    //rb.transform.Translate(direction*Time.deltaTime, Space.Self);
+                    //yield return new WaitForSeconds(0.001f);
+                }
+            
+                
+            }
+            yield return new WaitForEndOfFrame();
+            
+        }
         private void Start () {
             
             _colliderObject = new GameObject ("PlayerCollider");

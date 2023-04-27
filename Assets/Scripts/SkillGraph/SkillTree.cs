@@ -64,5 +64,15 @@ public class SkillTree : MonoBehaviour
                 } 
             }
         }
+        getAbilities();
+        foreach(talent t in playerAbilities){
+            ActiveAbility a = t.ability;
+            a.cooldown = 0;
+        }
+        foreach(talent t in equippedAbilities){
+            ActiveAbility a = t.ability;
+            a.cooldown = 0;
+
+        }
     }
 }

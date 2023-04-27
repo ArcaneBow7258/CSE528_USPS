@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+
 public enum STATTYPE{
     LIFE = 1,
     SHIELD = 2,
@@ -46,7 +47,7 @@ public class PlayerStats : GeneralStats
     public override void Awake(){
         base.Awake();
         
-        tree = GameObject.FindObjectsOfType<SkillTree>(true)[0].GetComponent<SkillTree>();
+        tree = GameObject.FindObjectsOfType<SkillTree>(true)[0].GetComponent<SkillTree>(); // restes cooldown in here nayways
         //add stats to player
         
         //bind abilites
@@ -65,9 +66,32 @@ public class PlayerStats : GeneralStats
     }
     public override void Update()
     {
+
+        foreach(var ta in tree.equippedAbilities){
+            if(ta.ability.cooldown <= 0) continue;
+            else ta.ability.cooldown -= Time.deltaTime;
+            
+        }
+        if(Input.GetKeyDown(KeyCode.Q) && tree.equippedAbilities.Count > 0){
+            ActiveAbility a = tree.equippedAbilities[0].ability;
+            if(a.cooldown <= 0){
+                Debug.Log("Cast");
+                a.cooldown = a.cooldownMax;
+                a.activate(gameObject, this);
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.E) &&  tree.equippedAbilities.Count > 1){
+            ActiveAbility a = tree.equippedAbilities[1].ability;
+            if(a.cooldown <= 0){
+                Debug.Log("Cast");
+                a.cooldown = a.cooldownMax;
+                a.activate(gameObject, this);
+            }
+        }
         base.Update();
         
     }
+    
 }
 public class SpecialStats{
 

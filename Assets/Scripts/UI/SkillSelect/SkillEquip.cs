@@ -8,7 +8,7 @@ public class SkillEquip : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         if(transform.childCount > 0){
-            tree.equippedAbilities.Add(transform.GetChild(0).GetComponent<SkillDrag>().representing);
+            tree.equippedAbilities.Remove(transform.GetChild(0).GetComponent<SkillDrag>().representing);
             transform.GetChild(0).SetParent(eventData.pointerDrag.transform.parent);
         }
         if(eventData.pointerDrag != null){

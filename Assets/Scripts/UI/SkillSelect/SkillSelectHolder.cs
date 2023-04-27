@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -15,7 +16,12 @@ public class SkillSelectHolder : MonoBehaviour, IDropHandler
             eventData.pointerDrag.GetComponent<RectTransform>().position = transform.position;
             eventData.pointerDrag.transform.SetParent(transform);
         }
-        s.equippedAbilities.Remove(eventData.pointerDrag.GetComponent<SkillDrag>().representing);
+        try{
+            s.equippedAbilities.Remove(eventData.pointerDrag.GetComponent<SkillDrag>().representing);
+        }
+        catch(Exception e){
+            Debug.Log(e);
+        }
     }
 
     public void Refresh(){

@@ -22,10 +22,12 @@ public class CountInCollider : NetworkBehaviour
         }
         detected += 1;
         //Debug.Log("pog");
-        if(detected >= minPlayers && use){
-            hit.Invoke();
-            if(single_use){
-                use = !use;
+        if(IsServer){
+            if(detected >= minPlayers && use && ( NetworkManager.Singleton.ConnectedClients.Count == LobbyManager.Instance.currentLobby.Players.Count)){
+                hit.Invoke();
+                if(single_use){
+                    use = !use;
+                }
             }
         }
     }
