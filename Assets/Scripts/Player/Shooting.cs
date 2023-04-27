@@ -14,7 +14,7 @@ public class Shooting : MonoBehaviour
     public int currentReserve;
     public InventoryManager loadout;
 
-    private int equippedWeapon = 1;
+    private int equippedWeapon = 0;
 
     private bool liftTrigger = true;
     private float lastShot = 0;
@@ -27,8 +27,8 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { equippedWeapon = 1; }//weapon equips
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { equippedWeapon = 2; }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { equippedWeapon = 0; }//weapon equips
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { equippedWeapon = 1; }
         if (Input.GetKeyDown(KeyCode.R))//reload gun
         {
             if (currentReserve >= fullMag)
