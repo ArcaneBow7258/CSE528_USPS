@@ -44,6 +44,10 @@ public class PointToPlayer : MonoBehaviour
         if(playerCam == null){
             return;
         }
+        bool active = Vector3.Distance(playerCam.transform.position, transform.position) <= fadeDistance|| fadeDistance <= 0;
+        for(int i = 0; i < transform.childCount; i++){
+            transform.GetChild(0).gameObject.SetActive(active);
+        }
         Vector3 directionToPosition;
         directionToPosition = Vector3.Normalize(playerCam.transform.position - transform.position);
         //directionToPosition.y = 0;

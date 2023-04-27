@@ -55,13 +55,14 @@ public class GameManager : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void forceSpawnServerRPC(ServerRpcParams serverRpcParams = default){
         foreach(NW_Spawner sp in spawners){
-            sp.Spawn();
+            sp.ForceSpawn();
         }
     }
     [ServerRpc(RequireOwnership = false)]
     public void RefreshNavMeshServerRPC(ServerRpcParams serverRpcParams = default){
         foreach(NavMeshSurface nm in navmeshes){
             nm.BuildNavMesh();
+            
         }
     }
     [ServerRpc(RequireOwnership = false)]
@@ -69,6 +70,7 @@ public class GameManager : NetworkBehaviour
         ulong clientId = serverRpcParams.Receive.SenderClientId;
         gameObject.TryGet(out NetworkObject no);
         no.Despawn();
+        Destroy(no.gameObject);
     }
     
     [ServerRpc(RequireOwnership = false)]

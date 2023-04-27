@@ -17,7 +17,7 @@ MonoBehaviour:
   table:
   - prefab: {fileID: 5753432690654809574, guid: fcdb4f116614cc344a33061269ad578e,
       type: 3}
-    chance: 4
+    chance: 8
     value: 0
     limit: 0
     limitMax: -1

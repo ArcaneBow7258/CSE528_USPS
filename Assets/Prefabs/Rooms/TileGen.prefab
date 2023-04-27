@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 40, y: 40}
-  size: {x: 2, y: 2}
+  size: {x: 5, y: 5}
   startPos: 0
   iterations: 100
   gen: {fileID: 11400000, guid: e3558bada507a15498ac242f6cc1ff9b, type: 2}

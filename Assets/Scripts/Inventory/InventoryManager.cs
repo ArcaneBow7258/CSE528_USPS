@@ -4,7 +4,40 @@ using UnityEngine;
 using UnityEngine.UI;
 using Microsoft.CSharp;
 using Unity.Netcode;
-public class InventoryManager : NetworkBehaviour
+using TMPro;
+public class InventoryManager : NetworkBehaviour{
+    [Header("Weapon Info")]
+    [Tooltip("These are starting weapons")]
+    public Weapon[] weapons ; //serialized is basic wepaons
+    public TMP_Text ammoInfo;
+    public Image weaponImage;
+    public Image reloadImage;
+    private Shooting shooting; // i'm angry about this sincei just need equipped weapon maybe move things out
+    public override void OnNetworkSpawn(){
+        enabled = IsOwner;
+        if(IsOwner){
+            shooting = GetComponent<Shooting>();
+        }
+    }
+    public void Update(){
+        Weapon ew = shooting.ew;
+        weaponImage.sprite = ew.based.itemIcon;
+        ammoInfo.text = "[ " + (ew.currentMag) + "/" + (ew.magSize) + " | " + ew.ammoReserve + " ]";
+        reloadImage.gameObject.transform.parent.gameObject.SetActive(shooting.reloading);
+        if(shooting.reloading){
+            reloadImage.fillAmount = shooting.GetReloadProgress();
+        }
+
+    }
+}
+
+
+
+
+/*
+
+
+
 {
     [SerializeField] private GameObject inventorySlotHolder;
     [SerializeField] private GameObject weaponSlotHolder;
@@ -98,7 +131,7 @@ public class InventoryManager : NetworkBehaviour
         if(Input.GetMouseButtonDown(0)) // Clicked
         {
             //Find Closest Slot or slot we clicked on
-            /*Debug.Log(GetClosestSlot().GetItem());*/
+            //Debug.Log(GetClosestSlot().GetItem());
             if(isMovingItem)
             {
                 //Drop item
@@ -145,7 +178,7 @@ public class InventoryManager : NetworkBehaviour
                 weaponSlots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
                 if (weapons[i].GetItem().GetWeapon() != null)
                 {
-                    weaponSlots[i].transform.GetChild(1).GetComponent<Text>().text = weapons[i].GetItem().GetWeapon().ammoCount.ToString();
+                    weaponSlots[i].transform.GetChild(1).GetComponent<Text>().text = weapons[i].GetItem().GetWeapon().magSize.ToString();
                 }
             }
             catch
@@ -356,4 +389,4 @@ public class InventoryManager : NetworkBehaviour
         return true;
     }
     #endregion
-}
+}*/

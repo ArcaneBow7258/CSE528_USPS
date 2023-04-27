@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/T_Network.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Ability Testing.unity
-    guid: 71ceb1d91413abe48b883f424ebe5b17
   m_configObjects: {}

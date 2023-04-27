@@ -1,43 +1,41 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "New Tool Class", menuName = "Item/Weapon")]
-public class Weapon : Item
+using Unity.Netcode;
+using System;
+[Serializable]
+public enum WeaponStat{ //consistent with player stats
+        WEAPON = 10,
+        SMG = 11,
+        RIFLE = 12,
+        SHOTGUN = 13,
+        PISTOL = 14,
+        CLIP = 40,
+        RESERVE = 41 ,
+        RELOAD = 42,
+        FIRERATE = 43,
+}
+[Serializable]
+public class Weapon
 {
-    public enum WeaponType
-    { 
-        Ranged,
-        Melee,
-        Other
-    }
-    public WeaponType weaponType;
+    public WeaponBase based;
     public int ammoReserve;
+    public int reserveMax;
     public float weaponDamage;
     public float timePerShot;
-    public int MagSize;
+    public int magSize;
     public int currentMag;
-    public bool isAutomatic;
+    public float reloadTime;
+    
 
-
-
-    public override Item GetItem() { return this; }
-    public override Misc GetMisc() { return null; }
-    public override Weapon GetWeapon() { return this; }
-    public override Equipment GetEquipment() { return null; }
-    public override Consumable GetConsumable() { return null; }
-
-    public Weapon()
-    {
-        weaponType = WeaponType.Other;
-        ammoReserve = int.MaxValue;
-        weaponDamage = 0;
+    public Weapon(WeaponBase weaponBase){
+        based = weaponBase;
+        ammoReserve = based.ammoReserve;
+        reserveMax = based.ammoReserve;
+        weaponDamage = based.weaponDamage;
+        timePerShot = based.timePerShot;
+        magSize = based.magSize;
+        currentMag = based.currentMag;
+        reloadTime = based.reloadTime;
     }
-
-    public Weapon(WeaponType type, int ammoCapacity, int damage)
-    {
-        weaponType = type;
-        ammoReserve = ammoCapacity;
-        weaponDamage = damage;
-    }
-
 }

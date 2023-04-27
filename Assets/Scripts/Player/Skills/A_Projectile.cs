@@ -24,10 +24,11 @@ public class A_Projectile : ActiveAbility{
 
         Camera cam = owner.transform.GetComponentInChildren<Camera>();
         Ray target = cam.ScreenPointToRay(Input.mousePosition); //swap 
+        
         if(ray){    
             //Debug.Log(target);
             //Debug.Log(target.GetPoint(range));
-            if(Physics.Linecast(owner.transform.position,target.GetPoint(range), out RaycastHit hit, mask )){
+            if(Physics.Raycast(target, out RaycastHit hit, mask )){
                 Debug.Log(hit.collider.gameObject.name);
                 hit.collider.GetComponent<EnemyStat>().DealDamageServerRpc(modified);
             }else{

@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   itemName: Shotgun
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300012, guid: 0bd96f6f4899f644ea1ffd9b4735a5e6, type: 3}
   itemModel: {fileID: 7469636488855024317, guid: 289c9d627bb4af742a4d6e16f44696c6,
     type: 3}
   isStackable: 0
   weaponType: 0
-  ammoCount: 2147483647
+  ammoReserve: 0
+  reserveMax: 0
   weaponDamage: 0
+  timePerShot: 0
+  magSize: 0
+  currentMag: 0
+  reloadTime: 0
+  isAutomatic: 0
+  rayColor: {r: 0, g: 0, b: 0, a: 0}

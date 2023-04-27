@@ -22,6 +22,7 @@ public class NW_Spawner : NetworkBehaviour
         enabled = IsServer;
         if(!enabled) return;
         GameManager.Instance.AddSpawner(this);
+        packSize = LobbyManager.Instance.currentLobby.Players.Count+1;
 
     }
 
@@ -38,10 +39,6 @@ public class NW_Spawner : NetworkBehaviour
         //lastSpawn = Time.time;
     }
     public void ForceSpawn(){
-
-    }
-    public void Spawn(){
-        //NetworkObject g = NetworkObjectPool.Singleton.GetNetworkObject(table[0].prefab, transform.position + new Vector3(0,table[0].prefab.transform.localScale.y,0), transform.rotation);
         GameObject prefab =table.gen();
         Vector2 spawnZone = UnityEngine.Random.insideUnitCircle ;
         float adjustment =  0.5f;
@@ -51,8 +48,23 @@ public class NW_Spawner : NetworkBehaviour
         g.name = g.name.Replace("(Clone)", "");
         g.GetComponent<EnemyStat>().spawner = this;
         g.Spawn();
-        spawned.Add(g);
-        //g.GetComponent<NetworkObject>().TrySetParent(transform, true);
+    }
+    public void Spawn(){
+        //NetworkObject g = NetworkObjectPool.Singleton.GetNetworkObject(table[0].prefab, transform.position + new Vector3(0,table[0].prefab.transform.localScale.y,0), transform.rotation);
+        if(spawned.Count < packSize){
+            GameObject prefab =table.gen();
+            Vector2 spawnZone = UnityEngine.Random.insideUnitCircle ;
+            float adjustment =  0.5f;
+            NetworkObject g = Instantiate(prefab,
+                                        transform.position + new Vector3(0,prefab.transform.localScale.y,0) + new Vector3(spawnZone.x*adjustment, 0, spawnZone.y*adjustment), 
+                                        transform.rotation).GetComponent<NetworkObject>();
+            g.name = g.name.Replace("(Clone)", "");
+            g.GetComponent<EnemyStat>().spawner = this;
+            g.Spawn();
+            spawned.Add(g);
+            g.GetComponent<NetworkObject>().TrySetParent(transform, true);
+        }
+        
 
     }
     public void Update(){

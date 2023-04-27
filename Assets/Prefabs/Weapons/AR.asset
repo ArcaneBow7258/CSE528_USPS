@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5052540b3edf9694186ccad3d1b6bde5, type: 3}
   m_Name: AR
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
+  itemName: AR
+  itemIcon: {fileID: 21300046, guid: 0bd96f6f4899f644ea1ffd9b4735a5e6, type: 3}
   itemModel: {fileID: 7478302359574392769, guid: d43d088774aa9594a9488e458ba92e0f,
     type: 3}
   isStackable: 0
   weaponType: 0
-  ammoCount: 2147483647
-  weaponDamage: 0
+  ammoReserve: 300
+  reserveMax: 300
+  weaponDamage: 20
+  timePerShot: 0.1
+  magSize: 30
+  currentMag: 30
+  reloadTime: 2
+  isAutomatic: 1
+  rayColor: {r: 0, g: 0.17089081, b: 1, a: 1}

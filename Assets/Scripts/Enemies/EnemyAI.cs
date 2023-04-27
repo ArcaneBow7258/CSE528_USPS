@@ -25,9 +25,9 @@ public class EnemyAI : NetworkBehaviour
     private Color colorCache;
     //private Animator animator;
     private void Awake(){
+        
         path = new UnityEngine.AI.NavMeshPath();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.enabled = IsSpawned;
         sightSensor = GetComponent<Sight>();
         colorCache = GetComponent<MeshRenderer>().material.color;
         //animator = GetComponent<Animator>();
@@ -117,7 +117,7 @@ public class EnemyAI : NetworkBehaviour
         if (distanceToPlayer > playerAttackDistance * 1.1f){
             currentState = EnemyState.ChasePlayer;
         }else{
-            Debug.Log((Time.time - lastShootTime) / fireRate);
+            //Debug.Log((Time.time - lastShootTime) / fireRate);
             SetColorClientRpc(new Color(colorCache.r + colorCache.r*((Time.time - lastShootTime) / fireRate)*2, colorCache.g , colorCache.b ,colorCache.a));
 
             if(Time.time > lastShootTime + fireRate){

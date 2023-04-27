@@ -30,7 +30,7 @@ public class PlayerSpawn : NetworkBehaviour
         GameManager.Instance.players.Add(gameObject);
         //Create the topbar locally, except ofr yourself
         if(IsOwner) {transform.position = offset;
-            //topbar.transform.parent.gameObject.SetActive(false);
+            topbar.transform.parent.gameObject.SetActive(false);
             Debug.Log("I own this object");
         }else{
             hud.gameObject.SetActive(false);
@@ -50,7 +50,8 @@ public class PlayerSpawn : NetworkBehaviour
         
     }
     public void Update(){
-        if(networkPlayerName.Value == "placeholder"){
+        if(networkPlayerName.Value == "placeholder"){ // try go get updaet when it comes
+            //Debug.Log("pog");
             if(IsOwner){//polling to geet this update sigh
                 try{
                 networkPlayerName.Value = LobbyManager.Instance.currentLobby.Players.Where((p) => {return p.Data["ClientID"].Value.Equals(NetworkManager.Singleton.LocalClientId.ToString());}).First().Data["Name"].Value;
@@ -58,6 +59,8 @@ public class PlayerSpawn : NetworkBehaviour
                 }
                 catch{}
             }
+            topbar.text = networkPlayerName.Value.ToString();
+        }else{ //apply update
             topbar.text = networkPlayerName.Value.ToString();
         }
     }

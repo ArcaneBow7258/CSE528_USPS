@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81aad1121dfc7249a79264a8b41afdc, type: 3}
   m_Name: EnemySpawn
   m_EditorClassIdentifier: 
-  totalChance: 2
-  currentvalue: 0
+  totalChance: 4
+  weightMax: 0
   table:
-  - prefab: {fileID: 9098887535944377925, guid: c94dbb396988e504d8093d6bb3e9b920,
+  - prefab: {fileID: 3204524999980372843, guid: c94dbb396988e504d8093d6bb3e9b920,
       type: 3}
-    chance: 3
+    chance: 4
     value: 0
     limit: -1
-  - prefab: {fileID: 6258330510645161425, guid: 801d99e37648ca143a9c9ff3931b0439,
+    limitMax: 0
+  - prefab: {fileID: 5346881346937966061, guid: 801d99e37648ca143a9c9ff3931b0439,
       type: 3}
     chance: 1
     value: 0
     limit: -1
+    limitMax: 0

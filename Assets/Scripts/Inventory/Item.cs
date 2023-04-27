@@ -11,7 +11,7 @@ public abstract class Item: ScriptableObject
 
     public abstract Item GetItem();
     public abstract Misc GetMisc();
-    public abstract Weapon GetWeapon();
+    public abstract WeaponBase GetWeaponBase();
     public abstract Equipment GetEquipment();
     public abstract Consumable GetConsumable();
 }

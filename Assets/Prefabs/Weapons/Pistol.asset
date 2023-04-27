@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   itemName: Pistol
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300010, guid: 0bd96f6f4899f644ea1ffd9b4735a5e6, type: 3}
   itemModel: {fileID: 4813391337005313260, guid: c76c7fef15656d847bb29a1ac0900030,
     type: 3}
   isStackable: 0
   weaponType: 0
-  ammoCount: 2147483647
-  weaponDamage: 0
+  ammoReserve: 600
+  reserveMax: 600
+  weaponDamage: 45
+  timePerShot: 0.3333333
+  magSize: 12
+  currentMag: 12
+  reloadTime: 1
+  isAutomatic: 0
+  rayColor: {r: 1, g: 0, b: 0, a: 1}
