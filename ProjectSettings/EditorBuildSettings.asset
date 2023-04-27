@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Ability Testing.unity
     guid: 71ceb1d91413abe48b883f424ebe5b17
+  - enabled: 1
+    path: Assets/Scenes/SurfCharacterTest.unity
+    guid: 405859fd136d8054aa855a76a4f11eca
   m_configObjects: {}

@@ -145,7 +145,7 @@ public class InventoryManager : NetworkBehaviour
                 weaponSlots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
                 if (weapons[i].GetItem().GetWeapon() != null)
                 {
-                    weaponSlots[i].transform.GetChild(1).GetComponent<Text>().text = weapons[i].GetItem().GetWeapon().ammoCount.ToString();
+                    weaponSlots[i].transform.GetChild(1).GetComponent<Text>().text = weapons[i].GetItem().GetWeapon().ammoReserve.ToString();
                 }
             }
             catch

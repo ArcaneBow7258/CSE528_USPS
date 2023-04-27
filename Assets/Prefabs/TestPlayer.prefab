@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 2838712764215081112}
   - component: {fileID: 113898011868656399}
   - component: {fileID: 6905171256767928372}
+  - component: {fileID: -2829704622107128406}
   m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
@@ -1135,7 +1136,7 @@ MonoBehaviour:
   crouchingSpeed: 10
   crouchingEnabled: 1
   slidingEnabled: 1
-  toggleSprintEnabled: 0
+  toggleSprintEnabled: 1
   laddersEnabled: 1
   supportAngledLadders: 1
   useStepOffset: 0
@@ -1258,6 +1259,27 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &-2829704622107128406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273337294858005498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4bd4e41c6e667448ffeb18e02a40d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
+  loadout: {fileID: 0}
+  isAutomatic: 1
+  timeBetweenShot: 0.1
+  gunDamage: 10
+  currentMag: 30
+  fullMag: 30
+  currentReserve: 600000000
+  weaponSlots: []
 --- !u!1 &3340518772299146920
 GameObject:
   m_ObjectHideFlags: 0

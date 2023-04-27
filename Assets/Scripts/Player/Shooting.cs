@@ -6,13 +6,15 @@ public class Shooting : MonoBehaviour
 {
 
     public Camera Cam;
+    public InventoryManager loadout;
+
     public bool isAutomatic;
     public float timeBetweenShot;
     public float gunDamage;
     public int currentMag;
     public int fullMag;
     public int currentReserve;
-    public InventoryManager loadout;
+    public Weapon[] weaponSlots;
 
     private int equippedWeapon = 0;
 
@@ -21,7 +23,7 @@ public class Shooting : MonoBehaviour
 
     void Start()
     {
-        Cam = Camera.main;
+        Cam = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class Shooting : MonoBehaviour
                 currentReserve = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && currentMag != 0)
+        if (Input.GetKey(KeyCode.Mouse0) && currentMag != 0)
         {
             if (Time.time > lastShot + timeBetweenShot)//firerate
             {
@@ -50,6 +52,7 @@ public class Shooting : MonoBehaviour
                 {
                     Shoot();
                     currentMag--;
+                    lastShot = Time.time;
                 }
 
                 else if (liftTrigger)//single-fire weapons
@@ -57,6 +60,7 @@ public class Shooting : MonoBehaviour
                     Shoot();
                     liftTrigger = false;
                     currentMag--;
+                    lastShot = Time.time;
                 }
             }
         }
@@ -73,10 +77,10 @@ public class Shooting : MonoBehaviour
         if(Physics.Raycast(ray, out hit))
         {
             GameObject hitObject = hit.transform.gameObject;
-            EnemyAI target = hitObject.GetComponent<EnemyAI>();
+            EnemyStat target = hitObject.GetComponent<EnemyStat>();
             if(target != null)
             {
-                //target.React(gunDamage);
+                target.DealDamageServerRpc(gunDamage);
             }
         }
     }
