@@ -302,7 +302,7 @@ MonoBehaviour:
   shieldDelay: 5
   baseLife: 100
   baseShield: 0
-  points: 100
+  points: 200
   spawner: {fileID: 0}
 --- !u!114 &4327745033751245429
 MonoBehaviour:

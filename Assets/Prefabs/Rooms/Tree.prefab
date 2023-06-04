@@ -579,9 +579,9 @@ GameObject:
   - component: {fileID: 3346837677920290440}
   - component: {fileID: 1419482502385901352}
   - component: {fileID: 5647999279507497961}
+  - component: {fileID: -8024843537634949797}
   - component: {fileID: 5547464100292845149}
   - component: {fileID: 7790905852341774076}
-  - component: {fileID: -8024843537634949797}
   m_Layer: 13
   m_Name: Tree
   m_TagString: Obstacle
@@ -655,6 +655,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &-8024843537634949797
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587678490797475219}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.1
 --- !u!136 &5547464100292845149
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -694,19 +710,3 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!208 &-8024843537634949797
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7587678490797475219}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 0.5, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5

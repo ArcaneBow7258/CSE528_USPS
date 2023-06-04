@@ -16,6 +16,7 @@ public class Shooting : NetworkBehaviour
     public bool reloading;
     private Coroutine reloadRoutine;
     private float reloadStart;
+    public LayerMask mask;
     public override void OnNetworkSpawn(){
         if(IsOwner){
             ew = manager.weapons[0];
@@ -31,7 +32,15 @@ public class Shooting : NetworkBehaviour
     void Update()
     {
         if(!IsOwner) return;
-
+        if(Input.GetKeyDown(KeyCode.P)){
+            if(Cursor.lockState == CursorLockMode.Locked){
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }else{
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1)) { ew =  manager.weapons[0]; if(reloadRoutine != null) {StopCoroutine(reloadRoutine);} reloading = false; }//weapon equips
         if (Input.GetKeyDown(KeyCode.Alpha2)) {  ew =  manager.weapons[1]; if(reloadRoutine != null)  {StopCoroutine(reloadRoutine);} reloading = false; }
         if (Input.GetKeyDown(KeyCode.R) && !reloading)//reload gun
@@ -71,8 +80,8 @@ public class Shooting : NetworkBehaviour
     {
         Ray ray = Cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit))
+        
+        if(Physics.Raycast(ray, out hit, Mathf.Infinity,mask ))
         {
             LineRendererServerRpc(Cam.transform.position,hit.point, ew.based.rayColor);
             GameObject hitObject = hit.transform.gameObject;

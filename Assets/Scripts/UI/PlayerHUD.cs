@@ -38,8 +38,9 @@ public class PlayerHUD : MonoBehaviour
             a1.transform.GetChild(0).GetComponent<Image>().sprite = a1Stat.icon;
         }
         if(a2 != null && playerStats.tree.equippedAbilities.Count > 1){
+            Debug.Log("pog");
             a2Stat = playerStats.tree.equippedAbilities[1];
-            a2.transform.GetChild(1).GetComponent<Image>().sprite = a2Stat.icon;
+            a2.transform.GetChild(0).GetComponent<Image>().sprite = a2Stat.icon;
         }
     }
     public void FixedUpdate(){

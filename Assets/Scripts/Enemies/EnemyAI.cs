@@ -8,7 +8,7 @@ using System.Linq;
 public class EnemyAI : NetworkBehaviour
 {
     public enum EnemyState{Sit, ChasePlayer, AttackPlayer};
-    public EnemyState currentState;
+    public EnemyState currentState = EnemyState.Sit;
     public Sight sightSensor;
     private bool pathOpen = false;
     public float playerAttackDistance; 
@@ -130,7 +130,7 @@ public class EnemyAI : NetworkBehaviour
                 }else{
                     //okay will probalby ufkc up later but thats okay
                     
-                    //sightSensor.detectedObject.transform.parent.GetComponent<PlayerStats>().TakeDamageClientRpc(damage);
+                    sightSensor.detectedObject.transform.parent.GetComponent<PlayerStats>().TakeDamageClientRpc(damage);
                 }
             }
         }
